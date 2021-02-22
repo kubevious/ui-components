@@ -1,7 +1,7 @@
 {
-  "name": "@kubevious/ui-framework",
-  "version": "1.0.10",
-  "description": "Kubevious UI Framework",
+  "name": "@kubevious/ui-componets",
+  "version": "1.0.1",
+  "description": "Kubevious UI Components",
   "main": "dist/index.js",
   "types": "dist",
   "files": [
@@ -21,7 +21,6 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "axios": "^0.21.1",
     "react": "^17.0.1",
     "the-lodash": "^2.0.0",
     "the-promise": "^2.0.4",
