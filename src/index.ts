@@ -1,2 +1,4 @@
-export { CopyClipboard } from './CopyClipboard'
-export { ErrorBox } from './ErrorBox'
+import CopyClipboard from './CopyClipboard/index'
+import ErrorBox from './ErrorBox/index'
+
+export default { CopyClipboard, ErrorBox }

@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import * as React from 'react'
+import { useState } from "react"
 import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "./styles.scss"
@@ -57,3 +58,5 @@ export const ErrorBox = ({
         </div>
     )
 }
+
+export default ErrorBox

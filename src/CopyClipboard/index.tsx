@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import * as React from 'react'
+import { useState } from "react"
 import { faClone as farClone } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -41,3 +42,5 @@ export const CopyClipboard = ({ text }: { text: string }): JSX.Element => {
         </div>
     )
 }
+
+export default CopyClipboard
