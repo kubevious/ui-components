@@ -1,4 +1,5 @@
-import CopyClipboard from './CopyClipboard/index'
-import ErrorBox from './ErrorBox/index'
+import CopyClipboardComponent from './CopyClipboard/index'
+import ErrorBoxComponent from './ErrorBox/index'
 
-export default { CopyClipboard, ErrorBox }
+export const ErrorBox = ErrorBoxComponent;
+export const CopyClipboard = CopyClipboardComponent;
