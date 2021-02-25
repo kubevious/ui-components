@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { CopyClipboard, ErrorBox } from "../src";
+import { CopyClipboard, ErrorBox, Diagram } from "../src";
 import { fireEvent, render } from "@testing-library/react";
 
 function renderCopyClipboard() {
   return render(<CopyClipboard text={'Test text'} />);
+}
+
+function renderDiagram() {
+  return render(<Diagram />);
 }
 
 function renderErrorBox() {
@@ -50,5 +54,15 @@ describe("<ErrorBox />", () => {
 
     const errorBoxExpanded = await findByTestId("error-box-expanded");
     expect(errorBoxExpanded)
+  });
+});
+
+describe("<Diagram />", () => {
+  test("Should check that the component Diagram is rendered", async () => {
+    const { findByTestId } = renderDiagram();
+    
+    const diagram = await findByTestId("diagram");
+
+    expect(diagram)
   });
 });

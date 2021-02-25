@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './styles.scss';
 
-export const CopyClipboard = ({ text }: { text: string }): JSX.Element => {
+export const CopyClipboard: React.FunctionComponent<{ text: string }> = ({ text }) => {
     const [copied, setCopied] = useState<boolean>(false);
 
     const copyText = (): void => {
