@@ -20,7 +20,7 @@ export const ErrorBox = ({
     } = error
 
     return (
-        <div className="ErrorBox-container">
+        <div data-testid="error-box" className="ErrorBox-container">
             <div className="error">
                 <div className="error-text">
                     Error {status || 0}: {message}
@@ -29,12 +29,14 @@ export const ErrorBox = ({
                 <div className="more-text">
                     {expanded && (
                         <FontAwesomeIcon
+                            data-testid="error-box-expanded"
                             icon={faTimes}
                             onClick={() => closeError()}
                         />
                     )}
                     {!expanded && (
                         <FontAwesomeIcon
+                            data-testid="error-box-non-expanded"
                             icon={faChevronDown}
                             onClick={() => setExpanded(true)}
                         />

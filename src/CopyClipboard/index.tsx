@@ -1,31 +1,29 @@
-import * as React from 'react'
-import { useState } from "react"
-import { faClone as farClone } from "@fortawesome/free-regular-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import * as React from 'react';
+import { useState } from 'react';
+import { faClone as farClone } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import "./styles.scss"
+import './styles.scss';
 
 export const CopyClipboard = ({ text }: { text: string }): JSX.Element => {
-    const [copied, setCopied] = useState<boolean>(false)
+    const [copied, setCopied] = useState<boolean>(false);
 
     const copyText = (): void => {
-        const textField: HTMLTextAreaElement = document.createElement(
-            "textarea"
-        )
-        textField.value = text
-        document.body.appendChild(textField)
-        textField.select()
-        document.execCommand("copy")
-        setCopied(true)
-        textField.remove()
+        const textField: HTMLTextAreaElement = document.createElement('textarea');
+        textField.value = text;
+        document.body.appendChild(textField);
+        textField.select();
+        document.execCommand('copy');
+        setCopied(true);
+        textField.remove();
 
         setTimeout(() => {
-            setCopied(false)
-        }, 3000)
-    }
+            setCopied(false);
+        }, 3000);
+    };
 
     return (
-        <div className="icon-wrapper">
+        <div data-testid="copy-clipboard" className="icon-wrapper">
             {copied && (
                 <div className="copied-container">
                     Copied to clipboard
@@ -40,7 +38,7 @@ export const CopyClipboard = ({ text }: { text: string }): JSX.Element => {
                 title="Copy to clipboard"
             />
         </div>
-    )
-}
+    );
+};
 
-export default CopyClipboard
+export default CopyClipboard;
