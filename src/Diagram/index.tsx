@@ -12,7 +12,7 @@ import { IDiagramService } from "@kubevious/ui-middleware"
 export default class Diagram extends ClassComponent<{}, {}, IDiagramService> {
     view: VisualView | null
     private _sourceData: DiagramData | undefined
-    constructor(props: {}) {
+    constructor(props: {} | Readonly<{}>) {
         super(props, { kind: "diagram" })
 
         this.view = null
