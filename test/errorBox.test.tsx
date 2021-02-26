@@ -1,15 +1,8 @@
 import React from 'react';
+import 'jest'
 
-import { CopyClipboard, ErrorBox, Diagram } from "../src";
+import { ErrorBox } from "../src";
 import { fireEvent, render } from "@testing-library/react";
-
-function renderCopyClipboard() {
-  return render(<CopyClipboard text={'Test text'} />);
-}
-
-function renderDiagram() {
-  return render(<Diagram />);
-}
 
 function renderErrorBox() {
   const error = {
@@ -24,16 +17,6 @@ function renderErrorBox() {
 
   return render(<ErrorBox error={error} closeError={closeError}/>);
 }
-
-describe("<CopyClipboard />", () => {
-  test("Should check that the component CopyClipboard is rendered", async () => {
-    const { findByTestId } = renderCopyClipboard();
-    
-    const copyClipboard = await findByTestId("copy-clipboard");
-
-    expect(copyClipboard)
-  });
-});
 
 describe("<ErrorBox />", () => {
   test("Should check that the component ErrorBox is rendered", async () => {
@@ -54,15 +37,5 @@ describe("<ErrorBox />", () => {
 
     const errorBoxExpanded = await findByTestId("error-box-expanded");
     expect(errorBoxExpanded)
-  });
-});
-
-describe("<Diagram />", () => {
-  test("Should check that the component Diagram is rendered", async () => {
-    const { findByTestId } = renderDiagram();
-    
-    const diagram = await findByTestId("diagram");
-
-    expect(diagram)
   });
 });
