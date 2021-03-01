@@ -17,7 +17,11 @@
     "lint": "eslint"
   },
   "author": "Ruben Hakopian <ruben.hakopian@gmail.com>",
-  "license": "Propriatery",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kubevious/ui-components"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
