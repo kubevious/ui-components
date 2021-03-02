@@ -19,7 +19,6 @@ export const DnPath: React.FunctionComponent<DnPathProps> = ({
         <div data-testid="dn-path" className="dn-path">
             {includeLogo && lastPart && (
                 <img
-                    data-testid="logo"
                     className={cx("dn-logo", { big: bigLogo })}
                     src={`/img/entities/${lastPart.kind}.svg`}
                 />
