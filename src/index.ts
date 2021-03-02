@@ -1,9 +1,6 @@
-import CopyClipboardComponent from './CopyClipboard/index'
-import ErrorBoxComponent from './ErrorBox/index'
-import DnPathComponent from './DnPath/index'
-import DnComponent from './DnComponent/index'
+export { DnComponent } from './DnComponent/index'
+export { DnPath } from './DnPath/index'
+export { ErrorBox } from './ErrorBox/index'
+export { CopyClipboard } from './CopyClipboard/index'
+export { DnShortcutComponent } from './DnShortcutComponent/index'
 
-export const Dn = DnComponent;
-export const DnPath = DnPathComponent;
-export const ErrorBox = ErrorBoxComponent;
-export const CopyClipboard = CopyClipboardComponent;
