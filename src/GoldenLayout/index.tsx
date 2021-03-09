@@ -204,7 +204,9 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
     }
 
     _triggerEvent(id: string): void {
+        const a = $(document).trigger(id)
         console.log("EVENT: " + id)
+        console.log("Target: " + a)
     }
 }
 
