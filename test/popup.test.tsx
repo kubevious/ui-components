@@ -1,11 +1,13 @@
 import React from 'react';
 import 'jest'
 
-import { Popup } from "../src";
+import { Popup, CopyClipboard } from "../src";
 import { render } from "@testing-library/react";
 
 function renderPopup() {
-  return render(<Popup />);
+  function closePopup() {}
+
+  return render(<Popup popupContent={CopyClipboard} closePopup={closePopup} />);
 }
 
 describe("<Popup />", () => {
