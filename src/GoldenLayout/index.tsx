@@ -104,11 +104,8 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
     }
 
     _register(info: Component): void {
-        let id = info.name
-        id = _.camelCase(id)
-        id = id + "Component"
-        info.id = id
-        this._components.push(info)
+        const id = _.camelCase(info.name) + "Component";
+        this._components.push({ ...info, id })
     }
 
     activateComponent(id: string): void {
