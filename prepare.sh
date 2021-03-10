@@ -8,6 +8,6 @@ cd src
 rm -rf node_modules/
 
 npm install
-npm update @kubevious/ui-diagram @kubevious/ui-alerts @kubevious/ui-rule-engine @kubevious/ui-properties @kubevious/ui-time-machine the-lodash the-promise  @kubevious/helpers @kubevious/ui-framework @kubevious/ui-middleware
+npm update the-lodash the-promise @kubevious/helpers @kubevious/ui-framework @kubevious/ui-middleware
 
 ${MY_DIR}/build.sh

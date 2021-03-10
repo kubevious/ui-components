@@ -8,12 +8,12 @@ import "golden-layout/src/css/goldenlayout-dark-theme.css"
 import GoldenLayout from "golden-layout"
 
 import "./styles.scss"
-import { Component, Components, GoldenLayoutComponentProps, components } from "./types"
+import { InternalGoldenComponent, GoldenLayoutWindowInfo, GoldenLayoutComponentProps } from "./types"
 
 const isTesting = process.env.IS_TESTING;
 
 export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentProps> {
-    private _components: Component[]
+    private _components: InternalGoldenComponent[]
     private _layoutConfig: GoldenLayout.Config
     private _layout: GoldenLayout | undefined
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
@@ -22,12 +22,12 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
         this._components = []
     }
 
-    get components(): Component[] {
+    get components(): InternalGoldenComponent[] {
         return this._components
     }
 
     componentDidMount() {
-        components.forEach(component => {
+        this.components.forEach((component: InternalGoldenComponent) => {
             this._register(component)
         })
         !isTesting && this._activateLayout()
@@ -103,7 +103,7 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
         })
     }
 
-    _register(info: Component): void {
+    _register(info: InternalGoldenComponent): void {
         const id = _.camelCase(info.name) + "Component";
         this._components.push({ ...info, id })
     }
@@ -123,8 +123,8 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
         }
     }
 
-    _getComponent(id: string): Component {
-        return _.filter(this._components, (x: Component) => x.id === id)[0]
+    _getComponent(id: string): InternalGoldenComponent {
+        return _.filter(this._components, (x: InternalGoldenComponent) => x.id === id)[0]
     }
 
     hideComponent(id: string) {
@@ -139,8 +139,8 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
             this._layout.root.contentItems[0].addChild(componentLayout)
     }
 
-    _getLocationComponents(location: string): Component[] {
-        return _.filter(this._components, (x: Component) => x.location === location)
+    _getLocationComponents(location: string): GoldenLayoutWindowInfo[] {
+        return _.filter(this._components, (x: GoldenLayoutWindowInfo) => x.location === location)
     }
 
     _getLocationLayout(location: string): GoldenLayout.ItemConfigType {
@@ -156,13 +156,13 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
         if (location !== "main") {
             layout.height = 20
         }
-        layout.content = _.map(components, (x: Component) =>
+        layout.content = _.map(components, (x: InternalGoldenComponent) =>
             this._getComponentLayout(x)
         )
         return layout
     }
 
-    _getComponentLayout(component: Component): GoldenLayout.ItemConfigType {
+    _getComponentLayout(component: InternalGoldenComponent): GoldenLayout.ItemConfigType {
         // Component from 'golden-layout'
         const layout: any = {}
 
@@ -187,7 +187,7 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
         return layout
     }
 
-    _setupContent(name: string, component: Components): void {
+    _setupContent(name: string, component: any): void {
         this._layout && this._layout.registerComponent(name, component)
     }
 
@@ -209,5 +209,3 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
         console.log("Target: " + a)
     }
 }
-
-export default GoldenLayout
