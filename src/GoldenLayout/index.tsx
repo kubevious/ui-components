@@ -16,18 +16,24 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
     private _components: InternalGoldenComponent[]
     private _layoutConfig: GoldenLayout.Config
     private _layout: GoldenLayout | undefined
+    private _windows: InternalGoldenComponent[]
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
         super(props)
         this._layoutConfig = {}
         this._components = []
+        this._windows = props.windows || []
     }
 
     get components(): InternalGoldenComponent[] {
         return this._components
     }
 
+    get windows(): InternalGoldenComponent[] {
+        return this._windows
+    }
+
     componentDidMount() {
-        this.components.forEach((component: InternalGoldenComponent) => {
+        this.windows.forEach((component: InternalGoldenComponent) => {
             this._register(component)
         })
         !isTesting && this._activateLayout()
