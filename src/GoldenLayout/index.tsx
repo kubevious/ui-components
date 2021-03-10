@@ -14,6 +14,7 @@ const isTesting = process.env.IS_TESTING;
 
 export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     private _components: InternalGoldenComponent[] = []
+    private _componentDict: Record<string, InternalGoldenComponent> = {}
     private _layoutConfig: GoldenLayoutLib.Config
     private _layout: GoldenLayoutLib | undefined
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
@@ -74,9 +75,12 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         this._layout.on("componentCreated", (component: any) => {
             self._triggerComponentResizeEvent(component)
 
-            const info = this._getComponent(component.config.component)
-            info.goldenComponent = component
-            info.goldenContainer = component.container
+            const internalComponent = this._getComponent(component.config.component.id)
+            if (!internalComponent) {
+                return;
+            }
+            internalComponent.goldenComponent = component
+            internalComponent.goldenContainer = component.container
 
             component.container.on("resize", function () {
                 self._triggerComponentResizeEvent(component)
@@ -85,16 +89,19 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
 
         // Component from 'golden-layout'
         this._layout.on("tabCreated", (tab: any) => {
-            const info = this._getComponent(tab.contentItem.config.component)
-            info.goldenTab = tab
+            const internalComponent = this._getComponent(tab.contentItem.config.component.id)
+            if (!internalComponent) {
+                return;
+            }
+            internalComponent.goldenTab = tab
 
             tab.closeElement.off("click").click((e: { target: { parentNode: { title: string } } }) => {
                 const component = this._components.find(
-                    (item) => item.info.name === e.target.parentNode.title
+                    (item) => item.info.title === e.target.parentNode.title
                 )
 
-                if (component && component.id) {
-                    const id = component.id
+                if (component && component.info.id) {
+                    const id = component.info.id
                     this.hideComponent(id)
                 }
             })
@@ -112,19 +119,23 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     private _register(windowInfo: GoldenLayoutWindowInfo)
     {
         const internalWindow : InternalGoldenComponent = {
-            id: _.camelCase(windowInfo.name) + "Component",
+            id: windowInfo.id,
             info: windowInfo
         } 
         this._components.push(internalWindow)
+        this._componentDict[windowInfo.id] = internalWindow;
     }
 
     activateComponent(id: string): void {
-        const info = this._getComponent(id)
-        if (!info.goldenTab) {
+        const internalComponent = this._getComponent(id)
+        if (!internalComponent) {
+            return;
+        }
+        if (!internalComponent.goldenTab) {
             return
         }
 
-        const stack = info.goldenTab.contentItem.parent
+        const stack = internalComponent.goldenTab.contentItem.parent
         const stackComponent = _.head(
             stack.contentItems.filter((x: { config: { component: string } }) => x.config.component === id)
         )
@@ -133,29 +144,34 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         }
     }
 
-    private _getComponent(id: string): InternalGoldenComponent {
-        return _.filter(this._components, (x: InternalGoldenComponent) => x.id === id)[0]
+    private _getComponent(id: string): InternalGoldenComponent | null {
+        const internalComponent = this._componentDict[id];
+        if (!internalComponent) {
+            console.error("[_getComponent] unknown component: ", id);
+            return null;
+        }
+        return internalComponent;
     }
 
     hideComponent(id: string) {
-        const component = this._getComponent(id)
-        if (!component) {
+        const internalComponent = this._getComponent(id)
+        if (!internalComponent) {
             console.error("[hideComponent] unknown component: ", id);
             return;
         }
-        component.goldenContainer.close()
+        internalComponent.goldenContainer.close()
     }
 
     showComponent(id: string) {
         if (!this._layout) {
             return;
         }
-        const component = this._getComponent(id)
-        if (!component) {
+        const internalComponent = this._getComponent(id)
+        if (!internalComponent) {
             console.error("[showComponent] unknown component: ", id);
             return;
         }
-        const componentLayout = this._getComponentLayout(component)
+        const componentLayout = this._getComponentLayout(internalComponent)
         this._layout.root.contentItems[0].addChild(componentLayout)
     }
 
@@ -186,8 +202,8 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         // Component from 'golden-layout'
         const layout: GoldenLayoutLib.ItemConfigType = {
             type: "react-component",
-            component: component.id,
-            title: component.info.name,
+            component: component.info.id,
+            title: component.info.title,
             componentState: {},
             props: _.clone(this.props),
         }
@@ -214,13 +230,13 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     }
 
     private _setupContent(component: InternalGoldenComponent): void {
-        if (!component.id) {
+        if (!component.info.id) {
             return;
         }
         if (!this._layout) {
             return;
         }
-        this._layout.registerComponent(component.id, component.info.component);
+        this._layout.registerComponent(component.info.id, component.info.component);
     }
 
     render() {

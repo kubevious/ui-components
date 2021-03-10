@@ -7,7 +7,7 @@ export type GoldenLayoutComponentProps = {
 
 export interface GoldenLayoutWindowInfo
 {
-    name: string,
+    id: string,
     component: any,
     location: GoldenLayoutLocation,
     title: string,
