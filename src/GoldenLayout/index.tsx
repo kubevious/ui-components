@@ -8,35 +8,36 @@ import "golden-layout/src/css/goldenlayout-dark-theme.css"
 import GoldenLayoutLib from "golden-layout"
 
 import "./styles.scss"
-import { InternalGoldenComponent, GoldenLayoutWindowInfo, GoldenLayoutComponentProps } from "./types"
+import { InternalGoldenComponent, GoldenLayoutWindowInfo, GoldenLayoutComponentProps, GoldenLayoutLocation } from "./types"
 
 const isTesting = process.env.IS_TESTING;
 
 export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
-    private _components: InternalGoldenComponent[]
+    private _components: InternalGoldenComponent[] = []
     private _layoutConfig: GoldenLayoutLib.Config
     private _layout: GoldenLayoutLib | undefined
-    private _windows: InternalGoldenComponent[]
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
         super(props)
         this._layoutConfig = {}
-        this._components = []
-        this._windows = props.windows || []
     }
 
-    get components(): InternalGoldenComponent[] {
-        return this._components
-    }
+    // get components(): InternalGoldenComponent[] {
+    //     return this._components
+    // }
 
-    get windows(): InternalGoldenComponent[] {
-        return this._windows
+    get windows(): GoldenLayoutWindowInfo[] {
+        return this.props.windows || [];
     }
 
     componentDidMount() {
-        this.windows.forEach((component: InternalGoldenComponent) => {
-            this._register(component)
-        })
-        !isTesting && this._activateLayout()
+        for(let windowInfo of this.windows)
+        {
+            this._register(windowInfo);
+        }
+
+        if (!isTesting) {
+            this._activateLayout()
+        }
     }
 
     private _activateLayout(): void {
@@ -53,11 +54,11 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
                                 {
                                     type: "column",
                                     content: [
-                                        this._getLocationLayout("main"),
-                                        this._getLocationLayout("bottom"),
+                                        this._getLocationLayout(GoldenLayoutLocation.main),
+                                        this._getLocationLayout(GoldenLayoutLocation.bottom),
                                     ],
                                 },
-                                this._getLocationLayout("right"),
+                                this._getLocationLayout(GoldenLayoutLocation.right),
                             ],
                         },
                     ],
@@ -67,8 +68,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         const container = $("#layoutContainer")
         this._layout = new GoldenLayoutLib(this._layoutConfig, container)
         this._components.forEach((component) => {
-            component.id &&
-                this._setupContent(component.id, component.component)
+            this._setupContent(component)
         })
         // Component from 'golden-layout'
         this._layout.on("componentCreated", (component: any) => {
@@ -90,7 +90,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
 
             tab.closeElement.off("click").click((e: { target: { parentNode: { title: string } } }) => {
                 const component = this._components.find(
-                    (item) => item.name === e.target.parentNode.title
+                    (item) => item.info.name === e.target.parentNode.title
                 )
 
                 if (component && component.id) {
@@ -109,9 +109,13 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         })
     }
 
-    _register(info: InternalGoldenComponent): void {
-        const id = _.camelCase(info.name) + "Component";
-        this._components.push({ ...info, id })
+    private _register(windowInfo: GoldenLayoutWindowInfo)
+    {
+        const internalWindow : InternalGoldenComponent = {
+            id: _.camelCase(windowInfo.name) + "Component",
+            info: windowInfo
+        } 
+        this._components.push(internalWindow)
     }
 
     activateComponent(id: string): void {
@@ -145,11 +149,11 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
             this._layout.root.contentItems[0].addChild(componentLayout)
     }
 
-    private _getLocationComponents(location: string): GoldenLayoutWindowInfo[] {
-        return _.filter(this._components, (x: GoldenLayoutWindowInfo) => x.location === location)
+    private _getLocationComponents(location: GoldenLayoutLocation) {
+        return _.filter(this._components, (x) => x.info.location === location)
     }
 
-    private _getLocationLayout(location: string): GoldenLayoutLib.ItemConfigType {
+    private _getLocationLayout(location: GoldenLayoutLocation): GoldenLayoutLib.ItemConfigType {
         const components = this._getLocationComponents(location)
         if (components.length === 1) {
             return this._getComponentLayout(components[0])
@@ -170,31 +174,43 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
 
     private _getComponentLayout(component: InternalGoldenComponent): GoldenLayoutLib.ItemConfigType {
         // Component from 'golden-layout'
-        const layout: any = {}
+        const layout: GoldenLayoutLib.ItemConfigType = {
+            type: "react-component",
+            component: component.id,
+            title: component.info.name,
+            componentState: {},
+            props: _.clone(this.props),
+        }
 
-        layout.type = "react-component"
-        layout.component = component.id
-        layout.title = component.name
-        layout.componentState = {}
-        layout.props = _.clone(this.props)
-        if (component.skipClose) {
+        // layout.type = "react-component"
+        // layout.component = component.id
+        // layout.title = component.info.name
+        // layout.componentState = {}
+        // layout.props = _.clone(this.props)
+        if (component.info.skipClose) {
             layout.isClosable = false
         }
-        if (component.width) {
-            layout.width = component.width
+        if (component.info.width) {
+            layout.width = component.info.width
         }
-        if (component.height) {
-            layout.height = component.height
+        if (component.info.height) {
+            layout.height = component.info.height
         }
-        if (component.allowVerticalScroll) {
-            layout.componentState.allowVerticalScroll =
-                component.allowVerticalScroll
+        if (component.info.allowVerticalScroll) {
+            (layout as any).componentState.allowVerticalScroll =
+                component.info.allowVerticalScroll
         }
         return layout
     }
 
-    private _setupContent(name: string, component: any): void {
-        this._layout && this._layout.registerComponent(name, component)
+    private _setupContent(component: InternalGoldenComponent): void {
+        if (!component.id) {
+            return;
+        }
+        if (!this._layout) {
+            return;
+        }
+        this._layout.registerComponent(component.id, component.info.component);
     }
 
     render() {

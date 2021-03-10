@@ -18,8 +18,9 @@ export interface GoldenLayoutWindowInfo
     width?: number
 }
 
-export interface InternalGoldenComponent extends GoldenLayoutWindowInfo {
-    info?: GoldenLayoutWindowInfo
+export interface InternalGoldenComponent {
+    id: string,
+    info: GoldenLayoutWindowInfo
     goldenComponent?: any
     goldenTab?: any
     goldenContainer?: any
