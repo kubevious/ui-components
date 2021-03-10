@@ -21,14 +21,14 @@ describe("<GoldenLayout />", () => {
   test("case-02", async () => {
     const windows = [
       {
-        name: "Main",
+        id: "Main",
         component: (<div>Main Content</div>),
         location: GoldenLayoutLocation.main,
         title: "Main",
         skipClose: true,
       },
       {
-        name: "Properties",
+        id: "Properties",
         component: (<div>Props Content</div>),
         location: GoldenLayoutLocation.right,
         title: "Properties",
@@ -36,7 +36,7 @@ describe("<GoldenLayout />", () => {
         allowVerticalScroll: true,
       },
       {
-        name: "Alerts",
+        id: "Alerts",
         component: (<div>Alerts Content</div>),
         location: GoldenLayoutLocation.bottom,
         title: "Alerts",
