@@ -5,17 +5,17 @@ import $ from "jquery"
 import _ from "the-lodash"
 import "golden-layout/src/css/goldenlayout-base.css"
 import "golden-layout/src/css/goldenlayout-dark-theme.css"
-import GoldenLayout from "golden-layout"
+import GoldenLayoutLib from "golden-layout"
 
 import "./styles.scss"
 import { InternalGoldenComponent, GoldenLayoutWindowInfo, GoldenLayoutComponentProps } from "./types"
 
 const isTesting = process.env.IS_TESTING;
 
-export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentProps> {
+export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     private _components: InternalGoldenComponent[]
-    private _layoutConfig: GoldenLayout.Config
-    private _layout: GoldenLayout | undefined
+    private _layoutConfig: GoldenLayoutLib.Config
+    private _layout: GoldenLayoutLib | undefined
     private _windows: InternalGoldenComponent[]
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
         super(props)
@@ -65,7 +65,7 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
             ],
         }
         const container = $("#layoutContainer")
-        this._layout = new GoldenLayout(this._layoutConfig, container)
+        this._layout = new GoldenLayoutLib(this._layoutConfig, container)
         this._components.forEach((component) => {
             component.id &&
                 this._setupContent(component.id, component.component)
@@ -149,13 +149,13 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
         return _.filter(this._components, (x: GoldenLayoutWindowInfo) => x.location === location)
     }
 
-    _getLocationLayout(location: string): GoldenLayout.ItemConfigType {
+    _getLocationLayout(location: string): GoldenLayoutLib.ItemConfigType {
         const components = this._getLocationComponents(location)
         if (components.length === 1) {
             return this._getComponentLayout(components[0])
         }
 
-        const layout: GoldenLayout.ItemConfigType = {
+        const layout: GoldenLayoutLib.ItemConfigType = {
             type: "stack",
         }
 
@@ -168,7 +168,7 @@ export class GoldenLayoutComponent extends ClassComponent<GoldenLayoutComponentP
         return layout
     }
 
-    _getComponentLayout(component: InternalGoldenComponent): GoldenLayout.ItemConfigType {
+    _getComponentLayout(component: InternalGoldenComponent): GoldenLayoutLib.ItemConfigType {
         // Component from 'golden-layout'
         const layout: any = {}
 
