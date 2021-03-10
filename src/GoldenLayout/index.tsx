@@ -138,15 +138,25 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     }
 
     hideComponent(id: string) {
-        const info = this._getComponent(id)
-        info.goldenContainer.close()
+        const component = this._getComponent(id)
+        if (!component) {
+            console.error("[hideComponent] unknown component: ", id);
+            return;
+        }
+        component.goldenContainer.close()
     }
 
     showComponent(id: string) {
-        const info = this._getComponent(id)
-        const componentLayout = this._getComponentLayout(info)
-        this._layout &&
-            this._layout.root.contentItems[0].addChild(componentLayout)
+        if (!this._layout) {
+            return;
+        }
+        const component = this._getComponent(id)
+        if (!component) {
+            console.error("[showComponent] unknown component: ", id);
+            return;
+        }
+        const componentLayout = this._getComponentLayout(component)
+        this._layout.root.contentItems[0].addChild(componentLayout)
     }
 
     private _getLocationComponents(location: GoldenLayoutLocation) {
