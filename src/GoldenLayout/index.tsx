@@ -39,7 +39,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         !isTesting && this._activateLayout()
     }
 
-    _activateLayout(): void {
+    private _activateLayout(): void {
         const self = this
 
         this._layoutConfig = {
@@ -129,7 +129,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         }
     }
 
-    _getComponent(id: string): InternalGoldenComponent {
+    private _getComponent(id: string): InternalGoldenComponent {
         return _.filter(this._components, (x: InternalGoldenComponent) => x.id === id)[0]
     }
 
@@ -145,11 +145,11 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
             this._layout.root.contentItems[0].addChild(componentLayout)
     }
 
-    _getLocationComponents(location: string): GoldenLayoutWindowInfo[] {
+    private _getLocationComponents(location: string): GoldenLayoutWindowInfo[] {
         return _.filter(this._components, (x: GoldenLayoutWindowInfo) => x.location === location)
     }
 
-    _getLocationLayout(location: string): GoldenLayoutLib.ItemConfigType {
+    private _getLocationLayout(location: string): GoldenLayoutLib.ItemConfigType {
         const components = this._getLocationComponents(location)
         if (components.length === 1) {
             return this._getComponentLayout(components[0])
@@ -168,7 +168,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         return layout
     }
 
-    _getComponentLayout(component: InternalGoldenComponent): GoldenLayoutLib.ItemConfigType {
+    private _getComponentLayout(component: InternalGoldenComponent): GoldenLayoutLib.ItemConfigType {
         // Component from 'golden-layout'
         const layout: any = {}
 
@@ -193,7 +193,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         return layout
     }
 
-    _setupContent(name: string, component: any): void {
+    private _setupContent(name: string, component: any): void {
         this._layout && this._layout.registerComponent(name, component)
     }
 
@@ -205,11 +205,11 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     }
 
     // Component from 'golden-layout'
-    _triggerComponentResizeEvent(component: any): void {
+    private _triggerComponentResizeEvent(component: any): void {
         this._triggerEvent("layout-resize-" + component.config.component)
     }
 
-    _triggerEvent(id: string): void {
+    private _triggerEvent(id: string): void {
         const a = $(document).trigger(id)
         console.log("EVENT: " + id)
         console.log("Target: " + a)

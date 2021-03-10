@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest'
 
-import { GoldenLayout } from "../src";
+import { GoldenLayout, GoldenLayoutLocation } from "../src";
 import { render } from "@testing-library/react";
 
 function renderGoldenLayout() {
@@ -17,4 +17,39 @@ describe("<GoldenLayout />", () => {
 
     expect(goldenLayout)
   });
+
+  test("case-02", async () => {
+    const windows = [
+      {
+        name: "Main",
+        component: (<div>Main Content</div>),
+        location: GoldenLayoutLocation.main,
+        title: "Main",
+        skipClose: true,
+      },
+      {
+        name: "Properties",
+        component: (<div>Props Content</div>),
+        location: GoldenLayoutLocation.right,
+        title: "Properties",
+        width: 25,
+        allowVerticalScroll: true,
+      },
+      {
+        name: "Alerts",
+        component: (<div>Alerts Content</div>),
+        location: GoldenLayoutLocation.bottom,
+        title: "Alerts",
+        allowVerticalScroll: true,
+      },
+    ]
+    const { findByTestId } = render(
+      <GoldenLayout windows={windows} />
+    );
+    
+    const goldenLayout = await findByTestId("golden-layout");
+
+    expect(goldenLayout)
+  });
+
 });

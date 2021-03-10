@@ -1,8 +1,8 @@
-import { GoldenLayoutComponent } from "."
+import { GoldenLayout } from "."
 
 export type GoldenLayoutComponentProps = {
     windows?: GoldenLayoutWindowInfo[],
-    handleLayout?: (value: GoldenLayoutComponent) => void
+    handleLayout?: (control: GoldenLayout) => void
 }
 
 export interface GoldenLayoutWindowInfo
