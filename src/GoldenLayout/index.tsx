@@ -17,6 +17,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     private _componentDict: Record<string, InternalGoldenComponent> = {}
     private _layoutConfig: GoldenLayoutLib.Config
     private _layout: GoldenLayoutLib | undefined
+    
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
         super(props)
         this._layoutConfig = {}
@@ -160,6 +161,10 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
             return;
         }
         internalComponent.goldenContainer.close()
+
+        if (this.props.handleClose) {
+            this.props.handleClose(id, internalComponent.info);
+        }
     }
 
     showComponent(id: string) {

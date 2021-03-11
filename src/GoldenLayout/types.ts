@@ -2,7 +2,8 @@ import { GoldenLayout } from "."
 
 export type GoldenLayoutComponentProps = {
     windows?: GoldenLayoutWindowInfo[],
-    handleLayout?: (control: GoldenLayout) => void
+    handleLayout?: (control: GoldenLayout) => void,
+    handleClose: GoldenWindowCloseHandler
 }
 
 export interface GoldenLayoutWindowInfo
@@ -33,3 +34,5 @@ export enum GoldenLayoutLocation
     bottom = 'bottom',
     top = 'top'
 }
+
+export type GoldenWindowCloseHandler = (id: string, windowInfo: GoldenLayoutWindowInfo) => void;
