@@ -23,10 +23,6 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         this._layoutConfig = {}
     }
 
-    // get components(): InternalGoldenComponent[] {
-    //     return this._components
-    // }
-
     get windows(): GoldenLayoutWindowInfo[] {
         return this.props.windows || [];
     }
@@ -186,15 +182,11 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
 
     private _getLocationLayout(location: GoldenLayoutLocation): GoldenLayoutLib.ItemConfigType {
         const components = this._getLocationComponents(location)
-        if (components.length === 1) {
-            return this._getComponentLayout(components[0])
-        }
-
         const layout: GoldenLayoutLib.ItemConfigType = {
             type: "stack",
         }
 
-        if (location !== "main") {
+        if (location !== GoldenLayoutLocation.main) {
             layout.height = 20
         }
         layout.content = _.map(components, (x: InternalGoldenComponent) =>
