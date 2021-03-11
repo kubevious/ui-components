@@ -75,7 +75,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         this._layout.on("componentCreated", (component: any) => {
             self._triggerComponentResizeEvent(component)
 
-            const internalComponent = this._getComponent(component.config.component.id)
+            const internalComponent = this._getComponent(component.config.component)
             if (!internalComponent) {
                 return;
             }
@@ -89,7 +89,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
 
         // Component from 'golden-layout'
         this._layout.on("tabCreated", (tab: any) => {
-            const internalComponent = this._getComponent(tab.contentItem.config.component.id)
+            const internalComponent = this._getComponent(tab.contentItem.config.component)
             if (!internalComponent) {
                 return;
             }
