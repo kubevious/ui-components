@@ -187,8 +187,19 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         }
 
         if (location !== GoldenLayoutLocation.main) {
-            layout.height = 20
+            const heights = components.map(x => x.info.height).filter(x => _.isNotNullOrUndefined(x));
+            if (heights.length > 0)
+            {
+                layout.height = _.max(heights);
+            }
+
+            const widths = components.map(x => x.info.width).filter(x => _.isNotNullOrUndefined(x));
+            if (widths.length > 0)
+            {
+                layout.width = _.max(widths);
+            }
         }
+
         layout.content = _.map(components, (x: InternalGoldenComponent) =>
             this._getComponentLayout(x)
         )
