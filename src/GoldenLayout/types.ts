@@ -3,7 +3,7 @@ import { GoldenLayout } from "."
 export type GoldenLayoutComponentProps = {
     windows?: GoldenLayoutWindowInfo[],
     handleLayout?: (control: GoldenLayout) => void,
-    handleClose: GoldenWindowCloseHandler
+    handleClose?: GoldenWindowCloseHandler
 }
 
 export interface GoldenLayoutWindowInfo
