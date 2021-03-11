@@ -12,5 +12,7 @@ export type Error = {
             column?: number
         }
     }
+    message?: string
+    stack?: string
     status?: number
 }

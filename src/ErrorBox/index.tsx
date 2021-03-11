@@ -12,9 +12,12 @@ export const ErrorBox: React.FunctionComponent<{
     const [expanded, setExpanded] = useState<boolean>(false);
 
     const {
-        data: { message, stack },
+        data,
         status,
     } = error;
+    
+    const message = error.message || data.message
+    const stack = error.stack || data.stack
 
     return (
         <div data-testid="error-box" className="ErrorBox-container">
