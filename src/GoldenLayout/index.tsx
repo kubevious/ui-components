@@ -70,8 +70,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         } else {
             console.error("[GoldenLayout] missing layout-ref")
         }
-        const container = $(this._layoutRef.current.id);
-        this._layout = new GoldenLayoutLib(this._layoutConfig, container)
+        this._layout = new GoldenLayoutLib(this._layoutConfig, this._layoutRef.current)
         this._components.forEach((component) => {
             this._setupContent(component)
         })
