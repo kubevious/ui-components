@@ -1,4 +1,4 @@
-import React from "react"
+import React, { RefObject } from "react"
 import { ClassComponent } from "@kubevious/ui-framework"
 import ReactDOM from "react-dom"
 import $ from "jquery"
@@ -17,9 +17,11 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     private _componentDict: Record<string, InternalGoldenComponent> = {}
     private _layoutConfig: GoldenLayoutLib.Config
     private _layout: GoldenLayoutLib | undefined
-    
+    private _layoutRef : RefObject<any>;
+
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
         super(props)
+        this._layoutRef = React.createRef();
         this._layoutConfig = {}
     }
 
@@ -33,9 +35,9 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
             this._register(windowInfo);
         }
 
-        if (!isTesting) {
-            this._activateLayout()
-        }
+        // if (!isTesting) {
+        this._activateLayout()
+        // }
     }
 
     private _activateLayout(): void {
@@ -63,7 +65,12 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
                 },
             ],
         }
-        const container = $("#layoutContainer")
+        if (this._layoutRef.current) {
+            console.info("[GoldenLayout] layout-ref: ", this._layoutRef.current);
+        } else {
+            console.error("[GoldenLayout] missing layout-ref")
+        }
+        const container = $(this._layoutRef.current.id);
         this._layout = new GoldenLayoutLib(this._layoutConfig, container)
         this._components.forEach((component) => {
             this._setupContent(component)
@@ -251,7 +258,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         window.React = React
         window.ReactDOM = ReactDOM
 
-        return <div data-testid="golden-layout" id="layoutContainer" />
+        return <div data-testid="golden-layout" ref={this._layoutRef} />
     }
 
     // Component from 'golden-layout'
