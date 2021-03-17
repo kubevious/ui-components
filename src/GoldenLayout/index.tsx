@@ -35,9 +35,9 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
             this._register(windowInfo);
         }
 
-        // if (!isTesting) {
-        this._activateLayout()
-        // }
+        if (!isTesting) {
+            this._activateLayout()
+        }
     }
 
     private _activateLayout(): void {
