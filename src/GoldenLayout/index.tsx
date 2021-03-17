@@ -257,7 +257,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         window.React = React
         window.ReactDOM = ReactDOM
 
-        return <div data-testid="golden-layout" ref={this._layoutRef} />
+        return <div data-testid="golden-layout" className="golden-layout-container" ref={this._layoutRef} />
     }
 
     // Component from 'golden-layout'
