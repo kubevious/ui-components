@@ -13,3 +13,5 @@ export { GoldenLayoutWindowInfo, GoldenLayoutLocation, GoldenWindowCloseHandler 
 
 export { ErrorBox } from './ErrorBox/index'
 export { Error } from './ErrorBox/types'
+
+export { Link } from './Link/index'
