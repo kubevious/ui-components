@@ -36,7 +36,9 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         }
 
         if (!isTesting) {
-            this._activateLayout()
+            setTimeout(() => {
+                this._activateLayout();
+            },0)
         }
     }
 
