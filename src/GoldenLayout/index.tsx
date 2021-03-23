@@ -44,7 +44,40 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
 
     private _activateLayout(): void {
         const self = this
-
+        let rowContent: GoldenLayoutLib.ItemConfigType[] = [
+            {
+                type: "column",
+                content: [
+                    this._getLocationLayout(exports.GoldenLayoutLocation.main),
+                ],
+            },
+        ];
+        
+        if (this.windows.length > 1) {
+            rowContent = [
+                {
+                    type: "column",
+                    content: [
+                        this._getLocationLayout(exports.GoldenLayoutLocation.main),
+                        this._getLocationLayout(exports.GoldenLayoutLocation.bottom),
+                    ],
+                },
+                this._getLocationLayout(exports.GoldenLayoutLocation.right)
+            ]
+        }
+        this._layoutConfig = {
+            content: [
+                {
+                    type: "column",
+                    content: [
+                        {
+                            type: "row",
+                            content: rowContent,
+                        },
+                    ],
+                },
+            ],
+        };
         this._layoutConfig = {
             content: [
                 {
