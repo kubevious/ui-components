@@ -78,28 +78,6 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
                 },
             ],
         };
-        this._layoutConfig = {
-            content: [
-                {
-                    type: "column",
-                    content: [
-                        {
-                            type: "row",
-                            content: [
-                                {
-                                    type: "column",
-                                    content: [
-                                        this._getLocationLayout(GoldenLayoutLocation.main),
-                                        this._getLocationLayout(GoldenLayoutLocation.bottom),
-                                    ],
-                                },
-                                this._getLocationLayout(GoldenLayoutLocation.right),
-                            ],
-                        },
-                    ],
-                },
-            ],
-        }
         if (this._layoutRef.current) {
             console.info("[GoldenLayout] layout-ref: ", this._layoutRef.current);
         } else {
