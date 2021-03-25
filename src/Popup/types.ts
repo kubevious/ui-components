@@ -1,4 +1,4 @@
 export type PopupProps = {
-    popupContent?: React.ElementType
+    popupContent?: any
     closePopup: () => void
 }
