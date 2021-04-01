@@ -10,20 +10,10 @@ export const Link: React.FunctionComponent<LinkProps> = ({ name, path, searchPar
 
     const openPage = (): void => {
 
-        const urlObj = new URL(path);
-
-        if (searchParams) {
-            for(let key of _.keys(searchParams))
-            {
-                let value = searchParams[key];
-                if (!_.isNotNullOrUndefined(value)) {
-                    urlObj.searchParams.append(key, _.toString(value));
-                }
-            }
-        }
+        const url = encodeUrl(path, searchParams);
 
         history.push({
-            pathname: urlObj.href,
+            pathname: url
         });
         
     };
@@ -34,3 +24,30 @@ export const Link: React.FunctionComponent<LinkProps> = ({ name, path, searchPar
         </a>
     );
 };
+
+
+
+function encodeSearchQuery(searchParams? : Record<string, any>)
+{
+    const parts : string[] = [];
+    if (searchParams) {
+        for(let key of _.keys(searchParams))
+        {
+            let value = searchParams[key];
+            if (!_.isNotNullOrUndefined(value)) {
+                parts.push(`${encodeURIComponent(key)}=${encodeURIComponent(_.toString(value))}`);
+            }
+        }
+    }
+    return parts.join('&');
+}
+
+function encodeUrl(path: string, searchParams? : Record<string, any>)
+{
+    let url = path;
+    let search = encodeSearchQuery(searchParams);
+    if (search) {
+        url += '?' + search;
+    }
+    return url;
+}
