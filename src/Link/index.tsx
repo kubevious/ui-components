@@ -1,20 +1,35 @@
+import _ from 'the-lodash';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import "./styles.scss"
 import { LinkProps } from './types';
 
-export const Link: React.FunctionComponent<LinkProps> = ({ name, path }) => {
+export const Link: React.FunctionComponent<LinkProps> = ({ name, path, searchParams }) => {
     const history = useHistory();
 
-    const redirectToCluster = (path: string): void => {
+    const openPage = (): void => {
+
+        const urlObj = new URL(path);
+
+        if (searchParams) {
+            for(let key of _.keys(searchParams))
+            {
+                let value = searchParams[key];
+                if (!_.isNotNullOrUndefined(value)) {
+                    urlObj.searchParams.append(key, _.toString(value));
+                }
+            }
+        }
+
         history.push({
-            pathname: path,
+            pathname: urlObj.href,
         });
+        
     };
 
     return (
-        <a className="link" data-testid="link" onClick={() => redirectToCluster(path)}>
+        <a className="link" data-testid="link" onClick={() => openPage()}>
             {name}
         </a>
     );

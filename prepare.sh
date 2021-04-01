@@ -8,6 +8,11 @@ cd src
 rm -rf node_modules/
 
 npm install
-npm update the-lodash the-promise @kubevious/helpers @kubevious/ui-framework @kubevious/ui-middleware
+npm update \
+    the-lodash \
+    the-promise \
+    @kubevious/helpers \
+    @kubevious/ui-framework \
+    @kubevious/ui-middleware
 
 ${MY_DIR}/build.sh

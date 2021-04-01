@@ -1,17 +1,17 @@
-export { DnComponent } from './DnComponent/index'
+export { DnComponent } from './DnComponent'
 
 export { DnPath } from './DnPath/index'
 
-export { CopyClipboard } from './CopyClipboard/index'
+export { CopyClipboard } from './CopyClipboard'
 
-export { DnShortcutComponent } from './DnShortcutComponent/index'
+export { DnShortcutComponent } from './DnShortcutComponent'
 
-export { Popup } from './Popup/index'
+export { Popup } from './Popup'
 
-export { GoldenLayout } from './GoldenLayout/index'
+export { GoldenLayout } from './GoldenLayout'
 export { GoldenLayoutWindowInfo, GoldenLayoutLocation, GoldenWindowCloseHandler } from './GoldenLayout/types'
 
-export { ErrorBox } from './ErrorBox/index'
+export { ErrorBox } from './ErrorBox'
 export { Error } from './ErrorBox/types'
 
-export { Link } from './Link/index'
+export { Link } from './Link'
