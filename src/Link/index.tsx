@@ -34,7 +34,7 @@ function encodeSearchQuery(searchParams? : Record<string, any>)
         for(let key of _.keys(searchParams))
         {
             let value = searchParams[key];
-            if (!_.isNotNullOrUndefined(value)) {
+            if (_.isNotNullOrUndefined(value)) {
                 parts.push(`${encodeURIComponent(key)}=${encodeURIComponent(_.toString(value))}`);
             }
         }
