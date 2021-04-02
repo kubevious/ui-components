@@ -10,8 +10,6 @@ export const Link: React.FunctionComponent<LinkProps> = ({ name, path, searchPar
 
     const openPage = (): void => {
 
-        // const url = encodeUrl(path, searchParams);
-
         history.push({
             pathname: path,
             search: encodeSearchQuery(searchParams)
@@ -25,7 +23,6 @@ export const Link: React.FunctionComponent<LinkProps> = ({ name, path, searchPar
         </a>
     );
 };
-
 
 
 function encodeSearchQuery(searchParams? : Record<string, any>)
@@ -43,12 +40,12 @@ function encodeSearchQuery(searchParams? : Record<string, any>)
     return parts.join('&');
 }
 
-function encodeUrl(path: string, searchParams? : Record<string, any>)
-{
-    let url = path;
-    let search = encodeSearchQuery(searchParams);
-    if (search) {
-        url += '?' + search;
-    }
-    return url;
-}
+// function encodeUrl(path: string, searchParams? : Record<string, any>)
+// {
+//     let url = path;
+//     let search = encodeSearchQuery(searchParams);
+//     if (search) {
+//         url += '?' + search;
+//     }
+//     return url;
+// }
