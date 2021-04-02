@@ -10,10 +10,11 @@ export const Link: React.FunctionComponent<LinkProps> = ({ name, path, searchPar
 
     const openPage = (): void => {
 
-        const url = encodeUrl(path, searchParams);
+        // const url = encodeUrl(path, searchParams);
 
         history.push({
-            pathname: url
+            pathname: path,
+            search: encodeSearchQuery(searchParams)
         });
         
     };
