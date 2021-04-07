@@ -5,16 +5,14 @@ import { useHistory } from 'react-router-dom';
 import "./styles.scss"
 import { LinkProps } from './types';
 
-export const Link: React.FunctionComponent<LinkProps> = ({ name, path, searchParams }) => {
+export const PageLink: React.FunctionComponent<LinkProps> = ({ name, path, searchParams }) => {
     const history = useHistory();
 
     const openPage = (): void => {
-
         history.push({
             pathname: path,
-            search: encodeSearchQuery(searchParams)
+            search: encodeSearchQuery(searchParams),
         });
-        
     };
 
     return (

@@ -14,4 +14,4 @@ export { GoldenLayoutWindowInfo, GoldenLayoutLocation, GoldenWindowCloseHandler 
 export { ErrorBox } from './ErrorBox'
 export { Error } from './ErrorBox/types'
 
-export { Link } from './Link'
+export { PageLink } from './Link';
