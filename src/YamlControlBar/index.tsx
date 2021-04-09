@@ -4,15 +4,9 @@ import { DownloadButton } from './BarButtons/DownloadButton';
 import { Controlled as CodeMirrorEditor } from 'react-codemirror2'
 
 import './styles.scss'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import 'codemirror/theme/darcula.css'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import 'codemirror/lib/codemirror.css'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import 'codemirror/mode/yaml/yaml'
+require('codemirror/theme/darcula.css')
+require('codemirror/lib/codemirror.css')
+require('codemirror/mode/yaml/yaml')
 
 const isTesting = process.env.IS_TESTING;
 
