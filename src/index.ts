@@ -16,3 +16,5 @@ export { ErrorBox } from './ErrorBox'
 export { Error } from './ErrorBox/types'
 
 export { PageLink } from './Link';
+
+export { YamlControlBar } from './YamlControlBar'
