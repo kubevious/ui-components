@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { faCopy } from '@fortawesome/free-regular-svg-icons'
 
-import './styles.css'
+import './styles.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const CopyButton: React.FunctionComponent<{ text: string, buttonText: string }> = ({ text = '', buttonText = '' }): JSX.Element => {

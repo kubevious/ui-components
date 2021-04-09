@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 
-import './styles.css'
+import './styles.scss'
 
 export const DownloadButton: React.FunctionComponent<{ text: string }> = ({ text = '' }) => {
 

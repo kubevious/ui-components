@@ -3,7 +3,7 @@ import { CopyButton } from './BarButtons/CopyButton';
 import { DownloadButton } from './BarButtons/DownloadButton';
 import { Controlled as CodeMirrorEditor } from 'react-codemirror2'
 
-import './styles.css'
+import './styles.scss'
 import 'codemirror/theme/darcula.css'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/yaml/yaml'
