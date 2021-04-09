@@ -1,0 +1,43 @@
+.operationLogDetails {
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    left: 25%;
+    min-height: 50px;
+    border: 1px solid darkgray;
+    width: 50%;
+    background: honeydew;
+    border-radius: 10px 10px 0 0;
+}
+
+summary {
+    padding: 0 20px;
+    display: flex;
+    min-height: 50px;
+    align-items: center;
+
+    .expandIcon {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        transform: rotate(270deg);
+        width: 30px !important;
+        height: 30px;
+    }
+}
+
+summary::-webkit-details-marker {
+    height: 0px;
+    width: 0px;
+}
+
+details[open] > summary {
+    .expandIcon {
+        transform: rotate(90deg);
+    }
+}
+
+summary::focus {
+    outline: 0;
+    outline-offset: 0;
+}

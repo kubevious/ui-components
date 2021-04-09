@@ -1,4 +1,5 @@
 export { DnComponent } from './DnComponent'
+export { OperationLog } from './OperationLog';
 
 export { DnPath } from './DnPath/index'
 
