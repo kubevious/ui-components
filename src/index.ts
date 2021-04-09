@@ -18,3 +18,4 @@ export { Error } from './ErrorBox/types'
 export { PageLink } from './Link';
 
 export { YamlControlBar } from './YamlControlBar'
+export { CopyButton } from './YamlControlBar/BarButtons/CopyButton';
