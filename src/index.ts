@@ -7,6 +7,8 @@ export { CopyClipboard } from './CopyClipboard';
 
 export { DnShortcutComponent } from './DnShortcutComponent';
 
+export { DnIconComponent, getEntityImgUrl } from './DnIconComponent';
+
 export { Popup } from './Popup';
 
 export { GoldenLayout } from './GoldenLayout';

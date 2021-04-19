@@ -1,11 +1,11 @@
 import React, { FC, Fragment } from 'react';
 import _ from 'the-lodash';
-import cx from 'classnames';
 import { RnInfo } from '@kubevious/helpers/dist/dn-utils';
 import { prettyKind } from '@kubevious/helpers/dist/docs';
+import { DnIconComponent } from '../DnIconComponent';
 import { DnPathProps } from './type';
 
-export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo, bigLogo }) => {
+export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo }) => {
     if (dnParts.length > 0 && dnParts[0].kind === 'root') {
         dnParts = dnParts.splice(1);
     }
@@ -13,13 +13,8 @@ export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo, bigLogo }) => {
 
     return (
         <div data-testid="dn-path" className="dn-path">
-            {includeLogo && lastPart && (
-                <img
-                    className={cx('dn-logo', { big: bigLogo })}
-                    src={`/img/entities/${lastPart.kind}.svg`}
-                    alt={lastPart.kind}
-                />
-            )}
+            {includeLogo && lastPart && <DnIconComponent kind={lastPart.kind} size="lg" />}
+            
             {dnParts.map((part: RnInfo, index: number) => {
                 const kind = prettyKind(part.kind);
 

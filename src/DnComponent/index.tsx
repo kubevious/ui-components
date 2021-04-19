@@ -2,6 +2,7 @@ import React, { FC, Fragment } from 'react';
 import _ from 'the-lodash';
 import { prettyKind } from '@kubevious/helpers/dist/docs';
 import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
+import { DnIconComponent } from '../DnIconComponent';
 import { DnComponentProps } from './types';
 
 import './styles.scss';
@@ -23,11 +24,12 @@ export const DnComponent: FC<DnComponentProps> = ({ dn, options }) => {
     if (dnParts.length > 0 && dnParts[0].kind === 'root') {
         dnParts = dnParts.splice(1);
     }
-    const url = lastPart ? lastPart.kind : '';
+    const kind = lastPart ? lastPart.kind : '';
 
     return (
         <div data-testid="dn" className="dn-path">
-            <img className="dn-logo" src={`/img/entities/${url}.svg`} alt="logo" />
+            <DnIconComponent kind={kind} size="md" />
+
             {dnParts.map((item, index) => (
                 <Fragment key={index}>
                     <span className="kind">{prettyKind(item.kind)}</span>
