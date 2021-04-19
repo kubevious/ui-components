@@ -1,5 +1,5 @@
-import { faClone } from '@fortawesome/free-solid-svg-icons';
-import * as React from 'react';
+import { faClone as farClone } from '@fortawesome/free-regular-svg-icons';
+import React from 'react';
 import { FC, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cx from 'classnames';
@@ -33,7 +33,12 @@ export const CopyClipboard: FC<CopyClipboardProps> = ({ text }) => {
                 </div>
             )}
 
-            <FontAwesomeIcon className={styles.copyIcon} icon={faClone} onClick={copyText} title="Copy to clipboard" />
+            <FontAwesomeIcon
+                className={cx('copy-icon', styles.copyIcon)}
+                icon={farClone}
+                onClick={copyText}
+                title="Copy to clipboard"
+            />
         </div>
     );
 };

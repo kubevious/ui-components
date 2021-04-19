@@ -6,13 +6,10 @@ import { prettyKind } from '@kubevious/helpers/dist/docs';
 import { DnPathProps } from './type';
 
 export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo, bigLogo }) => {
-    console.log('aasa', dnParts)
     if (dnParts.length > 0 && dnParts[0].kind === 'root') {
         dnParts = dnParts.splice(1);
     }
     const lastPart = _.last(dnParts);
-
-    console.log('dn', dnParts);
 
     return (
         <div data-testid="dn-path" className="dn-path">
@@ -26,7 +23,6 @@ export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo, bigLogo }) => {
             {dnParts.map((part: RnInfo, index: number) => {
                 const kind = prettyKind(part.kind);
 
-                console.log('ehre??');
                 return (
                     <Fragment key={index}>
                         <span className="kind">{kind}</span>
