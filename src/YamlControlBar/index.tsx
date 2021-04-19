@@ -31,11 +31,12 @@ export const YamlControlBar: FC<YamlControlBarProps> = ({
             {!isTesting && (
                 <div className="editor-box">
                     <CodeMirrorEditor
-                        value={value}
+                        value={value.replace(/(\\)?\\n/g, '\n')}
                         options={{
                             mode: 'yaml',
                             theme: 'darcula',
                         }}
+                        editorDidMount={(editor) => editor.refresh()}
                         className={className}
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
