@@ -1,5 +1,5 @@
-export type LinkProps = {
-    name: string,
-    path: string,
-    searchParams?: Record<string, any>
-}
+export interface LinkProps {
+    name: string;
+    path: string;
+    searchParams?: Record<string, any>;
+};

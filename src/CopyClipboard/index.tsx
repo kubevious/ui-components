@@ -1,11 +1,13 @@
+import { faClone } from '@fortawesome/free-solid-svg-icons';
 import * as React from 'react';
-import { useState } from 'react';
-import { faClone as farClone } from '@fortawesome/free-regular-svg-icons';
+import { FC, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import cx from 'classnames';
+import { CopyClipboardProps } from './types';
 
-import './styles.scss';
+import styles from './styles.module.css';
 
-export const CopyClipboard: React.FunctionComponent<{ text: string }> = ({ text }) => {
+export const CopyClipboard: FC<CopyClipboardProps> = ({ text }) => {
     const [copied, setCopied] = useState<boolean>(false);
 
     const copyText = (): void => {
@@ -23,20 +25,15 @@ export const CopyClipboard: React.FunctionComponent<{ text: string }> = ({ text 
     };
 
     return (
-        <div data-testid="copy-clipboard" className="icon-wrapper">
+        <div data-testid="copy-clipboard" className={cx('copy-icon', styles.iconWrapper)}>
             {copied && (
-                <div className="copied-container">
+                <div className={styles.copiedContainer}>
                     Copied to clipboard
-                    <div className="caret" />
+                    <div className={styles.caret} />
                 </div>
             )}
 
-            <FontAwesomeIcon
-                className="copy-icon"
-                icon={farClone}
-                onClick={() => copyText()}
-                title="Copy to clipboard"
-            />
+            <FontAwesomeIcon className={styles.copyIcon} icon={faClone} onClick={copyText} title="Copy to clipboard" />
         </div>
     );
 };

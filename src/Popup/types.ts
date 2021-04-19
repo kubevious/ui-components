@@ -1,4 +1,6 @@
+import { ReactNode } from 'react';
+
 export type PopupProps = {
-    popupContent?: any
-    closePopup: () => void
-}
+    popupContent?: ReactNode;
+    closePopup: () => void;
+};

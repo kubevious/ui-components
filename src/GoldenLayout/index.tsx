@@ -1,28 +1,33 @@
-import React, { RefObject } from "react"
-import { ClassComponent } from "@kubevious/ui-framework"
-import ReactDOM from "react-dom"
-import $ from "jquery"
-import _ from "the-lodash"
-import "golden-layout/src/css/goldenlayout-base.css"
-import "golden-layout/src/css/goldenlayout-dark-theme.css"
-import GoldenLayoutLib from "golden-layout"
+import React, { RefObject } from 'react';
+import { ClassComponent } from '@kubevious/ui-framework';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import _ from 'the-lodash';
+import 'golden-layout/src/css/goldenlayout-base.css';
+import 'golden-layout/src/css/goldenlayout-dark-theme.css';
+import GoldenLayoutLib from 'golden-layout';
 
-import "./styles.scss"
-import { InternalGoldenComponent, GoldenLayoutWindowInfo, GoldenLayoutComponentProps, GoldenLayoutLocation } from "./types"
+import './styles.scss';
+import {
+    InternalGoldenComponent,
+    GoldenLayoutWindowInfo,
+    GoldenLayoutComponentProps,
+    GoldenLayoutLocation,
+} from './types';
 
 const isTesting = process.env.IS_TESTING;
 
 export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
-    private _components: InternalGoldenComponent[] = []
-    private _componentDict: Record<string, InternalGoldenComponent> = {}
-    private _layoutConfig: GoldenLayoutLib.Config
-    private _layout: GoldenLayoutLib | undefined
-    private _layoutRef : RefObject<any>;
+    private _components: InternalGoldenComponent[] = [];
+    private _componentDict: Record<string, InternalGoldenComponent> = {};
+    private _layoutConfig: GoldenLayoutLib.Config;
+    private _layout: GoldenLayoutLib | undefined;
+    private _layoutRef: RefObject<any>;
 
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
-        super(props)
+        super(props);
         this._layoutRef = React.createRef();
-        this._layoutConfig = {}
+        this._layoutConfig = {};
     }
 
     get windows(): GoldenLayoutWindowInfo[] {
@@ -30,48 +35,45 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     }
 
     componentDidMount() {
-        for(let windowInfo of this.windows)
-        {
+        for (let windowInfo of this.windows) {
             this._register(windowInfo);
         }
 
         if (!isTesting) {
             setTimeout(() => {
                 this._activateLayout();
-            },0)
+            }, 0);
         }
     }
 
     private _activateLayout(): void {
-        const self = this
+        const self = this;
         let rowContent: GoldenLayoutLib.ItemConfigType[] = [
             {
-                type: "column",
-                content: [
-                    this._getLocationLayout(exports.GoldenLayoutLocation.main),
-                ],
+                type: 'column',
+                content: [this._getLocationLayout(exports.GoldenLayoutLocation.main)],
             },
         ];
-        
+
         if (this.windows.length > 1) {
             rowContent = [
                 {
-                    type: "column",
+                    type: 'column',
                     content: [
                         this._getLocationLayout(exports.GoldenLayoutLocation.main),
                         this._getLocationLayout(exports.GoldenLayoutLocation.bottom),
                     ],
                 },
-                this._getLocationLayout(exports.GoldenLayoutLocation.right)
-            ]
+                this._getLocationLayout(exports.GoldenLayoutLocation.right),
+            ];
         }
         this._layoutConfig = {
             content: [
                 {
-                    type: "column",
+                    type: 'column',
                     content: [
                         {
-                            type: "row",
+                            type: 'row',
                             content: rowContent,
                         },
                     ],
@@ -79,103 +81,100 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
             ],
         };
         if (this._layoutRef.current) {
-            console.info("[GoldenLayout] layout-ref: ", this._layoutRef.current);
+            console.info('[GoldenLayout] layout-ref: ', this._layoutRef.current);
         } else {
-            console.error("[GoldenLayout] missing layout-ref")
+            console.error('[GoldenLayout] missing layout-ref');
         }
-        this._layout = new GoldenLayoutLib(this._layoutConfig, this._layoutRef.current)
+        this._layout = new GoldenLayoutLib(this._layoutConfig, this._layoutRef.current);
         this._components.forEach((component) => {
-            this._setupContent(component)
-        })
+            this._setupContent(component);
+        });
         // Component from 'golden-layout'
-        this._layout.on("componentCreated", (component: any) => {
-            self._triggerComponentResizeEvent(component)
+        this._layout.on('componentCreated', (component: any) => {
+            self._triggerComponentResizeEvent(component);
 
-            const internalComponent = this._getComponent(component.config.component)
+            const internalComponent = this._getComponent(component.config.component);
             if (!internalComponent) {
                 return;
             }
-            internalComponent.goldenComponent = component
-            internalComponent.goldenContainer = component.container
+            internalComponent.goldenComponent = component;
+            internalComponent.goldenContainer = component.container;
 
-            component.container.on("resize", function () {
-                self._triggerComponentResizeEvent(component)
-            })
-        })
+            component.container.on('resize', function () {
+                self._triggerComponentResizeEvent(component);
+            });
+        });
 
         // Component from 'golden-layout'
-        this._layout.on("tabCreated", (tab: any) => {
-            const internalComponent = this._getComponent(tab.contentItem.config.component)
+        this._layout.on('tabCreated', (tab: any) => {
+            const internalComponent = this._getComponent(tab.contentItem.config.component);
             if (!internalComponent) {
                 return;
             }
-            internalComponent.goldenTab = tab
+            internalComponent.goldenTab = tab;
 
-            tab.closeElement.off("click").click((e: { target: { parentNode: { title: string } } }) => {
-                const component = this._components.find(
-                    (item) => item.info.title === e.target.parentNode.title
-                )
+            tab.closeElement.off('click').click((e: { target: { parentNode: { title: string } } }) => {
+                const component = this._components.find((item) => item.info.title === e.target.parentNode.title);
 
                 if (component && component.info.id) {
-                    const id = component.info.id
-                    this.hideComponent(id)
+                    const id = component.info.id;
+                    this.hideComponent(id);
                 }
-            })
-        })
+            });
+        });
 
-        this._layout.init()
+        this._layout.init();
 
-        this.props.handleLayout && this.props.handleLayout(this)
+        this.props.handleLayout && this.props.handleLayout(this);
 
-        window.addEventListener("resize", () => {
-            this._layout && this._layout.updateSize()
-        })
+        window.addEventListener('resize', () => {
+            this._layout && this._layout.updateSize();
+        });
     }
 
-    private _register(windowInfo: GoldenLayoutWindowInfo)
-    {
-        const internalWindow : InternalGoldenComponent = {
+    private _register(windowInfo: GoldenLayoutWindowInfo) {
+        const internalWindow: InternalGoldenComponent = {
             id: windowInfo.id,
-            info: windowInfo
-        } 
-        this._components.push(internalWindow)
+            info: windowInfo,
+        };
+        this._components.push(internalWindow);
         this._componentDict[windowInfo.id] = internalWindow;
     }
 
     activateComponent(id: string): void {
-        const internalComponent = this._getComponent(id)
+        const internalComponent = this._getComponent(id);
         if (!internalComponent) {
             return;
         }
         if (!internalComponent.goldenTab) {
-            return
+            return;
         }
 
-        const stack = internalComponent.goldenTab.contentItem.parent
+        const stack = internalComponent.goldenTab.contentItem.parent;
         const stackComponent = _.head(
-            stack.contentItems.filter((x: { config: { component: string } }) => x.config.component === id)
-        )
+            stack.contentItems.filter((x: { config: { component: string } }) => x.config.component === id),
+        );
         if (stackComponent) {
-            stack.setActiveContentItem(stackComponent)
+            stack.setActiveContentItem(stackComponent);
         }
     }
 
     private _getComponent(id: string): InternalGoldenComponent | null {
         const internalComponent = this._componentDict[id];
         if (!internalComponent) {
-            console.error("[_getComponent] unknown component: ", id);
+            console.error('[_getComponent] unknown component: ', id);
             return null;
         }
         return internalComponent;
     }
 
     hideComponent(id: string) {
-        const internalComponent = this._getComponent(id)
+        const internalComponent = this._getComponent(id);
         if (!internalComponent) {
-            console.error("[hideComponent] unknown component: ", id);
+            console.error('[hideComponent] unknown component: ', id);
             return;
         }
-        internalComponent.goldenContainer.close()
+        internalComponent.goldenContainer.close();
 
         if (this.props.handleClose) {
             this.props.handleClose(id, internalComponent.info);
@@ -186,54 +185,50 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         if (!this._layout) {
             return;
         }
-        const internalComponent = this._getComponent(id)
+        const internalComponent = this._getComponent(id);
         if (!internalComponent) {
-            console.error("[showComponent] unknown component: ", id);
+            console.error('[showComponent] unknown component: ', id);
             return;
         }
-        const componentLayout = this._getComponentLayout(internalComponent)
-        this._layout.root.contentItems[0].addChild(componentLayout)
+        const componentLayout = this._getComponentLayout(internalComponent);
+        this._layout.root.contentItems[0].addChild(componentLayout);
     }
 
     private _getLocationComponents(location: GoldenLayoutLocation) {
-        return _.filter(this._components, (x) => x.info.location === location)
+        return _.filter(this._components, (x) => x.info.location === location);
     }
 
     private _getLocationLayout(location: GoldenLayoutLocation): GoldenLayoutLib.ItemConfigType {
-        const components = this._getLocationComponents(location)
+        const components = this._getLocationComponents(location);
         const layout: GoldenLayoutLib.ItemConfigType = {
-            type: "stack",
-        }
+            type: 'stack',
+        };
 
         if (location !== GoldenLayoutLocation.main) {
-            const heights = components.map(x => x.info.height).filter(x => _.isNotNullOrUndefined(x));
-            if (heights.length > 0)
-            {
+            const heights = components.map((x) => x.info.height).filter((x) => _.isNotNullOrUndefined(x));
+            if (heights.length > 0) {
                 layout.height = _.max(heights);
             }
 
-            const widths = components.map(x => x.info.width).filter(x => _.isNotNullOrUndefined(x));
-            if (widths.length > 0)
-            {
+            const widths = components.map((x) => x.info.width).filter((x) => _.isNotNullOrUndefined(x));
+            if (widths.length > 0) {
                 layout.width = _.max(widths);
             }
         }
 
-        layout.content = _.map(components, (x: InternalGoldenComponent) =>
-            this._getComponentLayout(x)
-        )
-        return layout
+        layout.content = _.map(components, (x: InternalGoldenComponent) => this._getComponentLayout(x));
+        return layout;
     }
 
     private _getComponentLayout(component: InternalGoldenComponent): GoldenLayoutLib.ItemConfigType {
         // Component from 'golden-layout'
         const layout: GoldenLayoutLib.ItemConfigType = {
-            type: "react-component",
+            type: 'react-component',
             component: component.info.id,
             title: component.info.title,
             componentState: {},
             props: _.clone(this.props),
-        }
+        };
 
         // layout.type = "react-component"
         // layout.component = component.id
@@ -241,19 +236,18 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         // layout.componentState = {}
         // layout.props = _.clone(this.props)
         if (component.info.skipClose) {
-            layout.isClosable = false
+            layout.isClosable = false;
         }
         if (component.info.width) {
-            layout.width = component.info.width
+            layout.width = component.info.width;
         }
         if (component.info.height) {
-            layout.height = component.info.height
+            layout.height = component.info.height;
         }
         if (component.info.allowVerticalScroll) {
-            (layout as any).componentState.allowVerticalScroll =
-                component.info.allowVerticalScroll
+            (layout as any).componentState.allowVerticalScroll = component.info.allowVerticalScroll;
         }
-        return layout
+        return layout;
     }
 
     private _setupContent(component: InternalGoldenComponent): void {
@@ -267,20 +261,20 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     }
 
     render() {
-        window.React = React
-        window.ReactDOM = ReactDOM
+        window.React = React;
+        window.ReactDOM = ReactDOM;
 
-        return <div data-testid="golden-layout" className="golden-layout-container" ref={this._layoutRef} />
+        return <div data-testid="golden-layout" className="golden-layout-container" ref={this._layoutRef} />;
     }
 
     // Component from 'golden-layout'
     private _triggerComponentResizeEvent(component: any): void {
-        this._triggerEvent("layout-resize-" + component.config.component)
+        this._triggerEvent('layout-resize-' + component.config.component);
     }
 
     private _triggerEvent(id: string): void {
-        const a = $(document).trigger(id)
-        console.log("EVENT: " + id)
-        console.log("Target: " + a)
+        const a = $(document).trigger(id);
+        console.log('EVENT: ' + id);
+        console.log('Target: ' + a);
     }
 }

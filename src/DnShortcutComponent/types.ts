@@ -1,15 +1,15 @@
-export type MarkerDict = {
-    shape: string
-    color: string
+export interface MarkerDict {
+    shape: string;
+    color: string;
 }
 
 export interface SelectedData {
-    dn: string
-    id?: number
-    errors?: number
-    warnings?: number
+    dn: string;
+    id?: number;
+    errors?: number;
+    warnings?: number;
     options?: {
-        relativeTo?: string
-    }
-    markers?: string[]
+        relativeTo?: string;
+    };
+    markers?: string[];
 }

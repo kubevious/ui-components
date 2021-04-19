@@ -1,23 +1,17 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './styles.scss';
-import { Error } from './types';
+import { ErrorBoxProps } from './types';
 
-export const ErrorBox: React.FunctionComponent<{
-    error: Error;
-    closeError: () => void;
-}> = ({ error, closeError }) => {
+import './styles.scss';
+
+export const ErrorBox: FC<ErrorBoxProps> = ({ error, closeError }) => {
     const [expanded, setExpanded] = useState<boolean>(false);
 
-    const {
-        data,
-        status,
-    } = error;
-    
-    const message = error.message || data.message
-    const stack = error.stack || data.stack
+    const { data, status } = error;
+
+    const message = error.message || data.message;
+    const stack = error.stack || data.stack;
 
     return (
         <div data-testid="error-box" className="ErrorBox-container">

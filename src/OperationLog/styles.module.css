@@ -15,29 +15,27 @@ summary {
     display: flex;
     min-height: 50px;
     align-items: center;
+}
 
-    .expandIcon {
-        position: absolute;
-        right: 5px;
-        top: 10px;
-        transform: rotate(270deg);
-        width: 30px !important;
-        height: 30px;
-    }
+.expandIcon {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    transform: rotate(270deg);
+    width: 30px !important;
+    height: 30px;
 }
 
 summary::-webkit-details-marker {
-    height: 0px;
-    width: 0px;
+    height: 0;
+    width: 0;
 }
 
-details[open] > summary {
-    .expandIcon {
-        transform: rotate(90deg);
-    }
+details[open] > summary .expandIcon {
+    transform: rotate(90deg);
 }
 
-summary::focus {
+summary:focus {
     outline: 0;
     outline-offset: 0;
 }

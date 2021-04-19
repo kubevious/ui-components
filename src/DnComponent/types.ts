@@ -1,6 +1,6 @@
-export type DnComponentProps = {
-    dn: string
+export interface DnComponentProps {
+    dn: string;
     options?: {
-        relativeTo?: string
-    }
-}
+        relativeTo?: string;
+    };
+};
