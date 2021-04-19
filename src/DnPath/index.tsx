@@ -5,7 +5,7 @@ import { prettyKind } from '@kubevious/helpers/dist/docs';
 import { DnIconComponent } from '../DnIconComponent';
 import { DnPathProps } from './type';
 
-export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo }) => {
+export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo, iconSize = "md" }) => {
     if (dnParts.length > 0 && dnParts[0].kind === 'root') {
         dnParts = dnParts.splice(1);
     }
@@ -13,7 +13,7 @@ export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo }) => {
 
     return (
         <div data-testid="dn-path" className="dn-path">
-            {includeLogo && lastPart && <DnIconComponent kind={lastPart.kind} size="lg" />}
+            {includeLogo && lastPart && <DnIconComponent kind={lastPart.kind} size={iconSize} />}
             
             {dnParts.map((part: RnInfo, index: number) => {
                 const kind = prettyKind(part.kind);

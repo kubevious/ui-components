@@ -6,6 +6,6 @@ import styles from './styles.module.css';
 
 export const getEntityImgUrl = (kind: string): string => `/img/entities/${kind}.svg`;
 
-export const DnIconComponent: FC<DnIconComponentProps> = ({ kind, size, ...rest }) => (
+export const DnIconComponent: FC<DnIconComponentProps> = ({ kind, size = 'lg', ...rest }) => (
     <img className={cx('dn-logo', styles[size])} src={getEntityImgUrl(kind)} alt="logo" {...rest} />
 );
