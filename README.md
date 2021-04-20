@@ -1,8 +1,15 @@
 # Kubevious UI Common Components
 
 Contains common and basic components such as:
-- ErrorBox
+- BurgerMenu
 - CopyClipboard
-- DnPath
 - DnComponent
+- DnIconComponent
+- DnPath
 - DnShortcutComponent
+- ErrorBox
+- GoldenLayout
+- Link
+- OperationLog
+- Popup
+- YamlControlBar

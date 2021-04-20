@@ -22,4 +22,6 @@ export { PageLink } from './Link';
 export { YamlControlBar } from './YamlControlBar';
 export { CopyButton } from './YamlControlBar/BarButtons/CopyButton';
 
+export { BurgerMenu } from './BurgerMenu';
+
 export { isValidJson } from './isValidJson';
