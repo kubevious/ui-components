@@ -5,4 +5,5 @@ export interface YamlControlBarProps {
     buttonText?: string;
     downloadButton?: boolean;
     className?: string;
+    mode?: string
 }

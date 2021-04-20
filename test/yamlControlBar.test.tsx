@@ -1,26 +1,32 @@
 import React from 'react';
-import 'jest'
+import 'jest';
 
-import { YamlControlBar } from "../src";
-import { render } from "@testing-library/react";
+import { YamlControlBar } from '../src';
+import { render } from '@testing-library/react';
 
-function renderYamlControlBar() {
-  const handleBeforeChange = ({
-    value,
-  }: {
-    value: string
-  }): void => {
-    console.log(value)
-  }
+document.createRange = () => {
+    const range = new Range();
 
-  return render(<YamlControlBar value={'test value'} beforeChange={handleBeforeChange} />);
-}
+    range.getBoundingClientRect = jest.fn();
 
-describe("<YamlControlBar />", () => {
-  test("Should check that the component YamlControlBar is rendered", async () => {
-    const { findByTestId } = renderYamlControlBar();
+    // @ts-ignore
+    range.getClientRects = jest.fn(() => ({
+        item: () => null,
+        length: 0,
+    }));
 
-    const yamlControlBar = await findByTestId("yaml-control-bar");
-    expect(yamlControlBar)
-  });
+    return range;
+};
+
+const handleBeforeChange = jest.fn();
+
+const renderComponent = () => render(<YamlControlBar value={'test value'} beforeChange={handleBeforeChange} />);
+
+describe('<YamlControlBar />', () => {
+    test('should check that the component YamlControlBar is rendered', async () => {
+        const { findByTestId } = renderComponent();
+
+        const yamlControlBar = await findByTestId('yaml-control-bar');
+        expect(yamlControlBar).toBeTruthy();
+    });
 });

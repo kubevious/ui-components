@@ -21,3 +21,5 @@ export { PageLink } from './Link';
 
 export { YamlControlBar } from './YamlControlBar';
 export { CopyButton } from './YamlControlBar/BarButtons/CopyButton';
+
+export { isValidJson } from './isValidJson';
