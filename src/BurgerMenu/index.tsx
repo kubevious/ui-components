@@ -25,7 +25,7 @@ export const BurgerMenu: FC<BurgerMenuProps> = ({ items }) => {
 
                 {items.map((menuItem, index) =>
                     menuItem.isUploadFile ? (
-                        <div className={styles.menuItem}>
+                        <div className={styles.menuItem} key={index}>
                             <input type="file" id={`upload`} name={`upload`} onChange={menuItem.action} hidden />
                             <label htmlFor={`upload-${index}`} onClick={menuItem.action}>
                                 <div className={styles.icon}>
@@ -35,7 +35,7 @@ export const BurgerMenu: FC<BurgerMenuProps> = ({ items }) => {
                             </label>
                         </div>
                     ) : (
-                        <div className={styles.menuItem} onClick={menuItem.action}>
+                        <div className={styles.menuItem} onClick={menuItem.action} key={index}>
                             <div className={styles.icon}>
                                 <FontAwesomeIcon icon={menuItem.icon} />
                             </div>
