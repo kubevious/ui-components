@@ -23,11 +23,17 @@ export const BurgerMenu: FC<BurgerMenuProps> = ({ items }) => {
             <div className={cx(styles.menu, !isMenuVisible && styles.hidden)}>
                 <a id="exportAnchor" style={{ display: 'none' }} />
 
-                {items.map((menuItem, index) =>
+                {items.map((menuItem) =>
                     menuItem.isUploadFile ? (
-                        <div className={styles.menuItem} key={index}>
-                            <input type="file" id={`upload`} name={`upload`} onChange={menuItem.action} hidden />
-                            <label htmlFor={`upload-${index}`} onClick={menuItem.action}>
+                        <div className={styles.menuItem} key={menuItem.key}>
+                            <input
+                                type="file"
+                                id={`upload-${menuItem.key}`}
+                                name={`upload-${menuItem.key}`}
+                                onChange={menuItem.action}
+                                hidden
+                            />
+                            <label htmlFor={`upload-${menuItem.key}`} onClick={menuItem.action}>
                                 <div className={styles.icon}>
                                     <FontAwesomeIcon icon={menuItem.icon} />
                                 </div>
@@ -35,7 +41,7 @@ export const BurgerMenu: FC<BurgerMenuProps> = ({ items }) => {
                             </label>
                         </div>
                     ) : (
-                        <div className={styles.menuItem} onClick={menuItem.action} key={index}>
+                        <div className={styles.menuItem} onClick={menuItem.action} key={menuItem.key}>
                             <div className={styles.icon}>
                                 <FontAwesomeIcon icon={menuItem.icon} />
                             </div>

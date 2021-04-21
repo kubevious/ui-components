@@ -13,17 +13,20 @@ export const Default: Story = () => (
         <BurgerMenu
             items={[
                 {
+                    key: 'export',
                     text: 'Export rules',
                     icon: faFileExport,
                     action: () => console.log('Export rules'),
                 },
                 {
+                    key: 'import',
                     text: 'Import rules',
                     icon: faFileImport,
                     action: () => console.log('Import rules'),
                     isUploadFile: true,
                 },
                 {
+                    key: 'replace',
                     text: 'Replace rules',
                     icon: faFileDownload,
                     action: () => console.log('Replace rules'),
