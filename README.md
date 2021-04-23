@@ -12,4 +12,5 @@ Contains common and basic components such as:
 - Link
 - OperationLog
 - Popup
+- Tabs
 - YamlControlBar

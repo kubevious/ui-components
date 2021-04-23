@@ -25,3 +25,6 @@ export { CopyButton } from './YamlControlBar/BarButtons/CopyButton';
 export { BurgerMenu } from './BurgerMenu';
 
 export { isValidJson } from './isValidJson';
+
+export { Tabs } from './Tabs';
+export { Tab } from './Tabs/Tab';
