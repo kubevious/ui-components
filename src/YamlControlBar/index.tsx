@@ -26,11 +26,13 @@ export const YamlControlBar: FC<YamlControlBarProps> = ({
     let editorLine : string;
     if (isValidJson(value)) {
         const parsedObj = JSON.parse(value);
+        let parts: any[];
         if (_.isArray(parsedObj)) {
-            editorLine = parsedObj.join('\n');
+            parts = parsedObj;
         } else {
-            editorLine = JSON.stringify(parsedObj, null, 4);
+            parts = [parsedObj];
         }
+        editorLine = parts.map(x => JSON.stringify(parsedObj, null, 4)).join('\n');
     } else {
         editorLine = value;
     }
