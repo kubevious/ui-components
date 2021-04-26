@@ -1,3 +1,4 @@
+import _ from 'the-lodash';
 import React, { FC } from 'react';
 import { isValidJson } from '../isValidJson';
 import { CopyButton } from './BarButtons/CopyButton';
@@ -21,7 +22,18 @@ export const YamlControlBar: FC<YamlControlBarProps> = ({
     className = '',
     mode = 'yaml',
 }) => {
-    const editorLine = isValidJson(value) ? JSON.parse(value).join('\n') : value;
+
+    let editorLine : string;
+    if (isValidJson(value)) {
+        const parsedObj = JSON.parse(value);
+        if (_.isArray(parsedObj)) {
+            editorLine = parsedObj.join('\n');
+        } else {
+            editorLine = JSON.stringify(parsedObj, null, 4);
+        }
+    } else {
+        editorLine = value;
+    }
 
     return (
         <>
