@@ -32,7 +32,7 @@ export const YamlControlBar: FC<YamlControlBarProps> = ({
         } else {
             parts = [parsedObj];
         }
-        editorLine = parts.map(x => JSON.stringify(parsedObj, null, 4)).join('\n');
+        editorLine = parts.map(x => JSON.stringify(x, null, 4)).join('\n');
     } else {
         editorLine = value;
     }
