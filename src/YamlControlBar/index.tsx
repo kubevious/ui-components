@@ -37,6 +37,10 @@ export const YamlControlBar: FC<YamlControlBarProps> = ({
         editorLine = value;
     }
 
+    if (!editorLine) {
+        editorLine = ""
+    }
+
     return (
         <>
             <div data-testid="yaml-control-bar" className="text-area-btn-wrapper response-btn-wrapper">
