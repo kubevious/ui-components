@@ -1,52 +1,40 @@
-import _ from 'the-lodash';
 import React, { FC } from 'react';
-import { isValidJson } from '../isValidJson';
 import { CopyButton } from './BarButtons/CopyButton';
 import { DownloadButton } from './BarButtons/DownloadButton';
 import { Controlled as CodeMirrorEditor } from 'react-codemirror2';
 
 import './styles.scss';
-import { YamlControlBarProps } from './types';
+import { CodeControlBarProps } from './types';
 
 require('codemirror/theme/darcula.css');
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/yaml/yaml');
 require('codemirror/mode/shell/shell');
+require('codemirror/mode/javascript/javascript');
 
-export const YamlControlBar: FC<YamlControlBarProps> = ({
-    value,
+export const CodeControlBar: FC<CodeControlBarProps> = ({
+    value = '',
     beforeChange,
-    text = '',
-    buttonText = '',
     downloadButton,
     className = '',
     mode = 'yaml',
 }) => {
+    let editorLine = '';
 
-    let editorLine : string;
-    if (isValidJson(value)) {
-        const parsedObj = JSON.parse(value);
-        let parts: any[];
-        if (_.isArray(parsedObj)) {
-            parts = parsedObj;
-        } else {
-            parts = [parsedObj];
-        }
-        editorLine = parts.map(x => JSON.stringify(x, null, 4)).join('\n');
-    } else {
+    if (Array.isArray(value)) {
+        editorLine = value.join('\n');
+    } else if (typeof value === 'string') {
         editorLine = value;
-    }
-
-    if (!editorLine) {
-        editorLine = ""
+    } else {
+        editorLine = JSON.stringify(value, null, 4);
     }
 
     return (
         <>
-            <div data-testid="yaml-control-bar" className="text-area-btn-wrapper response-btn-wrapper">
-                {downloadButton && <DownloadButton text={text} />}
+            <div data-testid="code-control-bar" className="text-area-btn-wrapper response-btn-wrapper">
+                {downloadButton && <DownloadButton text={editorLine} />}
                 <div className="footer">
-                    <CopyButton text={text} buttonText={buttonText} />
+                    <CopyButton text={editorLine} />
                 </div>
             </div>
 

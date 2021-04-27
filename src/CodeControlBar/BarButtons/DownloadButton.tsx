@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { DownloadButtonProps } from './types';
+import cx from 'classnames';
 
-import './styles.scss';
+import styles from './styles.module.css';
 
 export const DownloadButton: FC<DownloadButtonProps> = ({ text = '' }) => {
     const downloadFile = async () => {
@@ -19,7 +20,7 @@ export const DownloadButton: FC<DownloadButtonProps> = ({ text = '' }) => {
     };
 
     return (
-        <button className="download main-btn" onClick={downloadFile} title="Download">
+        <button className={cx(styles.barBtn, styles.downloadBtn)} onClick={downloadFile} title="Download">
             <FontAwesomeIcon icon={faDownload} />
         </button>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest';
 
-import { YamlControlBar } from '../src';
+import { CodeControlBar } from '../src';
 import { render } from '@testing-library/react';
 
 document.createRange = () => {
@@ -20,13 +20,13 @@ document.createRange = () => {
 
 const handleBeforeChange = jest.fn();
 
-const renderComponent = () => render(<YamlControlBar value={'test value'} beforeChange={handleBeforeChange} />);
+const renderComponent = () => render(<CodeControlBar value={'test value'} beforeChange={handleBeforeChange} />);
 
-describe('<YamlControlBar />', () => {
-    test('should check that the component YamlControlBar is rendered', async () => {
+describe('<CodeControlBar />', () => {
+    test('should check that the component CodeControlBar is rendered', async () => {
         const { findByTestId } = renderComponent();
 
-        const yamlControlBar = await findByTestId('yaml-control-bar');
+        const yamlControlBar = await findByTestId('code-control-bar');
         expect(yamlControlBar).toBeTruthy();
     });
 });

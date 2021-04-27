@@ -1,10 +1,6 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { YamlControlBar } from '../YamlControlBar';
-
-export default {
-    title: 'YamlControlBar',
-};
+import { CodeControlBar } from '../CodeControlBar';
 
 const commands = [
     'kubectl create namespace kubevious-agent',
@@ -13,14 +9,27 @@ const commands = [
     'helm upgrade --atomic -i -n kubevious-agent kubevious-agent kubevious/kubevious-agent',
 ];
 
-export const Default: Story = () => (
+export const Default: Story = (props) => (
     <div>
-        <YamlControlBar value="kubectl create namespace kubevious-agent" downloadButton />
+        <CodeControlBar value={props.value} {...props} />
     </div>
 );
-
-export const ArrayOfCommands: Story = () => (
-    <div>
-        <YamlControlBar value={JSON.stringify(commands, null, 4)} downloadButton mode="shell" />
-    </div>
-);
+export default {
+    title: 'CodeControlBar',
+    component: CodeControlBar,
+    args: {
+        value: commands,
+        downloadButton: true,
+        mode: 'yaml',
+        beforeChange: () => console.log('beforeChange'),
+    },
+    argTypes: {
+        value: {
+            control: 'text',
+        },
+        mode: {
+            control: 'select',
+            options: ['yaml', 'javascript', 'shell'],
+        },
+    },
+};
