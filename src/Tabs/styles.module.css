@@ -1,19 +1,22 @@
 .header {
     display: flex;
     font-size: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     color: white;
 }
 
 .tab {
-    margin-right: 20px;
-    color: #737888;
+    margin-right: 30px;
+    color: white;
     font-size: 16px;
-    padding: 0 20px;
     cursor: pointer;
+    line-height: 20px;
+    padding-bottom: 10px;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .selectedTab {
     color: white !important;
     border-bottom: 1px solid #4ecd77;
+    font-weight: bold;
 }
