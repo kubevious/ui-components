@@ -1,0 +1,39 @@
+:global(.btn) {
+    border-radius: 3px;
+    min-width: 160px;
+    outline: none;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    line-height: 18px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+:global(.btn:focus) {
+    outline: none;
+}
+
+.success {
+    background: #4ECD77;
+    border: none;
+}
+
+.danger {
+    color: #F34C4C;
+    font-weight: normal;
+}
+
+.danger:hover {
+    color: #bd3535;
+    font-weight: normal;
+}
+
+.ghost {
+    background: #2F3036;
+    border: 1px solid #FFFFFF;
+}
+
+.ghost:hover {
+    border: 1px solid #FFFFFF;
+    background: #4f4f53;
+}

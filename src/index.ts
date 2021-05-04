@@ -28,3 +28,5 @@ export { isValidJson } from './isValidJson';
 
 export { Tabs } from './Tabs';
 export { Tab } from './Tabs/Tab';
+
+export { Button } from './Button';
