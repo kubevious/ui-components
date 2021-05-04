@@ -2,6 +2,8 @@
 
 Contains common and basic components such as:
 - BurgerMenu
+- Button
+- CodeControlBar
 - CopyClipboard
 - DnComponent
 - DnIconComponent
@@ -9,8 +11,9 @@ Contains common and basic components such as:
 - DnShortcutComponent
 - ErrorBox
 - GoldenLayout
+- Input
 - Link
 - OperationLog
 - Popup
 - Tabs
-- YamlControlBar
+- Textarea
