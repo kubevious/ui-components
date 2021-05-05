@@ -1,6 +1,7 @@
 export { BurgerMenu } from './BurgerMenu';
 export { Button } from './Button';
 
+export { Checkbox } from './Checkbox';
 export { CodeControlBar } from './CodeControlBar';
 export { CopyButton } from './CodeControlBar/BarButtons/CopyButton';
 export { CopyClipboard } from './CopyClipboard';
@@ -23,12 +24,12 @@ export { PageLink } from './Link';
 
 export { OperationLog } from './OperationLog';
 
-export { PageHeader } from './PageHeader'
+export { PageHeader } from './PageHeader';
 
 export { Popup } from './Popup';
 
 export { Tabs } from './Tabs';
 export { Tab } from './Tabs/Tab';
-export { Textarea } from './Textarea'
+export { Textarea } from './Textarea';
 
 export { isValidJson } from './isValidJson';
