@@ -19,3 +19,7 @@
     resize: none;
     height: 100%;
 }
+
+.hasError {
+    border-color: #FF5858;
+}

@@ -13,8 +13,12 @@ export const Default: Story = () => (
             <Input />
         </div>
 
-        <div>
+        <div style={{ marginBottom: '1rem' }}>
             <Input label="Marker name" onChange={(e) => console.log('VALUE => ', e.target.value)} />
+        </div>
+
+        <div>
+            <Input label="With error" hasError />
         </div>
     </div>
 );

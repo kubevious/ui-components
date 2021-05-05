@@ -16,3 +16,7 @@
     margin-top: 5px;
     outline: none;
 }
+
+.hasError {
+    border-color: #FF5858;
+}
