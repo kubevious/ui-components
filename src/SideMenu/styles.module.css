@@ -4,6 +4,10 @@
     height: 100%;
 }
 
+.collapsed {
+    width: 80px;
+}
+
 .header {
     display: flex;
     justify-content: center;

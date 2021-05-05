@@ -25,26 +25,27 @@ export interface SideMenuFooterItem {
 export interface SideMenuProps {
     sections: SideMenuSection[];
     footer?: SideMenuFooterItem[];
+    isCollapsed: boolean;
 }
 
-export const SideMenu: FC<SideMenuProps> = ({ sections, footer }) => (
-    <aside className={styles.container}>
+export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) => (
+    <aside className={cx(styles.container, { [styles.collapsed]: isCollapsed })}>
         <div style={{ height: '100%' }} className="d-flex flex-column justify-content-between">
             <div>
                 <div className={styles.header}>
-                    <img src="/img/logoBig.svg" />
+                    {isCollapsed ? <img src="/img/logoSmall.svg" /> : <img src="/img/logoBig.svg" />}
                 </div>
 
-                <div>
+                <div style={{ marginTop: isCollapsed ? '30px' : 0 }}>
                     {sections.map((section) => (
                         <div>
-                            <div className={styles.sectionLabel}>{section.name}</div>
+                            {!isCollapsed && <div className={styles.sectionLabel}>{section.name}</div>}
 
                             <div>
                                 {section.items.map((item) => (
                                     <div className={cx(styles.itemBlock, { [styles.selectedItem]: item.selected })}>
                                         <img src={item.icon} />
-                                        <div className="ms-4">{item.label}</div>
+                                        {!isCollapsed && <div className="ms-4">{item.label}</div>}
                                     </div>
                                 ))}
                             </div>
@@ -58,7 +59,7 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer }) => (
                     {footer.map((item) => (
                         <div className={styles.itemBlock} onClick={item.onClick}>
                             <img src={item.icon} />
-                            <div className="ms-4">{item.label}</div>
+                            {!isCollapsed && <div className="ms-4">{item.label}</div>}
                         </div>
                     ))}
                 </div>
