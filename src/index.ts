@@ -28,6 +28,8 @@ export { PageHeader } from './PageHeader';
 
 export { Popup } from './Popup';
 
+export { SideMenu } from './SideMenu';
+
 export { Tabs } from './Tabs';
 export { Tab } from './Tabs/Tab';
 export { Textarea } from './Textarea';
