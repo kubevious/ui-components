@@ -114,7 +114,7 @@ export const Collapsed: Story = () => (
                 {
                     key: 'close',
                     label: 'Close',
-                    icon: 'menu/close.svg',
+                    icon: 'menu/open.svg',
                     onClick: () => console.log('Close!'),
                 },
             ]}

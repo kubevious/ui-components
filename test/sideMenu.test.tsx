@@ -9,7 +9,7 @@ const renderComponent = (props: SideMenuProps): RenderResult => render(<SideMenu
 
 describe('<SideMenu />', () => {
     test('should render side menu', () => {
-        const { container } = renderComponent({ sections: [], footer: [] });
+        const { container } = renderComponent({ sections: [], footer: [], isCollapsed: false });
 
         expect(container).toBeTruthy();
     });
