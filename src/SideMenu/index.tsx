@@ -39,8 +39,8 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                 </div>
 
                 <div style={{ marginTop: isCollapsed ? '30px' : 0 }}>
-                    {sections.map((section) => (
-                        <div>
+                    {sections.map((section, index) => (
+                        <div key={index}>
                             {!isCollapsed && <div className={styles.sectionLabel}>{section.name}</div>}
 
                             <div>
@@ -48,6 +48,7 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                                     <Link
                                         className={cx(styles.itemBlock, { [styles.selectedItem]: item.selected })}
                                         to={item.url}
+                                        key={item.key}
                                     >
                                         <img src={item.icon} />
                                         {!isCollapsed && (
@@ -64,7 +65,7 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
             {footer && (
                 <div className={styles.footer}>
                     {footer.map((item) => (
-                        <div className={styles.itemBlock} onClick={item.onClick}>
+                        <div className={styles.itemBlock} onClick={item.onClick} key={item.key}>
                             <img src={item.icon} />
                             {!isCollapsed && <div className="ms-4">{item.label}</div>}
                         </div>
