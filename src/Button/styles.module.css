@@ -37,3 +37,8 @@
     border: 1px solid #FFFFFF;
     background: #4f4f53;
 }
+
+.dark {
+    background: #656565;
+    color: black;
+}

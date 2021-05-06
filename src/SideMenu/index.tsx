@@ -45,14 +45,15 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
 
                             <div>
                                 {section.items.map((item) => (
-                                    <div className={cx(styles.itemBlock, { [styles.selectedItem]: item.selected })}>
+                                    <Link
+                                        className={cx(styles.itemBlock, { [styles.selectedItem]: item.selected })}
+                                        to={item.url}
+                                    >
                                         <img src={item.icon} />
                                         {!isCollapsed && (
-                                            <Link to={item.url} className={cx('ms-4', styles.itemLink)}>
-                                                {item.label}
-                                            </Link>
+                                            <span className={cx('ms-4', styles.itemLink)}>{item.label}</span>
                                         )}
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

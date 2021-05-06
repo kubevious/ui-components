@@ -4,12 +4,12 @@ import cx from 'classnames';
 import styles from './styles.module.css';
 
 export interface ButtonProps {
-    type: 'success' | 'danger' | 'ghost';
+    type?: 'success' | 'danger' | 'ghost' | 'dark';
     onClick?: () => any;
     htmlType?: 'button' | 'submit' | 'reset';
 }
 
-export const Button: FC<ButtonProps> = ({ type, children, onClick, htmlType = 'button', ...rest }) => (
+export const Button: FC<ButtonProps> = ({ type = 'success', children, onClick, htmlType = 'button', ...rest }) => (
     <button
         type={htmlType}
         onClick={onClick}

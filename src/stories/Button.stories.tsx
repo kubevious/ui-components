@@ -20,5 +20,9 @@ export const Default: Story = () => (
         <div style={{ marginBottom: '1rem' }}>
             <Button type="ghost">Ghost</Button>
         </div>
+
+        <div style={{ marginBottom: '1rem' }}>
+            <Button type="dark">Dark</Button>
+        </div>
     </div>
 );
