@@ -20,11 +20,10 @@ export { GoldenLayoutWindowInfo, GoldenLayoutLocation, GoldenWindowCloseHandler 
 
 export { Input } from './Input';
 
-export { PageLink } from './Link';
-
 export { OperationLog } from './OperationLog';
 
 export { PageHeader } from './PageHeader';
+export { PageLink } from './PageLink';
 
 export { Popup } from './Popup';
 

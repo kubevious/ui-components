@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
@@ -7,6 +8,7 @@ export interface SideMenuItem {
     key: string;
     label: string;
     icon: string;
+    url: string;
     selected: boolean;
 }
 
@@ -45,7 +47,11 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                                 {section.items.map((item) => (
                                     <div className={cx(styles.itemBlock, { [styles.selectedItem]: item.selected })}>
                                         <img src={item.icon} />
-                                        {!isCollapsed && <div className="ms-4">{item.label}</div>}
+                                        {!isCollapsed && (
+                                            <Link to={item.url} className={cx('ms-4', styles.itemLink)}>
+                                                {item.label}
+                                            </Link>
+                                        )}
                                     </div>
                                 ))}
                             </div>

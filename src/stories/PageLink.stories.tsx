@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { PageLink } from '../Link';
+import { PageLink } from '../PageLink';
 
 export default {
-    title: 'Link',
+    title: 'PageLink',
 };
 
 export const Default: Story = () => (
