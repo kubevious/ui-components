@@ -27,7 +27,7 @@ export { PageLink } from './PageLink';
 
 export { Popup } from './Popup';
 
-export { SideMenu } from './SideMenu';
+export { SideMenu, SideMenuItem, SideMenuFooterItem, SideMenuProps, SideMenuSection } from './SideMenu';
 
 export { Tabs } from './Tabs';
 export { Tab } from './Tabs/Tab';

@@ -1,3 +1,4 @@
+import { faBug } from '@fortawesome/free-solid-svg-icons';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -19,9 +20,8 @@ export const Default: Story = () => (
                             {
                                 key: 'dashboard',
                                 label: 'Dashboard',
-                                icon: '/menu/dashboard.svg',
+                                icon: '/dashboard.svg',
                                 url: '/',
-                                selected: true,
                             },
                         ],
                     },
@@ -31,23 +31,26 @@ export const Default: Story = () => (
                             {
                                 key: 'clusters',
                                 label: 'Clusters',
-                                icon: '/menu/clusters.svg',
+                                icon: '/clusters.svg',
                                 url: '/clusters',
-                                selected: false,
                             },
                             {
                                 key: 'rules',
                                 label: 'Rules',
-                                icon: '/menu/rules.svg',
+                                icon: '/rules.svg',
                                 url: '/rules',
-                                selected: false,
                             },
                             {
                                 key: 'markers',
                                 label: 'Markers',
-                                icon: '/menu/markers.svg',
+                                icon: '/markers.svg',
                                 url: '/markers',
-                                selected: false,
+                            },
+                            {
+                                key: 'font-awesome',
+                                label: 'Font awesome',
+                                faIcon: faBug,
+                                url: '/font-awesome',
                             },
                         ],
                     },
@@ -56,13 +59,13 @@ export const Default: Story = () => (
                     {
                         key: 'logout',
                         label: 'Log out',
-                        icon: 'menu/logout.svg',
+                        icon: '/logout.svg',
                         onClick: () => console.log('Sign out!'),
                     },
                     {
                         key: 'close',
                         label: 'Close',
-                        icon: 'menu/close.svg',
+                        icon: '/close.svg',
                         onClick: () => console.log('Close!'),
                     },
                 ]}
@@ -83,9 +86,8 @@ export const Collapsed: Story = () => (
                             {
                                 key: 'dashboard',
                                 label: 'Dashboard',
-                                icon: '/menu/dashboard.svg',
+                                icon: '/dashboard.svg',
                                 url: '/',
-                                selected: true,
                             },
                         ],
                     },
@@ -95,23 +97,20 @@ export const Collapsed: Story = () => (
                             {
                                 key: 'clusters',
                                 label: 'Clusters',
-                                icon: '/menu/clusters.svg',
+                                icon: '/clusters.svg',
                                 url: '/clusters',
-                                selected: false,
                             },
                             {
                                 key: 'rules',
                                 label: 'Rules',
-                                icon: '/menu/rules.svg',
+                                icon: '/rules.svg',
                                 url: '/rules',
-                                selected: false,
                             },
                             {
                                 key: 'markers',
                                 label: 'Markers',
-                                icon: '/menu/markers.svg',
+                                icon: '/markers.svg',
                                 url: '/markers',
-                                selected: false,
                             },
                         ],
                     },
@@ -120,13 +119,13 @@ export const Collapsed: Story = () => (
                     {
                         key: 'logout',
                         label: 'Log out',
-                        icon: 'menu/logout.svg',
+                        icon: '/logout.svg',
                         onClick: () => console.log('Sign out!'),
                     },
                     {
                         key: 'close',
                         label: 'Close',
-                        icon: 'menu/open.svg',
+                        icon: '/open.svg',
                         onClick: () => console.log('Close!'),
                     },
                 ]}

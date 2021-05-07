@@ -1,5 +1,7 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
@@ -7,9 +9,9 @@ import styles from './styles.module.css';
 export interface SideMenuItem {
     key: string;
     label: string;
-    icon: string;
+    icon?: string;
+    faIcon?: IconProp;
     url: string;
-    selected: boolean;
 }
 
 export interface SideMenuSection {
@@ -20,7 +22,8 @@ export interface SideMenuSection {
 export interface SideMenuFooterItem {
     key: string;
     label: string;
-    icon: string;
+    icon?: string;
+    faIcon?: IconProp;
     onClick: () => void;
 }
 
@@ -45,16 +48,27 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
 
                             <div>
                                 {section.items.map((item) => (
-                                    <Link
-                                        className={cx(styles.itemBlock, { [styles.selectedItem]: item.selected })}
+                                    <NavLink
+                                        className={cx(styles.itemBlock)}
+                                        activeClassName={styles.selectedItem}
                                         to={item.url}
                                         key={item.key}
                                     >
-                                        <img src={item.icon} />
+                                        {item.icon ? (
+                                            <img src={`/img/menu/${item.icon}`} />
+                                        ) : (
+                                            <FontAwesomeIcon
+                                                icon={item.faIcon!}
+                                                style={{
+                                                    width: '24px',
+                                                    height: '24px',
+                                                }}
+                                            />
+                                        )}
                                         {!isCollapsed && (
                                             <span className={cx('ms-4', styles.itemLink)}>{item.label}</span>
                                         )}
-                                    </Link>
+                                    </NavLink>
                                 ))}
                             </div>
                         </div>
@@ -66,7 +80,11 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                 <div className={styles.footer}>
                     {footer.map((item) => (
                         <div className={styles.itemBlock} onClick={item.onClick} key={item.key}>
-                            <img src={item.icon} />
+                            {item.icon ? (
+                                <img src={`/img/menu/${item.icon}`} />
+                            ) : (
+                                <FontAwesomeIcon icon={item.faIcon!} style={{ width: '24px', height: '24px' }} />
+                            )}
                             {!isCollapsed && <div className="ms-4">{item.label}</div>}
                         </div>
                     ))}
