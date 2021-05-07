@@ -1,40 +1,31 @@
 import _ from 'the-lodash';
 import React, { FC } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { LinkProps } from './types';
 
 import styles from './styles.module.css';
 
 export const PageLink: FC<LinkProps> = ({ name, path, searchParams }) => {
-    const history = useHistory();
-
-    const openPage = (): void => {
-        history.push({
-            pathname: path,
-            search: encodeSearchQuery(searchParams),
-        });
+    const encodeSearchQuery = (searchParams?: Record<string, any>) => {
+        const parts: string[] = [];
+        if (searchParams) {
+            for (const key of _.keys(searchParams)) {
+                const value = searchParams[key];
+                if (_.isNotNullOrUndefined(value)) {
+                    parts.push(`${encodeURIComponent(key)}=${encodeURIComponent(_.toString(value))}`);
+                }
+            }
+        }
+        return parts.join('&');
     };
 
     return (
-        <a className={styles.link} data-testid="link" onClick={openPage}>
+        <Link to={`${path}?${encodeSearchQuery(searchParams)}`} className={styles.link} data-testid="link">
             {name}
-        </a>
+        </Link>
     );
 };
-
-function encodeSearchQuery(searchParams?: Record<string, any>) {
-    const parts: string[] = [];
-    if (searchParams) {
-        for (let key of _.keys(searchParams)) {
-            let value = searchParams[key];
-            if (_.isNotNullOrUndefined(value)) {
-                parts.push(`${encodeURIComponent(key)}=${encodeURIComponent(_.toString(value))}`);
-            }
-        }
-    }
-    return parts.join('&');
-}
 
 // function encodeUrl(path: string, searchParams? : Record<string, any>)
 // {
