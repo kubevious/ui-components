@@ -40,6 +40,12 @@ export const Default: Story = () => (
             </div>
 
             <div style={{ marginBottom: '1rem' }}>
+                <Button type="dark" disabled>
+                    Disabled
+                </Button>
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
                 <Button type="success">
                     <PageLink name="Link" path="/somewhere" />
                 </Button>

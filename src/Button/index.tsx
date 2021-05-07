@@ -1,33 +1,20 @@
-import React, { CSSProperties, FC } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
 
-export interface ButtonProps {
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
     type?: 'success' | 'danger' | 'ghost' | 'dark';
-    onClick?: () => any;
     htmlType?: 'button' | 'submit' | 'reset';
-    className?: string;
-    style?: CSSProperties;
 }
 
-export const Button: FC<ButtonProps> = ({
-    type = 'success',
-    children,
-    onClick,
-    htmlType = 'button',
-    className,
-    style,
-    ...rest
-}) => (
+export const Button: FC<ButtonProps> = ({ type = 'success', children, htmlType = 'button', ...rest }) => (
     <button
         type={htmlType}
-        onClick={onClick}
-        className={cx('btn', className, styles[type], {
+        className={cx(rest.className, 'btn', styles[type], {
             'btn-success': type === 'success',
             'btn-dark': type === 'ghost',
         })}
-        style={style}
         {...rest}
     >
         {children}
