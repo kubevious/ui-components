@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 import styles from './styles.module.css'
 
 export interface PageHeaderProps {
-    title: string;
+    title: ReactNode;
 }
 
 export const PageHeader: FC<PageHeaderProps> = ({ title, children }) => (

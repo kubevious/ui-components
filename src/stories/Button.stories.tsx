@@ -28,6 +28,18 @@ export const Default: Story = () => (
             </div>
 
             <div style={{ marginBottom: '1rem' }}>
+                <Button type="dark" className="custom-class">
+                    With custom class name
+                </Button>
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <Button type="dark" style={{ background: 'yellow' }}>
+                    With custom style
+                </Button>
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
                 <Button type="success">
                     <PageLink name="Link" path="/somewhere" />
                 </Button>
