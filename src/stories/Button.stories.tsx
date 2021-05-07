@@ -1,6 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { Button } from '..';
+import { BrowserRouter } from 'react-router-dom';
+import { Button, PageLink } from '..';
 
 export default {
     title: 'Button',
@@ -8,21 +9,29 @@ export default {
 };
 
 export const Default: Story = () => (
-    <div style={{ background: '#212122', padding: '1rem' }}>
-        <div style={{ marginBottom: '1rem' }}>
-            <Button type="success">Success</Button>
-        </div>
+    <BrowserRouter>
+        <div style={{ background: '#212122', padding: '1rem' }}>
+            <div style={{ marginBottom: '1rem' }}>
+                <Button type="success">Success</Button>
+            </div>
 
-        <div style={{ marginBottom: '1rem' }}>
-            <Button type="danger">Danger</Button>
-        </div>
+            <div style={{ marginBottom: '1rem' }}>
+                <Button type="danger">Danger</Button>
+            </div>
 
-        <div style={{ marginBottom: '1rem' }}>
-            <Button type="ghost">Ghost</Button>
-        </div>
+            <div style={{ marginBottom: '1rem' }}>
+                <Button type="ghost">Ghost</Button>
+            </div>
 
-        <div style={{ marginBottom: '1rem' }}>
-            <Button type="dark">Dark</Button>
+            <div style={{ marginBottom: '1rem' }}>
+                <Button type="dark">Dark</Button>
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <Button type="success">
+                    <PageLink name="Link" path="/somewhere" />
+                </Button>
+            </div>
         </div>
-    </div>
+    </BrowserRouter>
 );

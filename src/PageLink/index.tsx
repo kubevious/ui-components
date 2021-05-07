@@ -6,7 +6,7 @@ import { LinkProps } from './types';
 
 import styles from './styles.module.css';
 
-export const PageLink: FC<LinkProps> = ({ name, path, searchParams }) => {
+export const PageLink: FC<LinkProps> = ({ name, path, searchParams, ...rest }) => {
     const encodeSearchQuery = (searchParams?: Record<string, any>) => {
         const parts: string[] = [];
         if (searchParams) {
@@ -21,7 +21,7 @@ export const PageLink: FC<LinkProps> = ({ name, path, searchParams }) => {
     };
 
     return (
-        <Link to={`${path}?${encodeSearchQuery(searchParams)}`} className={styles.link} data-testid="link">
+        <Link to={`${path}?${encodeSearchQuery(searchParams)}`} className={styles.link} data-testid="link" {...rest}>
             {name}
         </Link>
     );

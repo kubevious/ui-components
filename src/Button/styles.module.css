@@ -18,9 +18,17 @@
     border: none;
 }
 
+.success a {
+    color: white;
+}
+
 .danger {
     color: #F34C4C;
     font-weight: normal;
+}
+
+.danger a {
+    color: #F34C4C;
 }
 
 .danger:hover {
@@ -33,6 +41,10 @@
     border: 1px solid #FFFFFF;
 }
 
+.ghost a {
+    color: white;
+}
+
 .ghost:hover {
     border: 1px solid #FFFFFF;
     background: #4f4f53;
@@ -40,5 +52,9 @@
 
 .dark {
     background: #656565;
+    color: black;
+}
+
+.dark a {
     color: black;
 }

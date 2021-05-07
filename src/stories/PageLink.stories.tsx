@@ -20,7 +20,7 @@ export const Default: Story = () => (
 
             <div style={{ marginBottom: '1rem' }}>
                 <PageLink
-                    name="With meny query params"
+                    name="With many query params"
                     path="/link"
                     searchParams={{ clusterId: '1', clusterName: 'cluster' }}
                 />
