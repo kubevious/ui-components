@@ -18,6 +18,7 @@ export { Error } from './ErrorBox/types';
 export { GoldenLayout } from './GoldenLayout';
 export { GoldenLayoutWindowInfo, GoldenLayoutLocation, GoldenWindowCloseHandler } from './GoldenLayout/types';
 
+export { InnerPage, InnerPageProps } from './InnerPage';
 export { Input } from './Input';
 
 export { OperationLog } from './OperationLog';
