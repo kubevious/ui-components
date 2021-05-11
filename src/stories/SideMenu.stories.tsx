@@ -134,3 +134,74 @@ export const Collapsed: Story = () => (
         </div>
     </BrowserRouter>
 );
+
+export const WithItemsActions: Story = () => (
+    <BrowserRouter>
+        <div style={{ height: '100vh' }}>
+            <SideMenu
+                sections={[
+                    {
+                        name: 'Dashboard',
+                        items: [
+                            {
+                                key: 'dashboard',
+                                label: 'Dashboard',
+                                icon: '/dashboard.svg',
+                                url: '/',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Setup',
+                        items: [
+                            {
+                                key: 'clusters',
+                                label: 'Clusters',
+                                icon: '/clusters.svg',
+                                url: '/clusters',
+                            },
+                            {
+                                key: 'rules',
+                                label: 'Rules',
+                                icon: '/rules.svg',
+                                url: '/rules',
+                            },
+                            {
+                                key: 'markers',
+                                label: 'Markers',
+                                icon: '/markers.svg',
+                                url: '/markers',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Dev tools',
+                        items: [
+                            {
+                                key: 'shared-state-debugger',
+                                label: 'Shared State Debugger',
+                                faIcon: faBug,
+                                onClick: () => console.log('Shared State Debugger'),
+                            },
+                        ],
+                    },
+                ]}
+                footer={[
+                    {
+                        key: 'logout',
+                        label: 'Log out',
+                        icon: '/logout.svg',
+                        onClick: () => console.log('Sign out!'),
+                    },
+                    {
+                        key: 'close',
+                        label: 'Close',
+                        icon: '/close.svg',
+                        onClick: () => console.log('Close!'),
+                    },
+                ]}
+                isCollapsed={false}
+            />
+        </div>
+    </BrowserRouter>
+);

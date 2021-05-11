@@ -6,13 +6,23 @@ import cx from 'classnames';
 
 import styles from './styles.module.css';
 
-export interface SideMenuItem {
-    key: string;
-    label: string;
-    icon?: string;
-    faIcon?: IconProp;
-    url: string;
-}
+export type SideMenuItem =
+    | {
+          key: string;
+          label: string;
+          icon?: string;
+          faIcon?: IconProp;
+          url: string;
+          onClick?: never;
+      }
+    | {
+          key: string;
+          label: string;
+          icon?: string;
+          faIcon?: IconProp;
+          url?: never;
+          onClick: () => any;
+      };
 
 export interface SideMenuSection {
     name: string;
@@ -47,29 +57,48 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                             {!isCollapsed && <div className={styles.sectionLabel}>{section.name}</div>}
 
                             <div>
-                                {section.items.map((item) => (
-                                    <NavLink
-                                        className={cx(styles.itemBlock)}
-                                        activeClassName={styles.selectedItem}
-                                        to={item.url}
-                                        key={item.key}
-                                    >
-                                        {item.icon ? (
-                                            <img src={`/img/menu/${item.icon}`} />
-                                        ) : (
-                                            <FontAwesomeIcon
-                                                icon={item.faIcon!}
-                                                style={{
-                                                    width: '24px',
-                                                    height: '24px',
-                                                }}
-                                            />
-                                        )}
-                                        {!isCollapsed && (
-                                            <span className={cx('ms-4', styles.itemLink)}>{item.label}</span>
-                                        )}
-                                    </NavLink>
-                                ))}
+                                {section.items.map((item) =>
+                                    item.url ? (
+                                        <NavLink
+                                            className={cx(styles.itemBlock)}
+                                            activeClassName={styles.selectedItem}
+                                            to={item.url}
+                                            key={item.key}
+                                        >
+                                            {item.icon ? (
+                                                <img src={`/img/menu/${item.icon}`} />
+                                            ) : (
+                                                <FontAwesomeIcon
+                                                    icon={item.faIcon!}
+                                                    style={{
+                                                        width: '24px',
+                                                        height: '24px',
+                                                    }}
+                                                />
+                                            )}
+                                            {!isCollapsed && (
+                                                <span className={cx('ms-4', styles.itemLink)}>{item.label}</span>
+                                            )}
+                                        </NavLink>
+                                    ) : (
+                                        <div className={cx(styles.itemBlock)} onClick={item.onClick} key={item.key}>
+                                            {item.icon ? (
+                                                <img src={`/img/menu/${item.icon}`} />
+                                            ) : (
+                                                <FontAwesomeIcon
+                                                    icon={item.faIcon!}
+                                                    style={{
+                                                        width: '24px',
+                                                        height: '24px',
+                                                    }}
+                                                />
+                                            )}
+                                            {!isCollapsed && (
+                                                <span className={cx('ms-4', styles.itemLink)}>{item.label}</span>
+                                            )}
+                                        </div>
+                                    ),
+                                )}
                             </div>
                         </div>
                     ))}
