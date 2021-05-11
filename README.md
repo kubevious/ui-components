@@ -3,6 +3,7 @@
 Contains common and basic components such as:
 - BurgerMenu
 - Button
+- Checkbox
 - CodeControlBar
 - CopyClipboard
 - DnComponent
@@ -11,9 +12,12 @@ Contains common and basic components such as:
 - DnShortcutComponent
 - ErrorBox
 - GoldenLayout
+- InnerPage
 - Input
-- Link
 - OperationLog
+- PageHeader
+- PageLink
 - Popup
+- SideMenu
 - Tabs
 - Textarea
