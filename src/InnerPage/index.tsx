@@ -10,7 +10,7 @@ export interface InnerPageProps {
 
 export const InnerPage: FC<InnerPageProps> = ({ narrow, header, children }) => (
     <div className={cx('row', styles.container)}>
-        <div className={cx(narrow ? 'col-6 offset-3' : 'col-12', 'p-5 text-white')}>
+        <div className={cx(narrow ? 'col-6 offset-3' : 'col-12', 'text-white mh-100')}>
             {header}
 
             {children}

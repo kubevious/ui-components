@@ -1,5 +1,5 @@
 export interface LinkProps {
-    name: string;
+    name?: string;
     path: string;
     searchParams?: Record<string, any>;
 }

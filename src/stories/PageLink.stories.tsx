@@ -1,6 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { Button } from '../Button';
 import { PageLink } from '../PageLink';
 
 export default {
@@ -24,6 +25,15 @@ export const Default: Story = () => (
                     path="/link"
                     searchParams={{ clusterId: '1', clusterName: 'cluster' }}
                 />
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <PageLink
+                    path="/link"
+                    searchParams={{ clusterId: '1', clusterName: 'cluster' }}
+                >
+                    <Button>Link button</Button>
+                </PageLink>
             </div>
         </div>
     </BrowserRouter>
