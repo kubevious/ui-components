@@ -1,3 +1,7 @@
+.burgerMenuContainer {
+    position: relative;
+}
+
 .buttonWrapper {
     width: 40px;
     height: 40px;
@@ -17,10 +21,12 @@
 
 .menu {
     position: absolute;
-    right: 0;
+    right: -40px;
+    min-width: 180px;
     background: #767b8b;
     border: 1px solid #4e515b;
     border-radius: 3px;
+    z-index: 1000;
 }
 
 .menu.hidden {
@@ -32,7 +38,6 @@
     border-bottom: 1px solid #4e515b;
     color: white;
     padding: 10px;
-
 }
 
 .menuItem:last-child {
@@ -47,7 +52,6 @@
 .menuItem label {
     display: flex;
     margin: 0;
-
 }
 
 .menuItem label:hover {
