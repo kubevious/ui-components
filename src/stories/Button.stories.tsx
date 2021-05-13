@@ -50,6 +50,16 @@ export const Default: Story = () => (
                     <PageLink name="Link" path="/somewhere" />
                 </Button>
             </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <Button spacingRight>With spacing right</Button>
+                <Button>Simple button</Button>
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <Button>Simple button</Button>
+                <Button spacingLeft>With spacing left</Button>
+            </div>
         </div>
     </BrowserRouter>
 );

@@ -6,3 +6,8 @@
     margin: 0;
     padding: 40px;
 }
+
+.narrowContainer {
+    max-width: 700px;
+    min-width: 700px;
+}

@@ -38,7 +38,7 @@ export const WithHeader: Story = () => (
                 </PageHeader>
             }
         >
-            narrow
+            Page with header
         </InnerPage>
     </div>
 );

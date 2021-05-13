@@ -58,3 +58,11 @@
 .dark a {
     color: black;
 }
+
+.spacingRight {
+    margin-right: 20px;
+}
+
+.spacingLeft {
+    margin-left: 20px;
+}

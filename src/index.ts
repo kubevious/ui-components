@@ -25,6 +25,7 @@ export { OperationLog } from './OperationLog';
 
 export { PageHeader } from './PageHeader';
 export { PageLink } from './PageLink';
+export * from './PageLinkButton';
 
 export { Popup } from './Popup';
 
