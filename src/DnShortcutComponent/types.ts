@@ -1,15 +1,15 @@
-export interface MarkerDict {
+export interface MarkerInfo {
     shape: string;
     color: string;
 }
 
-export interface SelectedData {
+export interface DnShortcutComponentProps {
     dn: string;
-    id?: number;
+    clusterId?: string,
     errors?: number;
     warnings?: number;
+    markers?: string[];
     options?: {
         relativeTo?: string;
     };
-    markers?: string[];
 }

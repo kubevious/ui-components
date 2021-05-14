@@ -6,13 +6,13 @@ export { CodeControlBar } from './CodeControlBar';
 export { CopyButton } from './CodeControlBar/BarButtons/CopyButton';
 export { CopyClipboard } from './CopyClipboard';
 
-export { DnComponent } from './DnComponent';
+export { DnPath } from './DnPath';
 export { DnIconComponent, getEntityImgUrl } from './DnIconComponent';
-export { DnPath } from './DnPath/index';
-
+export { DnComponent } from './DnComponent';
 export { DnShortcutComponent } from './DnShortcutComponent';
-export { ErrorBox } from './ErrorBox';
+export { DnList } from './DnList'
 
+export { ErrorBox } from './ErrorBox';
 export { Error } from './ErrorBox/types';
 
 export { GoldenLayout } from './GoldenLayout';
@@ -38,3 +38,4 @@ export { Textarea } from './Textarea';
 export { isValidJson } from './isValidJson';
 
 export * from './MarkerPreview';
+

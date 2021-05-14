@@ -1,22 +1,27 @@
 import React, { FC } from 'react';
-import { MarkerDict, SelectedData } from './types';
+import { MarkerInfo, DnShortcutComponentProps } from './types';
 import { DnComponent } from '../DnComponent';
+import { MarkerPreview } from '../MarkerPreview';
 import { app } from '@kubevious/ui-framework';
 
 export const { sharedState } = app;
 
 import './styles.scss';
 
-export const DnShortcutComponent: FC<SelectedData> = ({ dn, options, errors = 0, warnings = 0, markers = [] }) => {
+export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterId, options, errors = 0, warnings = 0, markers = [] }) => {
+
     const clickDn = (): void => {
         sharedState.set('selected_dn', dn);
         sharedState.set('auto_pan_to_selected_dn', true);
         sharedState.set('popup_window', null);
+        if (clusterId) {
+            sharedState.set('selected_cluster', clusterId);
+        }
     };
 
     const markerDict = sharedState.get('markers_dict') || {};
 
-    let markerItems: MarkerDict[] = [];
+    let markerItems: MarkerInfo[] = [];
     if (markers) {
         markerItems = markers.map((x: React.Key) => markerDict[x]).filter((x) => x);
     }
@@ -26,15 +31,10 @@ export const DnShortcutComponent: FC<SelectedData> = ({ dn, options, errors = 0,
             <DnComponent dn={dn} options={options} />
 
             <div className="dn-alert">
-                {!(!markers || markers.length === 0) &&
-                    markerItems.map(({ shape, color }) => (
+                {markerItems &&
+                    markerItems.map((marker, index) => (
                         <div className="marker">
-                            <i
-                                key={shape}
-                                className="fa"
-                                style={{ color: color }}
-                                dangerouslySetInnerHTML={{ __html: `&#x${shape};` }}
-                            />
+                            <MarkerPreview key={index} shape={marker.shape} color={marker.color} />
                         </div>
                     ))}
                 {errors > 0 && <div className="indicator error-object">{errors > 1 && errors}</div>}
