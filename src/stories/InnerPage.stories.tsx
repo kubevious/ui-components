@@ -18,7 +18,9 @@ export const Default: Story = () => (
 
 export const Narrow: Story = () => (
     <div style={{ background: '#212122' }}>
-        <InnerPage narrow>narrow</InnerPage>
+        <InnerPage narrow>
+            <div style={{ background: 'red' }}>narrow</div>
+        </InnerPage>
     </div>
 );
 

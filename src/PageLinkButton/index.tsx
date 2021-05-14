@@ -1,15 +1,25 @@
 import React, { FC } from 'react';
 import { Button, PageLink } from '..';
-import { ButtonProps } from '../Button';
-import { LinkProps } from '../PageLink/types';
 
 export interface PageLinkButtonProps {
-    linkProps: LinkProps;
-    buttonProps: ButtonProps;
+    path: string;
+    searchParams?: Record<string, any>;
+    type?: 'success' | 'danger' | 'ghost' | 'dark';
+    spacingRight?: boolean;
+    spacingLeft?: boolean;
 }
 
-export const PageLinkButton: FC<PageLinkButtonProps> = ({ linkProps, buttonProps }) => (
-    <PageLink {...linkProps}>
-        <Button {...buttonProps} />
+export const PageLinkButton: FC<PageLinkButtonProps> = ({
+    path,
+    searchParams,
+    type = 'success',
+    spacingRight,
+    spacingLeft,
+    children,
+}) => (
+    <PageLink path={path} searchParams={searchParams}>
+        <Button type={type} spacingRight={spacingRight} spacingLeft={spacingLeft}>
+            {children}
+        </Button>
     </PageLink>
 );

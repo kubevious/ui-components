@@ -11,45 +11,31 @@ export default {
 export const Default: Story = () => (
     <BrowserRouter>
         <div style={{ marginBottom: '1rem' }}>
-            <PageLinkButton
-                linkProps={{
-                    path: '/somewhere',
-                }}
-                buttonProps={{
-                    type: 'success',
-                    children: 'Button text',
-                }}
-            />
+            <PageLinkButton path="/somewhere">Button text</PageLinkButton>
         </div>
 
         <div style={{ marginBottom: '1rem' }}>
             <PageLinkButton
-                linkProps={{
-                    path: '/somewhere',
-                    searchParams: {
-                        cluster: '21',
-                    },
+                path="/somewhere"
+                searchParams={{
+                    cluster: '21',
                 }}
-                buttonProps={{
-                    type: 'ghost',
-                    children: 'Link with params',
-                }}
-            />
+                type="ghost"
+            >
+                Link with params
+            </PageLinkButton>
         </div>
 
         <div style={{ marginBottom: '1rem' }}>
             <PageLinkButton
-                linkProps={{
-                    path: '/somewhere',
-                    searchParams: {
-                        cluster: '21',
-                    },
+                path="/somewhere"
+                searchParams={{
+                    cluster: '21',
                 }}
-                buttonProps={{
-                    type: 'danger',
-                    children: <span>With span button text</span>,
-                }}
-            />
+                type="danger"
+            >
+                <span>With span button text</span>
+            </PageLinkButton>
         </div>
     </BrowserRouter>
 );
