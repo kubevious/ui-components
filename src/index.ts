@@ -11,6 +11,7 @@ export { DnIconComponent, getEntityImgUrl } from './DnIconComponent';
 export { DnComponent } from './DnComponent';
 export { DnShortcutComponent } from './DnShortcutComponent';
 export { DnList } from './DnList'
+export { DnResults } from './DnResults'
 
 export { ErrorBox } from './ErrorBox';
 export { Error } from './ErrorBox/types';
