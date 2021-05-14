@@ -36,3 +36,5 @@ export { Tab } from './Tabs/Tab';
 export { Textarea } from './Textarea';
 
 export { isValidJson } from './isValidJson';
+
+export * from './MarkerPreview';
