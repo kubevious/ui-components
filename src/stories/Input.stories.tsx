@@ -1,3 +1,5 @@
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Input } from '../Input';
@@ -17,8 +19,16 @@ export const Default: Story = () => (
             <Input label="Marker name" onChange={(e) => console.log('VALUE => ', e.target.value)} />
         </div>
 
-        <div>
+        <div style={{ marginBottom: '1rem' }}>
             <Input label="With error" hasError />
+        </div>
+
+        <div style={{ marginBottom: '1rem' }}>
+            <Input
+                label="With right icon"
+                placeholder="Search"
+                rightIcon={<FontAwesomeIcon icon={faSearch} size="lg" />}
+            />
         </div>
     </div>
 );

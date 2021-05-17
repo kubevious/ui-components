@@ -1,22 +1,39 @@
+.container {
+    position: relative;
+}
+
+.container svg {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+}
+
 .container:first-child {
     color: white;
     font-size: 14px;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .input {
-    background: #2F3036;
+    background: #2f3036;
     border: 1px solid #656565;
     border-radius: 3px;
     width: 100%;
-    padding: 8px;
+    padding: 8px 10px;
     font-size: 15px;
     color: white;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin-top: 5px;
     outline: none;
 }
 
+.input::placeholder {
+    color: white;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+}
+
 .hasError {
-    border-color: #FF5858;
+    border-color: #ff5858;
 }
