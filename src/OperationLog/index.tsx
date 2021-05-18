@@ -22,9 +22,9 @@ export const OperationLog: FC = () => {
     return operationLogs.length ? (
         <details data-testid="operation-log" className={styles.operationLogDetails} open={isOpen}>
             {operationLogs.map((log, index) => (
-                <summary key={log.id}>
+                <summary key={log.id} className={styles.logDetail}>
                     {log.message}
-                    
+
                     {index === 0 && (
                         <FontAwesomeIcon
                             icon={faChevronCircleRight}
