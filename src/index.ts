@@ -30,6 +30,7 @@ export * from './PageLinkButton';
 
 export { Popup } from './Popup';
 
+export * from './Select'
 export { SideMenu, SideMenuItem, SideMenuFooterItem, SideMenuProps, SideMenuSection } from './SideMenu';
 
 export { Tabs } from './Tabs';
