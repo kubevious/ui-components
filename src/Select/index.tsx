@@ -25,6 +25,9 @@ export const Select: FC<Props> = (props) => (
             option: (base, props) => ({
                 ...base,
                 background: props.isFocused || props.isSelected ? 'black' : 'inherit',
+                ':active': {
+                    background: 'black',
+                },
             }),
         }}
         {...props}
