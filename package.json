@@ -30,7 +30,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@kubevious/helpers": "^1.0.48",
+    "@kubevious/helpers": "^1.0.55",
     "@kubevious/ui-framework": "^1.0.42",
     "@kubevious/ui-middleware": "^1.0.27",
     "classnames": "^2.2.6",
@@ -44,7 +44,7 @@
     "react-router-dom": "^5.2.0",
     "react-select": "^4.3.1",
     "the-lodash": "^2.0.9",
-    "the-promise": "^2.0.4",
+    "the-promise": "^2.0.13",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

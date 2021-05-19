@@ -12,7 +12,27 @@
     display: flex;
     justify-content: center;
     padding: 25px 0;
-    border-bottom: 1px solid #666871;
+}
+
+.bar{
+    height:1px;
+	width:100%;
+	position:relative;
+	background-color:#444;
+}
+.barLoading:before{
+	top:0;
+	left:0;
+	width:0;
+	content:'';
+	height:inherit;
+	position:absolute;
+	background-color:#FBCE13;
+	animation:barLoading 2500ms linear infinite;
+}
+@keyframes barLoading{
+	0%{width:0}
+	100%{width:100%}
 }
 
 .sectionLabel {

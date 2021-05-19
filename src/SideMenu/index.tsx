@@ -51,6 +51,10 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                     {isCollapsed ? <img src="/img/logoSmall.svg" /> : <img src="/img/logoBig.svg" />}
                 </div>
 
+                <div className={cx(styles.bar, {[styles.barLoading]: true })}>
+                
+                </div>
+
                 <div style={{ marginTop: isCollapsed ? '30px' : 0 }}>
                     {sections.map((section, index) => (
                         <div key={index}>
