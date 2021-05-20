@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     padding: 25px 0;
+    position: relative;
 }
 
 .bar {
@@ -80,5 +81,5 @@
     line-height: 13px;
     color: #f2bf58;
     position: absolute;
-    right: 0;
+    right: 32px;
 }
