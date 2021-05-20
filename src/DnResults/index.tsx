@@ -1,22 +1,20 @@
 import _ from 'the-lodash';
 import React, { FC, useState } from 'react';
+import { DnResultGroup } from '../DnResultGroup';
 import { DnResultsProps, GroupInfo } from './types';
 import { DnShortcutComponentProps } from '../DnShortcutComponent/types';
 import { subscribeToSharedState } from '@kubevious/ui-framework';
 import { DnList } from '../DnList';
 
 export const DnResults: FC<DnResultsProps> = ({ items }) => {
-
     const [flatItems, setFlatItems] = useState<DnShortcutComponentProps[]>([]);
     const [itemGroups, setItemGroups] = useState<Record<string, GroupInfo>>({});
 
-    subscribeToSharedState("clusters_dict", clusters_dict => {
+    subscribeToSharedState('clusters_dict', (clusters_dict) => {
+        const list: DnShortcutComponentProps[] = [];
+        const groups: Record<string, GroupInfo> = {};
 
-        const list : DnShortcutComponentProps[] = [];
-        const groups : Record<string, GroupInfo> = {};
-    
-        for(let item of items)
-        {
+        for (const item of items) {
             if (item.clusterId) {
                 if (!groups[item.clusterId]) {
                     const clusterInfo = clusters_dict[item.clusterId];
@@ -24,8 +22,8 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
                     groups[item.clusterId] = {
                         id: item.clusterId,
                         name: clusterName,
-                        items: []
-                    }
+                        items: [],
+                    };
                 }
                 groups[item.clusterId].items.push(item);
             } else {
@@ -35,24 +33,19 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
 
         setFlatItems(list);
         setItemGroups(groups);
+    });
 
-    })
-
-    return <div>
+    return (
         <div>
-            <DnList items={flatItems} />
-        </div>
-        <div>
-            { _.values(itemGroups).map((groupInfo, index) => {
+            <div>
+                <DnList items={flatItems} />
+            </div>
 
-                return <div>
-                    <div>{groupInfo.name}</div>
-                    <DnList key={index}
-                            items={groupInfo.items} />
-                </div>
-
-            })}
+            <div>
+                {_.values(itemGroups).map((groupInfo, index) => (
+                    <DnResultGroup key={index} groupInfo={groupInfo} />
+                ))}
+            </div>
         </div>
-    </div>
-    
+    );
 };

@@ -1,11 +1,11 @@
-import { DnShortcutComponentProps } from "../DnShortcutComponent/types";
+import { DnShortcutComponentProps } from '../DnShortcutComponent/types';
 
 export interface DnResultsProps {
-    items: DnShortcutComponentProps[]
+    items: DnShortcutComponentProps[];
 }
 
 export interface GroupInfo {
-    id: string,
-    name: string,
-    items: DnShortcutComponentProps[]
+    id: string;
+    name: string;
+    items: DnShortcutComponentProps[];
 }

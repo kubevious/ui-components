@@ -10,8 +10,9 @@ export { DnPath } from './DnPath';
 export { DnIconComponent, getEntityImgUrl } from './DnIconComponent';
 export { DnComponent } from './DnComponent';
 export { DnShortcutComponent } from './DnShortcutComponent';
-export { DnList } from './DnList'
-export { DnResults } from './DnResults'
+export { DnList } from './DnList';
+export { DnResultGroup } from './DnResultGroup';
+export { DnResults } from './DnResults';
 
 export { ErrorBox } from './ErrorBox';
 export { Error } from './ErrorBox/types';
@@ -30,7 +31,7 @@ export * from './PageLinkButton';
 
 export { Popup } from './Popup';
 
-export * from './Select'
+export * from './Select';
 export { SideMenu, SideMenuItem, SideMenuFooterItem, SideMenuProps, SideMenuSection } from './SideMenu';
 
 export { Tabs } from './Tabs';
@@ -40,4 +41,3 @@ export { Textarea } from './Textarea';
 export { isValidJson } from './isValidJson';
 
 export * from './MarkerPreview';
-
