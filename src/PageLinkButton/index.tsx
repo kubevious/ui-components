@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Button, PageLink } from '..';
+import { encodeURL } from '../PageLink/utils';
 
 export interface PageLinkButtonProps {
     path: string;
@@ -7,6 +8,7 @@ export interface PageLinkButtonProps {
     type?: 'success' | 'danger' | 'ghost' | 'dark';
     spacingRight?: boolean;
     spacingLeft?: boolean;
+    forceRedirect?: boolean;
 }
 
 export const PageLinkButton: FC<PageLinkButtonProps> = ({
@@ -15,11 +17,28 @@ export const PageLinkButton: FC<PageLinkButtonProps> = ({
     type = 'success',
     spacingRight,
     spacingLeft,
+    forceRedirect,
     children,
-}) => (
-    <PageLink path={path} searchParams={searchParams}>
-        <Button type={type} spacingRight={spacingRight} spacingLeft={spacingLeft}>
-            {children}
-        </Button>
-    </PageLink>
-);
+}) => {
+
+    if (forceRedirect) {
+        const executeForceRedirect = () => {
+            const url = encodeURL(path, searchParams);
+            window.location.assign(url);
+        };
+
+        return (
+            <Button onClick={executeForceRedirect} type={type} spacingRight={spacingRight} spacingLeft={spacingLeft}>
+                {children}
+            </Button>
+        );
+    }
+
+    return (
+        <PageLink path={path} searchParams={searchParams}>
+            <Button type={type} spacingRight={spacingRight} spacingLeft={spacingLeft}>
+                {children}
+            </Button>
+        </PageLink>
+    );
+};
