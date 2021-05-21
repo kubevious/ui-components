@@ -60,6 +60,23 @@ export const Default: Story = () => (
                 <Button>Simple button</Button>
                 <Button spacingLeft>With spacing left</Button>
             </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <Button type="ghost" spacingRight>
+                    With border
+                </Button>
+                <Button type="ghost" bordered={false} spacingRight>
+                    Without border
+                </Button>
+
+                <Button type="danger" spacingRight>
+                    Danger with border
+                </Button>
+
+                <Button type="danger" bordered={false}>
+                    Danger without border
+                </Button>
+            </div>
         </div>
     </BrowserRouter>
 );

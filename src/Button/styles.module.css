@@ -3,7 +3,7 @@
     min-width: 160px;
     outline: none;
     font-size: 15px;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 18px;
     font-weight: bold;
     padding: 10px 0;
@@ -14,7 +14,7 @@
 }
 
 .success {
-    background: #4ECD77;
+    background: #4ecd77;
     border: none;
 }
 
@@ -23,12 +23,13 @@
 }
 
 .danger {
-    color: #F34C4C;
+    color: #f34c4c;
     font-weight: normal;
+    border-radius: 3px;
 }
 
 .danger a {
-    color: #F34C4C;
+    color: #f34c4c;
 }
 
 .danger:hover {
@@ -37,8 +38,7 @@
 }
 
 .ghost {
-    background: #2F3036;
-    border: 1px solid #FFFFFF;
+    background: #2f3036;
 }
 
 .ghost a {
@@ -46,7 +46,6 @@
 }
 
 .ghost:hover {
-    border: 1px solid #FFFFFF;
     background: #4f4f53;
 }
 
@@ -65,4 +64,16 @@
 
 .spacingLeft {
     margin-left: 20px;
+}
+
+.bordered.ghost {
+    border: 1px solid #ffffff;
+}
+
+.bordered.ghost:hover {
+    border: 1px solid #ffffff;
+}
+
+.bordered.danger {
+    border: 1px solid #ff5252;
 }

@@ -8,6 +8,7 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
     htmlType?: 'button' | 'submit' | 'reset';
     spacingRight?: boolean;
     spacingLeft?: boolean;
+    bordered?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ export const Button: FC<ButtonProps> = ({
     htmlType = 'button',
     spacingRight,
     spacingLeft,
+    bordered = true,
     ...rest
 }) => (
     <button
@@ -29,6 +31,7 @@ export const Button: FC<ButtonProps> = ({
                 'btn-dark': type === 'ghost',
                 [styles.spacingRight]: spacingRight,
                 [styles.spacingLeft]: spacingLeft,
+                [styles.bordered]: bordered
             },
             rest.className,
         )}
