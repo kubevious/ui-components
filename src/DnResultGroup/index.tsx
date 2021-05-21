@@ -21,7 +21,7 @@ export const DnResultGroup: FC<DnResultGroupProps> = ({ groupInfo }) => {
     return (
         <details open={isOpen} className={styles.detailsBlock}>
             <summary onClick={handleToggle} className={styles.summaryBlock}>
-                {groupInfo.name}
+                {groupInfo.name} [{groupInfo.items.length}]
 
                 <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} color="#C4C4C4" />
             </summary>
