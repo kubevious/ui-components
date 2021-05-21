@@ -48,7 +48,7 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
         <div style={{ height: '100%' }} className="d-flex flex-column justify-content-between">
             <div>
                 <div className={styles.header}>
-                    <span className={styles.beta}>BETA</span>
+                    {!isCollapsed && <span className={styles.beta}>BETA</span>}
                     {isCollapsed ? <img src="/img/logoSmall.svg" /> : <img src="/img/logoBig.svg" />}
                 </div>
 
