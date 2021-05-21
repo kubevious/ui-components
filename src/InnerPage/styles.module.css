@@ -11,3 +11,7 @@
     max-width: 700px;
     padding: 0;
 }
+
+.block :global(.golden-layout-container) {
+    max-height: calc(100vh - 235px);
+}
