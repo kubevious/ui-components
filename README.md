@@ -26,3 +26,4 @@ Contains common and basic components such as:
 - SideMenu
 - Tabs
 - Textarea
+
