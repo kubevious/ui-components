@@ -28,6 +28,7 @@ export { OperationLog } from './OperationLog';
 export { PageHeader } from './PageHeader';
 export { PageLink } from './PageLink';
 export { encodeURL } from './PageLink/utils'
+export { navigateTo } from './link-utils'
 
 export * from './PageLinkButton';
 
