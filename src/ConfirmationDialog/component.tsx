@@ -12,7 +12,7 @@ export const ConfirmationDialogComponent: FC<ConfirmationDialogComponentProps> =
 
     return (
         <>
-            <div className={styles.shadow}/>
+            <div className={styles.shadow} />
             <div className={styles.container}>
                 {params.title && <div className={styles.title}>{params.title!}</div>}
 
@@ -23,7 +23,7 @@ export const ConfirmationDialogComponent: FC<ConfirmationDialogComponentProps> =
                         {cancelLabel}
                     </Button>
 
-                    <Button onClick={onConfirm} type={confirmButtonType}>
+                    <Button onClick={onConfirm} type={confirmButtonType} filled>
                         {confirmLabel}
                     </Button>
                 </div>

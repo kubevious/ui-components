@@ -77,3 +77,9 @@
 .bordered.danger {
     border: 1px solid #ff5252;
 }
+
+.filled.danger {
+    background: #ff5252;
+    color: white;
+    font-weight: bold;
+}

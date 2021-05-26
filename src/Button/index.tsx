@@ -14,8 +14,9 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
     spacingRight?: boolean;
     spacingLeft?: boolean;
     bordered?: boolean;
-    confirmation? : ConfirmationDialogOptions;
+    confirmation?: ConfirmationDialogOptions;
     onClick?: MouseEventHandler;
+    filled?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -26,23 +27,23 @@ export const Button: FC<ButtonProps> = ({
     spacingLeft,
     bordered = true,
     confirmation,
+    filled = false,
     ...rest
 }) => {
-
     const origOnClick = rest.onClick;
-    
-    let { onClick, ...filteredProps} = rest;
-    
-    const buttonOnClick : MouseEventHandler = (e) => {
+
+    const { onClick, ...filteredProps } = rest;
+
+    const buttonOnClick: MouseEventHandler = (e) => {
         if (confirmation) {
-            const confirmationParams : ConfirmationDialogParams = {
+            const confirmationParams: ConfirmationDialogParams = {
                 action: () => {
                     if (origOnClick) {
                         origOnClick(e);
                     }
                 },
-                ...confirmation!
-            }
+                ...confirmation!,
+            };
             openConfirmationDialog(confirmationParams);
         } else {
             if (origOnClick) {
@@ -64,7 +65,8 @@ export const Button: FC<ButtonProps> = ({
                     'btn-dark': type === 'ghost',
                     [styles.spacingRight]: spacingRight,
                     [styles.spacingLeft]: spacingLeft,
-                    [styles.bordered]: bordered
+                    [styles.bordered]: bordered,
+                    [styles.filled]: filled
                 },
                 filteredProps.className,
             )}
@@ -72,4 +74,4 @@ export const Button: FC<ButtonProps> = ({
             {children}
         </button>
     );
-}
+};
