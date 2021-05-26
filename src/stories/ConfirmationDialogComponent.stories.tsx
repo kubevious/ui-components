@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { ConfirmationDialogComponent } from '..';
+import { ConfirmationDialogComponent, InnerPage } from '..';
 
 export default {
     title: 'ConfirmationDialogComponent',
@@ -10,34 +10,21 @@ export default {
 
 export const Default: Story = () => (
     <BrowserRouter>
-        <div style={{ background: '#212122', padding: '1rem' }}>
-
-            <div style={{ marginBottom: '1rem' }}>
-                <ConfirmationDialogComponent params={{
-                        title: "My Title 1", 
-                        message: <>Are you <strong>sure</strong>?</>,  
-                        cancelLabel: "Cancel",  
-                        confirmLabel: "Yes!", 
+        <div style={{ background: '#212122', padding: '1rem', height: '100vh' }}>
+            <InnerPage>
+                <ConfirmationDialogComponent
+                    params={{
+                        title: 'Deleting Cluster?',
+                        message: 'Are you sure you want to delete the cluster “name here”  ',
+                        cancelLabel: 'Cancel',
+                        confirmLabel: 'Yes! Delete',
                         confirmButtonType: 'danger',
-                        action: () => {}
+                        action: () => {},
                     }}
                     onCancel={() => {}}
                     onConfirm={() => {}}
-                    />
-            </div>
-
-            <div style={{ marginBottom: '1rem' }}>
-                <ConfirmationDialogComponent params={{
-                        title: "My Title 1", 
-                        message: <>Are you <strong>sure</strong>?</>,  
-                        confirmLabel: "Yes! Please",
-                        action: () => {}
-                    }}
-                    onCancel={() => {}}
-                    onConfirm={() => {}}
-                    />
-            </div>
-
+                />
+            </InnerPage>
         </div>
     </BrowserRouter>
 );

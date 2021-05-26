@@ -1,15 +1,41 @@
+.shadow {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #212122;
+    opacity: 0.5;
+    z-index: 10;
+}
+
+.container {
+    position: fixed;
+    top: 35%;
+    left: calc(50% - 300px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #2F3036;
+    min-width: 600px;
+    padding: 50px 0;
+    z-index: 20;
+}
 
 .title {
     color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20pt;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .message {
+    font-size: 16px;
+    line-height: 19px;
     color: #FFFFFF;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16pt;
-    font-weight: 400;
+    margin-bottom: 50px;
 }
 
