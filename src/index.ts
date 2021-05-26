@@ -44,3 +44,9 @@ export { Textarea } from './Textarea';
 export { isValidJson } from './isValidJson';
 
 export * from './MarkerPreview';
+
+export { ConfirmationDialog } from './ConfirmationDialog'
+export { ConfirmationDialogComponent } from './ConfirmationDialog/component'
+export { ConfirmationDialogParams } from './ConfirmationDialog/types'
+export { openConfirmationDialog } from './ConfirmationDialog/helper'
+
