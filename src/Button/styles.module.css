@@ -1,12 +1,12 @@
 :global(.btn) {
     border-radius: 3px;
-    min-width: 160px;
+    min-width: 140px;
     outline: none;
     font-size: 15px;
     font-family: 'Roboto', sans-serif;
     line-height: 18px;
     font-weight: bold;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 :global(.btn:focus) {
