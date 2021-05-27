@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC, MouseEventHandler } from 'react';
+import React, { ReactNode, ButtonHTMLAttributes, FC, MouseEventHandler } from 'react';
 import cx from 'classnames';
 
 import { ConfirmationDialogOptions, ConfirmationDialogParams } from '../ConfirmationDialog/types';
@@ -16,7 +16,8 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
     bordered?: boolean;
     confirmation?: ConfirmationDialogOptions;
     onClick?: MouseEventHandler;
-    filled?: boolean
+    filled?: boolean;
+    prefixIcon?: ReactNode;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -28,6 +29,7 @@ export const Button: FC<ButtonProps> = ({
     bordered = true,
     confirmation,
     filled = false,
+    prefixIcon,
     ...rest
 }) => {
     const origOnClick = rest.onClick;
@@ -66,11 +68,13 @@ export const Button: FC<ButtonProps> = ({
                     [styles.spacingRight]: spacingRight,
                     [styles.spacingLeft]: spacingLeft,
                     [styles.bordered]: bordered,
-                    [styles.filled]: filled
+                    [styles.filled]: filled,
                 },
                 filteredProps.className,
             )}
         >
+            {prefixIcon && <span className={styles.prefixIcon}>{prefixIcon}</span>}
+
             {children}
         </button>
     );

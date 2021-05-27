@@ -1,3 +1,5 @@
+import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -76,6 +78,10 @@ export const Default: Story = () => (
                 <Button type="danger" bordered={false}>
                     Danger without border
                 </Button>
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <Button prefixIcon={<FontAwesomeIcon icon={faBell} />}>Get Notified</Button>
             </div>
         </div>
     </BrowserRouter>
