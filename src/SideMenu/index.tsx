@@ -104,17 +104,19 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                                                 )}
 
                                                 {(!isCollapsed || showItem === item.key) && (
-                                                    <span
-                                                        className={cx('ms-4', styles.itemLink, {
-                                                            [styles.showCollapsed]: showItem === item.key,
-                                                        })}
-                                                    >
-                                                        {item.label}
-                                                    </span>
+                                                    <span className={cx('ms-4', styles.itemLink)}>{item.label}</span>
                                                 )}
                                             </NavLink>
                                         ) : (
-                                            <div className={cx(styles.itemBlock)} onClick={item.onClick} key={item.key}>
+                                            <div
+                                                className={cx(styles.itemBlock, {
+                                                    [styles.hovered]: showItem === item.key,
+                                                })}
+                                                onClick={item.onClick}
+                                                key={item.key}
+                                                onMouseEnter={() => handleMouseEnter(item)}
+                                                onMouseLeave={handleMouseLeave}
+                                            >
                                                 {item.icon ? (
                                                     <img src={`/img/menu/${item.icon}`} />
                                                 ) : (
@@ -126,7 +128,7 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                                                         }}
                                                     />
                                                 )}
-                                                {!isCollapsed && (
+                                                {(!isCollapsed || showItem === item.key) && (
                                                     <span className={cx('ms-4', styles.itemLink)}>{item.label}</span>
                                                 )}
                                             </div>
@@ -141,13 +143,21 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                 {footer && (
                     <div className={styles.footer}>
                         {footer.map((item) => (
-                            <div className={styles.itemBlock} onClick={item.onClick} key={item.key}>
+                            <div
+                                className={cx(styles.itemBlock, {
+                                    [styles.hovered]: showItem === item.key,
+                                })}
+                                onClick={item.onClick}
+                                key={item.key}
+                                onMouseEnter={() => handleMouseEnter(item)}
+                                onMouseLeave={handleMouseLeave}
+                            >
                                 {item.icon ? (
                                     <img src={`/img/menu/${item.icon}`} />
                                 ) : (
                                     <FontAwesomeIcon icon={item.faIcon!} style={{ width: '24px', height: '24px' }} />
                                 )}
-                                {!isCollapsed && <div className="ms-4">{item.label}</div>}
+                                {(!isCollapsed || showItem === item.key) && <div className="ms-4">{item.label}</div>}
                             </div>
                         ))}
                     </div>

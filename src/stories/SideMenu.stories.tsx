@@ -205,3 +205,26 @@ export const WithItemsActions: Story = () => (
         </div>
     </BrowserRouter>
 );
+
+export const CollapsedWithActions: Story = () => (
+    <BrowserRouter>
+        <div style={{ height: '100vh' }}>
+            <SideMenu
+                sections={[
+                    {
+                        name: 'Dev tools',
+                        items: [
+                            {
+                                key: 'shared-state-debugger',
+                                label: 'Shared State Debugger',
+                                faIcon: faBug,
+                                onClick: () => console.log('Shared State Debugger'),
+                            },
+                        ],
+                    },
+                ]}
+                isCollapsed
+            />
+        </div>
+    </BrowserRouter>
+);

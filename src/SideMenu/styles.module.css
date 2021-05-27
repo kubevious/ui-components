@@ -93,6 +93,10 @@
 }
 
 .hovered:hover {
-    width: 200px;
+    width: 270px;
     background-color: #4ecd77;
+}
+
+.hovered span, .hovered div {
+    min-width: 250px;
 }
