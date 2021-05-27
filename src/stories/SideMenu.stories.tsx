@@ -2,6 +2,7 @@ import { faBug } from '@fortawesome/free-solid-svg-icons';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { InnerPage } from '../InnerPage';
 import { SideMenu } from '../SideMenu';
 
 export default {
@@ -225,6 +226,72 @@ export const CollapsedWithActions: Story = () => (
                 ]}
                 isCollapsed
             />
+        </div>
+    </BrowserRouter>
+);
+
+export const Layout: Story = () => (
+    <BrowserRouter>
+        <div style={{ height: '100vh', display: 'flex', background: '#2f3036', position: 'relative' }}>
+            <SideMenu
+                sections={[
+                    {
+                        name: 'Dashboard',
+                        items: [
+                            {
+                                key: 'dashboard',
+                                label: 'Dashboard',
+                                icon: '/dashboard.svg',
+                                url: '/',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Setup',
+                        items: [
+                            {
+                                key: 'clusters',
+                                label: 'Clusters',
+                                icon: '/clusters.svg',
+                                url: '/clusters',
+                            },
+                            {
+                                key: 'rules',
+                                label: 'Rules',
+                                icon: '/rules.svg',
+                                url: '/rules',
+                            },
+                            {
+                                key: 'markers',
+                                label: 'Markers',
+                                icon: '/markers.svg',
+                                url: '/markers',
+                            },
+                        ],
+                    },
+                ]}
+                footer={[
+                    {
+                        key: 'logout',
+                        label: 'Log out',
+                        icon: '/logout.svg',
+                        onClick: () => console.log('Sign out!'),
+                    },
+                    {
+                        key: 'close',
+                        label: 'Close',
+                        icon: '/open.svg',
+                        onClick: () => console.log('Close!'),
+                    },
+                ]}
+                isCollapsed
+            />
+
+            <div style={{ width: 'calc(100vw - 80px)', position: 'relative' }}>
+                <InnerPage>
+                    <div style={{ height: '80vh', width: '100%', background: 'gray' }} />
+                </InnerPage>
+            </div>
         </div>
     </BrowserRouter>
 );

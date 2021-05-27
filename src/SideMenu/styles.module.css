@@ -6,6 +6,7 @@
 
 .collapsed {
     width: 80px;
+    z-index: 1000;
 }
 
 .header {
