@@ -4,6 +4,9 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { InnerPage } from '../InnerPage';
 import { SideMenu } from '../SideMenu';
+import { HookComponent } from './Hooks';
+
+import { app } from '@kubevious/ui-framework';
 
 export default {
     title: 'SideMenu',
@@ -14,62 +17,8 @@ export const Default: Story = () => (
     <BrowserRouter>
         <div style={{ height: '100vh' }}>
             <SideMenu
-                sections={[
-                    {
-                        name: 'Dashboard',
-                        items: [
-                            {
-                                key: 'dashboard',
-                                label: 'Dashboard',
-                                icon: '/dashboard.svg',
-                                url: '/',
-                            },
-                        ],
-                    },
-                    {
-                        name: 'Setup',
-                        items: [
-                            {
-                                key: 'clusters',
-                                label: 'Clusters',
-                                icon: '/clusters.svg',
-                                url: '/clusters',
-                            },
-                            {
-                                key: 'rules',
-                                label: 'Rules',
-                                icon: '/rules.svg',
-                                url: '/rules',
-                            },
-                            {
-                                key: 'markers',
-                                label: 'Markers',
-                                icon: '/markers.svg',
-                                url: '/markers',
-                            },
-                            {
-                                key: 'font-awesome',
-                                label: 'Font awesome',
-                                faIcon: faBug,
-                                url: '/font-awesome',
-                            },
-                        ],
-                    },
-                ]}
-                footer={[
-                    {
-                        key: 'logout',
-                        label: 'Log out',
-                        icon: '/logout.svg',
-                        onClick: () => console.log('Sign out!'),
-                    },
-                    {
-                        key: 'close',
-                        label: 'Close',
-                        icon: '/close.svg',
-                        onClick: () => console.log('Close!'),
-                    },
-                ]}
+                sections={DEFAULT_SECTIONS}
+                footer={DEFAULT_FOOTER}
                 isCollapsed={false}
             />
         </div>
@@ -80,150 +29,40 @@ export const Collapsed: Story = () => (
     <BrowserRouter>
         <div style={{ height: '100vh' }}>
             <SideMenu
-                sections={[
-                    {
-                        name: 'Dashboard',
-                        items: [
-                            {
-                                key: 'dashboard',
-                                label: 'Dashboard',
-                                icon: '/dashboard.svg',
-                                url: '/',
-                            },
-                        ],
-                    },
-                    {
-                        name: 'Setup',
-                        items: [
-                            {
-                                key: 'clusters',
-                                label: 'Clusters',
-                                icon: '/clusters.svg',
-                                url: '/clusters',
-                            },
-                            {
-                                key: 'rules',
-                                label: 'Rules',
-                                icon: '/rules.svg',
-                                url: '/rules',
-                            },
-                            {
-                                key: 'markers',
-                                label: 'Markers',
-                                icon: '/markers.svg',
-                                url: '/markers',
-                            },
-                        ],
-                    },
-                ]}
-                footer={[
-                    {
-                        key: 'logout',
-                        label: 'Log out',
-                        icon: '/logout.svg',
-                        onClick: () => console.log('Sign out!'),
-                    },
-                    {
-                        key: 'close',
-                        label: 'Close',
-                        icon: '/open.svg',
-                        onClick: () => console.log('Close!'),
-                    },
-                ]}
+                sections={DEFAULT_SECTIONS}
+                footer={DEFAULT_FOOTER}
                 isCollapsed
             />
         </div>
     </BrowserRouter>
 );
 
-export const WithItemsActions: Story = () => (
+
+export const IsLoading: Story = () => (
     <BrowserRouter>
+        <HookComponent
+            setup={() => app.sharedState.set("is_loading", true)}
+            cleanup={() => app.sharedState.set("is_loading", false)}
+            />
         <div style={{ height: '100vh' }}>
             <SideMenu
-                sections={[
-                    {
-                        name: 'Dashboard',
-                        items: [
-                            {
-                                key: 'dashboard',
-                                label: 'Dashboard',
-                                icon: '/dashboard.svg',
-                                url: '/',
-                            },
-                        ],
-                    },
-                    {
-                        name: 'Setup',
-                        items: [
-                            {
-                                key: 'clusters',
-                                label: 'Clusters',
-                                icon: '/clusters.svg',
-                                url: '/clusters',
-                            },
-                            {
-                                key: 'rules',
-                                label: 'Rules',
-                                icon: '/rules.svg',
-                                url: '/rules',
-                            },
-                            {
-                                key: 'markers',
-                                label: 'Markers',
-                                icon: '/markers.svg',
-                                url: '/markers',
-                            },
-                        ],
-                    },
-                    {
-                        name: 'Dev tools',
-                        items: [
-                            {
-                                key: 'shared-state-debugger',
-                                label: 'Shared State Debugger',
-                                faIcon: faBug,
-                                onClick: () => console.log('Shared State Debugger'),
-                            },
-                        ],
-                    },
-                ]}
-                footer={[
-                    {
-                        key: 'logout',
-                        label: 'Log out',
-                        icon: '/logout.svg',
-                        onClick: () => console.log('Sign out!'),
-                    },
-                    {
-                        key: 'close',
-                        label: 'Close',
-                        icon: '/close.svg',
-                        onClick: () => console.log('Close!'),
-                    },
-                ]}
-                isCollapsed={false}
+                sections={DEFAULT_SECTIONS}
+                footer={DEFAULT_FOOTER}
             />
         </div>
     </BrowserRouter>
 );
 
-export const CollapsedWithActions: Story = () => (
+export const IsLoadingCollapsed: Story = () => (
     <BrowserRouter>
+        <HookComponent
+            setup={() => app.sharedState.set("is_loading", true)}
+            cleanup={() => app.sharedState.set("is_loading", false)}
+            />
         <div style={{ height: '100vh' }}>
             <SideMenu
-                sections={[
-                    {
-                        name: 'Dev tools',
-                        items: [
-                            {
-                                key: 'shared-state-debugger',
-                                label: 'Shared State Debugger',
-                                faIcon: faBug,
-                                onClick: () => console.log('Shared State Debugger'),
-                            },
-                        ],
-                    },
-                ]}
+                sections={DEFAULT_SECTIONS}
+                footer={DEFAULT_FOOTER}
                 isCollapsed
             />
         </div>
@@ -234,56 +73,8 @@ export const Layout: Story = () => (
     <BrowserRouter>
         <div style={{ height: '100vh', display: 'flex', background: '#2f3036', position: 'relative' }}>
             <SideMenu
-                sections={[
-                    {
-                        name: 'Dashboard',
-                        items: [
-                            {
-                                key: 'dashboard',
-                                label: 'Dashboard',
-                                icon: '/dashboard.svg',
-                                url: '/',
-                            },
-                        ],
-                    },
-                    {
-                        name: 'Setup',
-                        items: [
-                            {
-                                key: 'clusters',
-                                label: 'Clusters',
-                                icon: '/clusters.svg',
-                                url: '/clusters',
-                            },
-                            {
-                                key: 'rules',
-                                label: 'Rules',
-                                icon: '/rules.svg',
-                                url: '/rules',
-                            },
-                            {
-                                key: 'markers',
-                                label: 'Markers',
-                                icon: '/markers.svg',
-                                url: '/markers',
-                            },
-                        ],
-                    },
-                ]}
-                footer={[
-                    {
-                        key: 'logout',
-                        label: 'Log out',
-                        icon: '/logout.svg',
-                        onClick: () => console.log('Sign out!'),
-                    },
-                    {
-                        key: 'close',
-                        label: 'Close',
-                        icon: '/open.svg',
-                        onClick: () => console.log('Close!'),
-                    },
-                ]}
+                sections={DEFAULT_SECTIONS}
+                footer={DEFAULT_FOOTER}
                 isCollapsed
             />
 
@@ -295,3 +86,73 @@ export const Layout: Story = () => (
         </div>
     </BrowserRouter>
 );
+
+
+const DEFAULT_SECTIONS = [
+    {
+        name: 'Dashboard',
+        items: [
+            {
+                key: 'dashboard',
+                label: 'Dashboard',
+                icon: '/dashboard.svg',
+                url: '/',
+            },
+        ],
+    },
+    {
+        name: 'Setup',
+        items: [
+            {
+                key: 'clusters',
+                label: 'Clusters',
+                icon: '/clusters.svg',
+                url: '/clusters',
+            },
+            {
+                key: 'rules',
+                label: 'Rules',
+                icon: '/rules.svg',
+                url: '/rules',
+            },
+            {
+                key: 'markers',
+                label: 'Markers',
+                icon: '/markers.svg',
+                url: '/markers',
+            },
+            {
+                key: 'font-awesome',
+                label: 'Font awesome',
+                faIcon: faBug,
+                url: '/font-awesome',
+            },
+        ],
+    },
+    {
+        name: 'Dev tools',
+        items: [
+            {
+                key: 'shared-state-debugger',
+                label: 'Shared State Debugger',
+                faIcon: faBug,
+                onClick: () => console.log('Shared State Debugger'),
+            },
+        ],
+    }
+]
+
+const DEFAULT_FOOTER = [
+    {
+        key: 'logout',
+        label: 'Log out',
+        icon: '/logout.svg',
+        onClick: () => console.log('Sign out!'),
+    },
+    {
+        key: 'close',
+        label: 'Close',
+        icon: '/close.svg',
+        onClick: () => console.log('Close!'),
+    },
+]

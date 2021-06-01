@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
+import { subscribeToSharedState } from '@kubevious/ui-framework/dist';
 
 export type SideMenuItem =
     | {
@@ -40,11 +41,16 @@ export interface SideMenuFooterItem {
 export interface SideMenuProps {
     sections: SideMenuSection[];
     footer?: SideMenuFooterItem[];
-    isCollapsed: boolean;
+    isCollapsed?: boolean;
 }
 
 export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) => {
     const [showItem, setShowItem] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    subscribeToSharedState("is_loading", (is_loading) => {
+        setIsLoading(is_loading ? true : false);
+    })
 
     const handleMouseEnter = (item: SideMenuItem) => {
         if (!isCollapsed) {
@@ -71,7 +77,7 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
                         {isCollapsed ? <img src="/img/logoSmall.svg" /> : <img src="/img/logoBig.svg" />}
                     </div>
 
-                    <div className={cx(styles.bar, { [styles.barLoading]: true })} />
+                    <div className={cx(styles.bar, { [styles.barLoading]: isLoading })} />
 
                     <div style={{ marginTop: isCollapsed ? '30px' : 0 }}>
                         {sections.map((section, index) => (
