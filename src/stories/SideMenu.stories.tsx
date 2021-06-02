@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { InnerPage } from '../InnerPage';
 import { SideMenu } from '../SideMenu';
-import { HookComponent } from './Hooks';
+import { CallbackHook } from '../CallbackHook';
 
 import { app } from '@kubevious/ui-framework';
 
@@ -40,7 +40,7 @@ export const Collapsed: Story = () => (
 
 export const IsLoading: Story = () => (
     <BrowserRouter>
-        <HookComponent
+        <CallbackHook
             setup={() => app.sharedState.set("is_loading", true)}
             cleanup={() => app.sharedState.set("is_loading", false)}
             />
@@ -55,7 +55,7 @@ export const IsLoading: Story = () => (
 
 export const IsLoadingCollapsed: Story = () => (
     <BrowserRouter>
-        <HookComponent
+        <CallbackHook
             setup={() => app.sharedState.set("is_loading", true)}
             cleanup={() => app.sharedState.set("is_loading", false)}
             />

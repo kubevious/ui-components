@@ -1,12 +1,12 @@
 import React, { FC, useEffect } from 'react';
 
-export interface HookComponentProps
+export interface CallbackHookProps
 {
     setup: () => void;
     cleanup: () => void;
 }
 
-export const HookComponent: FC<HookComponentProps> = ({ setup, cleanup }) => {
+export const CallbackHook: FC<CallbackHookProps> = ({ setup, cleanup }) => {
     
     useEffect(() => {
         setup();
