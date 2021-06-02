@@ -63,10 +63,14 @@
     cursor: pointer;
     text-decoration: none;
     width: 100%;
+    border-color: #212122;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
 }
 
 .itemBlock:hover {
     color: white;
+    border-width: 1px 1px 1px 0;
 }
 
 .selectedItem {
