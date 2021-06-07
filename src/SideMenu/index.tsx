@@ -1,6 +1,6 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FC, useState } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
 
@@ -39,12 +39,14 @@ export interface SideMenuFooterItem {
 }
 
 export interface SideMenuProps {
+    header: ReactNode;
+    collapsedHeader: ReactNode;
     sections: SideMenuSection[];
     footer?: SideMenuFooterItem[];
     isCollapsed?: boolean;
 }
 
-export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) => {
+export const SideMenu: FC<SideMenuProps> = ({ header, collapsedHeader, sections, footer, isCollapsed }) => {
     const [showItem, setShowItem] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -73,8 +75,8 @@ export const SideMenu: FC<SideMenuProps> = ({ sections, footer, isCollapsed }) =
             <div style={{ height: '100%' }} className="d-flex flex-column justify-content-between">
                 <div>
                     <div className={styles.header}>
-                        {!isCollapsed && <span className={styles.beta}>BETA</span>}
-                        {isCollapsed ? <img src="/img/logoSmall.svg" /> : <img src="/img/logoBig.svg" />}
+                        {!isCollapsed && header}
+                        {isCollapsed && collapsedHeader}
                     </div>
 
                     <div className={cx(styles.bar, { [styles.barLoading]: isLoading })} />

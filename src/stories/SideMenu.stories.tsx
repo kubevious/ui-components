@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { InnerPage } from '../InnerPage';
-import { SideMenu } from '../SideMenu';
+import { SideMenu, SideMenuFooterItem, SideMenuSection } from '../SideMenu';
 import { CallbackHook } from '../CallbackHook';
 
 import { app } from '@kubevious/ui-framework';
@@ -17,6 +17,12 @@ export const Default: Story = () => (
     <BrowserRouter>
         <div style={{ height: '100vh' }}>
             <SideMenu
+                header={<>
+                    <span >KUBEVIOUS</span>
+                </>}
+                collapsedHeader={<>
+                    <span >KUBE</span>
+                </>}
                 sections={DEFAULT_SECTIONS}
                 footer={DEFAULT_FOOTER}
                 isCollapsed={false}
@@ -29,6 +35,12 @@ export const Collapsed: Story = () => (
     <BrowserRouter>
         <div style={{ height: '100vh' }}>
             <SideMenu
+                header={<>
+                    <span >KUBEVIOUS</span>
+                </>}
+                collapsedHeader={<>
+                    <span >KUBE</span>
+                </>}
                 sections={DEFAULT_SECTIONS}
                 footer={DEFAULT_FOOTER}
                 isCollapsed
@@ -46,6 +58,12 @@ export const IsLoading: Story = () => (
             />
         <div style={{ height: '100vh' }}>
             <SideMenu
+                header={<>
+                    <span >KUBEVIOUS</span>
+                </>}
+                collapsedHeader={<>
+                    <span >KUBE</span>
+                </>}
                 sections={DEFAULT_SECTIONS}
                 footer={DEFAULT_FOOTER}
             />
@@ -61,6 +79,12 @@ export const IsLoadingCollapsed: Story = () => (
             />
         <div style={{ height: '100vh' }}>
             <SideMenu
+                header={<>
+                    <span >KUBEVIOUS</span>
+                </>}
+                collapsedHeader={<>
+                    <span >KUBE</span>
+                </>}
                 sections={DEFAULT_SECTIONS}
                 footer={DEFAULT_FOOTER}
                 isCollapsed
@@ -73,6 +97,12 @@ export const Layout: Story = () => (
     <BrowserRouter>
         <div style={{ height: '100vh', display: 'flex', background: '#2f3036', position: 'relative' }}>
             <SideMenu
+                header={<>
+                    <span >KUBEVIOUS</span>
+                </>}
+                collapsedHeader={<>
+                    <span >KUBE</span>
+                </>}
                 sections={DEFAULT_SECTIONS}
                 footer={DEFAULT_FOOTER}
                 isCollapsed
@@ -88,7 +118,7 @@ export const Layout: Story = () => (
 );
 
 
-const DEFAULT_SECTIONS = [
+const DEFAULT_SECTIONS : SideMenuSection[] = [
     {
         name: 'Dashboard',
         items: [
@@ -142,7 +172,7 @@ const DEFAULT_SECTIONS = [
     }
 ]
 
-const DEFAULT_FOOTER = [
+const DEFAULT_FOOTER : SideMenuFooterItem[] = [
     {
         key: 'logout',
         label: 'Log out',
