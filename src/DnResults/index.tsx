@@ -15,17 +15,18 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
         const groups: Record<string, GroupInfo> = {};
 
         for (const item of items) {
-            if (item.clusterId) {
-                if (!groups[item.clusterId]) {
-                    const clusterInfo = clusters_dict[item.clusterId];
-                    const clusterName = clusterInfo ? clusterInfo.name : item.clusterId;
-                    groups[item.clusterId] = {
-                        id: item.clusterId,
+            const clusterId = item.clusterId;
+            if (clusterId) {
+                if (!groups[clusterId]) {
+                    const clusterInfo = clusters_dict && clusters_dict[clusterId];
+                    const clusterName = clusterInfo ? clusterInfo.name : clusterId;
+                    groups[clusterId] = {
+                        id: clusterId,
                         name: clusterName,
                         items: [],
                     };
                 }
-                groups[item.clusterId].items.push(item);
+                groups[clusterId].items.push(item);
             } else {
                 list.push(item);
             }
