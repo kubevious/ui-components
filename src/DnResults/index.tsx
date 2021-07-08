@@ -44,6 +44,9 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
         setItemGroups(groups);
     }, [clustersDict, items])
 
+    console.log("[DnResults] PreRender flatItems:", flatItems);
+    console.log("[DnResults] PreRender itemGroups:", itemGroups);
+
     return (
         <div>
             <div>
