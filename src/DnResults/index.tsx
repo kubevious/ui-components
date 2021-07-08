@@ -1,5 +1,5 @@
 import _ from 'the-lodash';
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { DnResultGroup } from '../DnResultGroup';
 import { DnResultsProps, GroupInfo } from './types';
 import { DnShortcutComponentProps } from '../DnShortcutComponent/types';
@@ -9,8 +9,13 @@ import { DnList } from '../DnList';
 export const DnResults: FC<DnResultsProps> = ({ items }) => {
     const [flatItems, setFlatItems] = useState<DnShortcutComponentProps[]>([]);
     const [itemGroups, setItemGroups] = useState<Record<string, GroupInfo>>({});
+    const [clustersDict, setClustersDict] = useState<Record<string, ClusterInfo>>({});
 
     subscribeToSharedState('clusters_dict', (clusters_dict) => {
+        setClustersDict(clusters_dict || {});
+    });
+
+    useEffect(() => {
         const list: DnShortcutComponentProps[] = [];
         const groups: Record<string, GroupInfo> = {};
 
@@ -18,7 +23,7 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
             const clusterId = item.clusterId;
             if (clusterId) {
                 if (!groups[clusterId]) {
-                    const clusterInfo = clusters_dict && clusters_dict[clusterId];
+                    const clusterInfo = clustersDict[clusterId];
                     const clusterName = clusterInfo ? clusterInfo.name : clusterId;
                     groups[clusterId] = {
                         id: clusterId,
@@ -34,7 +39,7 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
 
         setFlatItems(list);
         setItemGroups(groups);
-    });
+    }, [clustersDict, items])
 
     return (
         <div>
@@ -50,3 +55,8 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
         </div>
     );
 };
+
+interface ClusterInfo
+{
+    name: string
+}
