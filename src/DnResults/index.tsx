@@ -17,7 +17,7 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
     });
 
     useEffect(() => {
-        console.log("[DnResults] useEffect.")
+        console.log("[DnResults] useEffect.", items)
 
         const list: DnShortcutComponentProps[] = [];
         const groups: Record<string, GroupInfo> = {};
