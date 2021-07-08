@@ -12,13 +12,10 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
     const [clustersDict, setClustersDict] = useState<Record<string, ClusterInfo>>({});
 
     subscribeToSharedState('clusters_dict', (clusters_dict) => {
-        console.log("[DnResults] clusters_dict updated.")
         setClustersDict(clusters_dict || {});
     });
 
     useEffect(() => {
-        console.log("[DnResults] useEffect.", items)
-
         const list: DnShortcutComponentProps[] = [];
         const groups: Record<string, GroupInfo> = {};
 
@@ -43,9 +40,6 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
         setFlatItems(list);
         setItemGroups(groups);
     }, [clustersDict, items])
-
-    console.log("[DnResults] PreRender flatItems:", flatItems);
-    console.log("[DnResults] PreRender itemGroups:", itemGroups);
 
     return (
         <div>
