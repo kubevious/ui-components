@@ -1,6 +1,8 @@
+import _ from 'the-lodash';
 import { app } from '@kubevious/ui-framework';
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
+import { Button } from '../Button';
 import { DnResults } from '../DnResults';
 import { InnerPage } from '../InnerPage';
 
@@ -33,3 +35,23 @@ export const Default: Story = () => (
         </InnerPage>
     </div>
 );
+
+export const UpdatableResults: Story = () => {
+    const [items, setItems] = useState<any[]>([]);
+
+    return (<div style={{ background: '#1e1e1e', color: 'white' }}>
+        <InnerPage>
+            <Button onClick={() => {
+                let newItems = _.clone(items);
+                newItems.push({ dn: 'root/ns-[kube-system]' });
+                setItems(newItems);
+            }} >
+                Generate Items
+            </Button>
+            <DnResults
+                items={items}
+            />
+        </InnerPage>
+    </div>)
+}
+

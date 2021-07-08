@@ -12,10 +12,13 @@ export const DnResults: FC<DnResultsProps> = ({ items }) => {
     const [clustersDict, setClustersDict] = useState<Record<string, ClusterInfo>>({});
 
     subscribeToSharedState('clusters_dict', (clusters_dict) => {
+        console.log("[DnResults] clusters_dict updated.")
         setClustersDict(clusters_dict || {});
     });
 
     useEffect(() => {
+        console.log("[DnResults] useEffect.")
+
         const list: DnShortcutComponentProps[] = [];
         const groups: Record<string, GroupInfo> = {};
 
