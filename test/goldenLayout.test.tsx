@@ -4,6 +4,14 @@ import 'jest'
 import { GoldenLayout, GoldenLayoutLocation } from "../src";
 import { render } from "@testing-library/react";
 
+import * as $ from 'jquery';
+// global['$'] = global['jQuery'] = $;
+
+(window as any).$ = $; //require('jquery');
+(window as any).jQuery = $; //require('jquery');
+// window.jQuery = window.$ = require('jquery/dist/jquery.min')
+
+
 function renderGoldenLayout() {
 
   return render(<GoldenLayout />);

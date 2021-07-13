@@ -51,7 +51,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         let rowContent: GoldenLayoutLib.ItemConfigType[] = [
             {
                 type: 'column',
-                content: [this._getLocationLayout(exports.GoldenLayoutLocation.main)],
+                content: [this._getLocationLayout(GoldenLayoutLocation.main)],
             },
         ];
 
@@ -60,11 +60,11 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
                 {
                     type: 'column',
                     content: [
-                        this._getLocationLayout(exports.GoldenLayoutLocation.main),
-                        this._getLocationLayout(exports.GoldenLayoutLocation.bottom),
+                        this._getLocationLayout(GoldenLayoutLocation.main),
+                        this._getLocationLayout(GoldenLayoutLocation.bottom),
                     ],
                 },
-                this._getLocationLayout(exports.GoldenLayoutLocation.right),
+                this._getLocationLayout(GoldenLayoutLocation.right),
             ];
         }
         this._layoutConfig = {
@@ -221,14 +221,19 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     }
 
     private _getComponentLayout(component: InternalGoldenComponent): GoldenLayoutLib.ItemConfigType {
+
+        let props = component.info.props || {};
+        props = _.clone(props);
         // Component from 'golden-layout'
         const layout: GoldenLayoutLib.ItemConfigType = {
             type: 'react-component',
             component: component.info.id,
             title: component.info.title,
             componentState: {},
-            props: _.clone(this.props),
+            props: props
         };
+
+         // //_.clone(this.props),
 
         // layout.type = "react-component"
         // layout.component = component.id

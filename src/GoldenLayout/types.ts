@@ -9,6 +9,7 @@ export type GoldenLayoutComponentProps = {
 export interface GoldenLayoutWindowInfo {
     id: string;
     component: any;
+    props?: Record<string, any> ;
     location: GoldenLayoutLocation;
     title: string;
     allowVerticalScroll?: boolean;
