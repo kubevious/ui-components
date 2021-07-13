@@ -3,6 +3,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import { GoldenLayout } from '../';
+import { GoldenWidget } from '../GoldenWidget'
 import {
     GoldenLayoutWindowInfo,
     GoldenLayoutLocation,
@@ -36,6 +37,12 @@ class TestMainWidget extends ClassComponent<{}, {}> {
     }
 }
 
+const FuncWindow = () => {
+    return <div>
+        Func Window
+    </div>
+};
+
 
 const LAYOUT_COMPONENTS: GoldenLayoutWindowInfo[] = [
     {
@@ -44,6 +51,25 @@ const LAYOUT_COMPONENTS: GoldenLayoutWindowInfo[] = [
         props: { 'foo': 'bar' },
         location: GoldenLayoutLocation.main,
         title: 'MAIN',
+        skipClose: true,
+        allowVerticalScroll: false,
+    },
+    {
+        id: 'funcCompComponent',
+        component: GoldenWidget,
+        props: { 
+            content: <FuncWindow /> 
+        },
+        location: GoldenLayoutLocation.bottom,
+        title: 'FuncProp',
+        skipClose: true,
+        allowVerticalScroll: false,
+    },
+    {
+        id: 'funcCompComponentSize',
+        content: <FuncWindow />,
+        location: GoldenLayoutLocation.right,
+        title: 'FuncProp Side',
         skipClose: true,
         allowVerticalScroll: false,
     }

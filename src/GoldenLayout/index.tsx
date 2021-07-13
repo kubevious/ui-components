@@ -14,6 +14,7 @@ import {
     GoldenLayoutComponentProps,
     GoldenLayoutLocation,
 } from './types';
+import { GoldenWidget } from '../GoldenWidget';
 
 const isTesting = process.env.IS_TESTING;
 
@@ -222,8 +223,19 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
 
     private _getComponentLayout(component: InternalGoldenComponent): GoldenLayoutLib.ItemConfigType {
 
-        let props = component.info.props || {};
-        props = _.clone(props);
+        let props = {};
+        if (component.info.content) 
+        {
+            props = {
+                content: component.info.content!
+            }
+        }
+        else
+        {
+            props = component.info.props || {};
+            props = _.clone(props);
+        }
+
         // Component from 'golden-layout'
         const layout: GoldenLayoutLib.ItemConfigType = {
             type: 'react-component',
@@ -232,8 +244,6 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
             componentState: {},
             props: props
         };
-
-         // //_.clone(this.props),
 
         // layout.type = "react-component"
         // layout.component = component.id
@@ -262,7 +272,8 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         if (!this._layout) {
             return;
         }
-        this._layout.registerComponent(component.info.id, component.info.component);
+        const classComponent : any = component.info.content ? GoldenWidget : component.info.component!;
+        this._layout.registerComponent(component.info.id, classComponent);
     }
 
     render() {

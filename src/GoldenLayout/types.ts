@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { GoldenLayout } from '.';
 
 export type GoldenLayoutComponentProps = {
@@ -8,8 +9,9 @@ export type GoldenLayoutComponentProps = {
 
 export interface GoldenLayoutWindowInfo {
     id: string;
-    component: any;
-    props?: Record<string, any> ;
+    component?: any; // should be a class component
+    props?: Record<string, any> ; // passed as props to class compoent
+    content?: ReactNode; // alternative to component+props can be react function.
     location: GoldenLayoutLocation;
     title: string;
     allowVerticalScroll?: boolean;
