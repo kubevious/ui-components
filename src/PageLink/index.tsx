@@ -17,9 +17,10 @@ export interface LinkProps {
     path: string;
     searchParams?: Record<string, any>;
     onClick?: MouseEventHandler<any> | undefined;
+    extraStyles?: string | string[] | { [key: string]: any };
 }
 
-export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searchParams, children, onClick, ...rest }) => {
+export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searchParams, children, onClick, extraStyles, ...rest }) => {
    
     const url = encodeURL(path, searchParams);
 
@@ -36,7 +37,7 @@ export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searc
     }
 
     return (
-        <Link className={cx(linkStyleMap)}  data-testid="link"
+        <Link className={cx(linkStyleMap, extraStyles)}  data-testid="link"
               to={url} onClick={onClick}
               {...rest}>
             {name && <span className={cx(textStyleMap)} >
