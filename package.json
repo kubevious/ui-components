@@ -1,6 +1,6 @@
 {
   "name": "@kubevious/ui-components",
-  "version": "1.0.141",
+  "version": "1.0.142",
   "description": "Kubevious UI Components",
   "main": "dist/index.js",
   "types": "dist",
