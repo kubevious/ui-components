@@ -30,6 +30,8 @@ export { PageLink } from './PageLink';
 export { encodeURL } from './PageLink/utils'
 export { navigateTo } from './link-utils'
 
+export { Label } from './Label';
+
 export * from './PageLinkButton';
 
 export { Popup } from './Popup';

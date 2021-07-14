@@ -1,0 +1,41 @@
+.normal {
+    color: #ffffff;
+}
+.normal-link {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.normal-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+.faded {
+    color: #a1a1a1;
+}
+.faded-link {
+    color: #a1a1a1;
+    text-decoration: none;
+    cursor: pointer;
+}
+.faded-link:hover {
+    color: #a1a1a1;
+    text-decoration: underline;
+}
+
+
+
+.link {
+    color: #94C5FF;
+}
+.link-link {
+    color: #94C5FF;
+    text-decoration: none;
+    cursor: pointer;
+}
+.link-link:hover {
+    color: #94C5FF;
+    text-decoration: underline;
+}
