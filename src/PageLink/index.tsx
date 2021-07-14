@@ -8,7 +8,7 @@ import { TextSize, TextColor } from '../common-styles/text-types';
 import sizeStyles from '../common-styles/text-size-styles.module.css';
 import colorStyles from '../common-styles/text-color-styles.module.css';
 
-import { encodeURL } from './utils';
+import { encodeURL } from '../utils/url';
 
 export interface LinkProps {
     name?: string;

@@ -1,6 +1,6 @@
 import _ from 'the-lodash';
 import * as H from 'history';
-import { encodeURL } from './PageLink/utils'
+import { encodeURL } from './utils/url'
 
 export function navigateTo(history: H.History, path: string, searchParams?: Record<string, any>, preserveSearchParams? : boolean)
 {

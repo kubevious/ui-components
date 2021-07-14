@@ -27,8 +27,10 @@ export { OperationLog } from './OperationLog';
 
 export { PageHeader } from './PageHeader';
 export { PageLink } from './PageLink';
-export { encodeURL } from './PageLink/utils'
+export { encodeURL } from './utils/url'
 export { navigateTo } from './link-utils'
+
+export { ActionLink } from './ActionLink';
 
 export { Label } from './Label';
 
