@@ -13,7 +13,7 @@ export interface LabelProps {
     extraStyles?: string | string[] | { [key: string]: any };
 }
 
-export const Label: FC<LabelProps> = ({ text, size, faded, extraStyles }) => {
+export const Label: FC<LabelProps> = ({ text, size, faded, extraStyles, children }) => {
 
     const sizeStyle = size ? size : 'normal';
     const colorStyle = faded ? 'faded' : 'normal';
@@ -21,6 +21,7 @@ export const Label: FC<LabelProps> = ({ text, size, faded, extraStyles }) => {
     return <>
         <div className={cx(colorStyles[colorStyle], sizeStyles[sizeStyle], extraStyles)}>
             {text}
+            {children}
         </div>
     </>
 };
