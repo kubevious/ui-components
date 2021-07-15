@@ -3,17 +3,11 @@ MY_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE
 MY_DIR="$(dirname $MY_PATH)"
 cd ${MY_DIR}
 
-cd src
-
 rm -rf node_modules/
+rm -rf dist/
+
+${MY_DIR}/update-dependencies.sh
 
 yarn
-
-yarn upgrade --latest \
-    the-lodash \
-    the-promise \
-    @kubevious/helpers \
-    @kubevious/ui-framework \
-    @kubevious/ui-middleware
 
 ${MY_DIR}/build.sh

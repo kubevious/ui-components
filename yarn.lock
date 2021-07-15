@@ -1528,10 +1528,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kubevious/helpers@^1.0.56":
-  version "1.0.56"
-  resolved "https://registry.yarnpkg.com/@kubevious/helpers/-/helpers-1.0.56.tgz#a7e644bad00578b8f87cb77ff9c57d065a999f45"
-  integrity sha512-WbwS+KaGsNp1tQrNdNxf0868IxCzk5kL+GJ6M2FHWh9trsXaS37+9GlNNb11GM+hxUnpFwRtNXZ8h8UZbvPJWA==
+"@kubevious/helpers@^1.0.57":
+  version "1.0.57"
+  resolved "https://registry.yarnpkg.com/@kubevious/helpers/-/helpers-1.0.57.tgz#17f00d17f463320bd23af64c0ae64f837d29b92e"
+  integrity sha512-baNO0/zIh1mo96eJH80+NsDIW0c0tdvtShKP2R8JXMPvWBbpVksG9AQ76LYbp24VWXXQaSOju/K98fdDYrcONQ==
   dependencies:
     moment "^2.29.1"
     the-lodash "^2.0.9"
@@ -1548,10 +1548,10 @@
     the-promise "^2.0.12"
     uuid "^8.3.2"
 
-"@kubevious/ui-framework@^1.0.49":
-  version "1.0.49"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-framework/-/ui-framework-1.0.49.tgz#bcc48d77fe8cfedcc79977aa59c518050ee892ab"
-  integrity sha512-8MeCXBsPggoqwB7gDJgw++fRaF64CJVBGfhYaA7berkaO06l0gsOePqs9t/1bFZgjsPJLy+BYkDa9ts22a2r1w==
+"@kubevious/ui-framework@^1.0.50":
+  version "1.0.50"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-framework/-/ui-framework-1.0.50.tgz#a971007e21c37635380d26cab296bf9c95c9b75b"
+  integrity sha512-iJBZczoc/xuIgaNwHIJ9Fh0uOuXBrQnIQy0sT07z/7hku4V+Q7eqGvJaoF8v9bivvDdNfRlzvMgHScvJC8/oMg==
   dependencies:
     "@kubevious/http-client" "^1.0.15"
     moment "^2.29.1"
@@ -1561,10 +1561,10 @@
     the-promise "^2.0.13"
     uuid "^8.3.2"
 
-"@kubevious/ui-middleware@^1.0.32":
-  version "1.0.32"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-middleware/-/ui-middleware-1.0.32.tgz#5b6ea8770ceb9bcc48444c1ef27425e687fd3d85"
-  integrity sha512-GlBjfEsH70iI03/XLzlSJ5LNjEDZxAQ40YwOaWorxogXkrfrWtoeaSO1uF/CE+NRTduhTPtCIcXcLa8z8Wjuow==
+"@kubevious/ui-middleware@^1.0.33":
+  version "1.0.33"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-middleware/-/ui-middleware-1.0.33.tgz#1af041776e74d2ec7e38ebbc238d82dfb6920eb4"
+  integrity sha512-5AvloCjmQtl0Pz3+i9o7sS4DPoCA2QyLNQ6LG35TW8qDg7JiDJUmoWtfAMUyTTlOq00WXUZjFs0kwIro+iCW/w==
   dependencies:
     the-promise "^2.0.13"
 
