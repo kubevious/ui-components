@@ -31,7 +31,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@kubevious/helpers": "^1.0.56",
-    "@kubevious/ui-framework": "^1.0.48",
+    "@kubevious/ui-framework": "^1.0.49",
     "@kubevious/ui-middleware": "^1.0.31",
     "classnames": "^2.2.6",
     "codemirror": "^5.60.0",
