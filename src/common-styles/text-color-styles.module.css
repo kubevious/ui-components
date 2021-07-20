@@ -11,6 +11,32 @@
     text-decoration: underline;
 }
 
+.light {
+    color: #ffffff;
+}
+.light-link {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.light-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.dark {
+    color: #1E1E1E;
+}
+.dark-link {
+    color: #1E1E1E;
+    text-decoration: none;
+    cursor: pointer;
+}
+.dark-link:hover {
+    color: #1E1E1E;
+    text-decoration: underline;
+}
+
 
 .faded {
     color: #a1a1a1;

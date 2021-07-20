@@ -13,7 +13,6 @@ export const Default: Story = () => (
         <div style={{ marginBottom: '1rem' }}>
             <ActionLink
                 onClick={() => {
-                    // alert("HELLO")
                     console.error("LINK CLICKED")
                 }}>
                 Default Link
@@ -25,7 +24,6 @@ export const Default: Story = () => (
                 textColor="normal"
                 textSize="large"
                 onClick={() => {
-                    // alert("HELLO")
                     console.error("LINK CLICKED")
                 }}>
                 Normal Large Link
@@ -38,7 +36,6 @@ export const Default: Story = () => (
                 textColor="faded"
                 textSize="small"
                 onClick={() => {
-                    // alert("HELLO")
                     console.error("LINK CLICKED")
                 }}>
                 Faded Small Link
