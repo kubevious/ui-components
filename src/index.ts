@@ -50,6 +50,9 @@ export { isValidJson } from './isValidJson';
 export { MarkerIcon } from './MarkerIcon';
 export { MarkerPreview } from './MarkerPreview';
 
+export { FlagIcon, FlagIconGetImageUrl } from './FlagIcon';
+
+
 export { ConfirmationDialog } from './ConfirmationDialog'
 export { ConfirmationDialogComponent } from './ConfirmationDialog/component'
 export { CONFIRMATION_DIALOG_PARAMS_SHARED_KEY, ConfirmationDialogParams } from './ConfirmationDialog/types'
