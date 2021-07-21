@@ -39,7 +39,7 @@ export const MarkerIcon: FC<MarkerIconProps> = ({ marker, size, extraStyles }) =
     return <>
         <div className={cx(styles.container, extraStyles)} >
             <OverlayTrigger
-                placement="right"
+                placement="top"
                 delay={{ show: 100, hide: 300 }}
                 overlay={renderTooltip}
                 >
