@@ -59,3 +59,6 @@ export { CONFIRMATION_DIALOG_PARAMS_SHARED_KEY, ConfirmationDialogParams } from 
 export { openConfirmationDialog } from './ConfirmationDialog/helper'
 
 export { CallbackHook } from './CallbackHook'
+
+export { ToggleButton } from './ToggleButton'
+export { ToggleGroup } from './ToggleGroup'
