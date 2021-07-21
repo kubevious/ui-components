@@ -47,7 +47,8 @@ export { Textarea } from './Textarea';
 
 export { isValidJson } from './isValidJson';
 
-export * from './MarkerPreview';
+export { MarkerIcon } from './MarkerIcon';
+export { MarkerPreview } from './MarkerPreview';
 
 export { ConfirmationDialog } from './ConfirmationDialog'
 export { ConfirmationDialogComponent } from './ConfirmationDialog/component'

@@ -1,0 +1,14 @@
+.container {
+    display: inline-block;
+    padding: 5px;
+}
+
+.innerContainer {
+    border-radius: 4px;
+    background: #292a2f;
+    display: flex!important;
+}
+
+.icon {
+    margin: auto!important;
+}
