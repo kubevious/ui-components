@@ -1,6 +1,5 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 import _ from 'the-lodash';
-import { RnInfo } from '@kubevious/helpers/dist/dn-utils';
 import { DnIconComponent } from '../DnIconComponent';
 import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
 import { app } from '@kubevious/ui-framework';
