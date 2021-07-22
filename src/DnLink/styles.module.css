@@ -1,0 +1,18 @@
+.dnContainer {
+    display: flex;
+}
+
+.dnContainer:hover {
+    cursor: pointer;
+}
+
+.logoContainer {
+    align-self: center;
+}
+
+.partsContainer {
+}
+
+.dnContainer:hover span {
+    text-decoration: underline;
+} 

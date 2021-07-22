@@ -13,6 +13,7 @@ export { DnShortcutComponent } from './DnShortcutComponent';
 export { DnList } from './DnList';
 export { DnResultGroup } from './DnResultGroup';
 export { DnResults } from './DnResults';
+export { DnLink } from './DnLink';
 
 export { ErrorBox } from './ErrorBox';
 export { Error } from './ErrorBox/types';
