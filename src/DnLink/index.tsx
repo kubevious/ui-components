@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 import _ from 'the-lodash';
-import { DnIconComponent } from '../DnIconComponent';
-import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
 import { app } from '@kubevious/ui-framework';
 
 import styles from './styles.module.css';

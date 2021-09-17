@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { ActionLink } from '../ActionLink';
+import { ActionLink } from './';
 
 export default {
     title: 'ActionLink',
@@ -26,7 +26,7 @@ export const Default: Story = () => (
                 onClick={() => {
                     console.error("LINK CLICKED")
                 }}>
-                Normal Large Link
+                Color:Normal Large Link
             </ActionLink>
         </div>
 
@@ -38,7 +38,7 @@ export const Default: Story = () => (
                 onClick={() => {
                     console.error("LINK CLICKED")
                 }}>
-                Faded Small Link
+                Color:Faded Small Link
             </ActionLink>
         </div>
 

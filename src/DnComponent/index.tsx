@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 import _ from 'the-lodash';
 import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
 import { DnPath } from '../DnPath';
@@ -27,5 +27,3 @@ export const DnComponent: FC<DnComponentProps> = ({ dn, iconSize, options }) => 
                 iconSize={iconSize ?? 'md' } />
     </>
 };
-
-export default DnComponent;

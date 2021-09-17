@@ -12,7 +12,7 @@ describe("<DnComponent />", () => {
   test("Should check that the component DnComponent is rendered", async () => {
     const { findByTestId } = renderDn();
     
-    const dn = await findByTestId("dn");
+    const dn = await findByTestId("dn-path");
     expect(dn)
   });
 });

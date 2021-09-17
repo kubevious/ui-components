@@ -14,7 +14,7 @@ export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo, iconSize }) => {
     const kind = lastPart ? lastPart.kind : '';
 
     return <>
-        <div data-testid="dn" className={styles.dnPath}>
+        <div data-testid="dn-path" className={styles.dnPath}>
             
             {includeLogo && <div className={styles.dnIconContainer}>
                 <DnIconComponent kind={kind} size={iconSize ?? "md"} />
@@ -31,5 +31,3 @@ export const DnPath: FC<DnPathProps> = ({ dnParts, includeLogo, iconSize }) => {
         </div>
     </>;
 };
-
-export default DnPath;
