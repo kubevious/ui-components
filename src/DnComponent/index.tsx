@@ -1,17 +1,13 @@
 import React, { FC, Fragment } from 'react';
 import _ from 'the-lodash';
-import { prettyKind } from '@kubevious/helpers/dist/docs';
 import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
-import { DnIconComponent } from '../DnIconComponent';
+import { DnPath } from '../DnPath';
 import { DnComponentProps } from './types';
 
-import './styles.scss';
-
-export const DnComponent: FC<DnComponentProps> = ({ dn, options }) => {
+export const DnComponent: FC<DnComponentProps> = ({ dn, iconSize, options }) => {
     const opt = options || {};
 
     let dnParts = DnUtils.parseDn(dn);
-    const lastPart = _.last(dnParts);
 
     if (opt.relativeTo) {
         const parentDnParts = DnUtils.parseDn(opt.relativeTo);
@@ -24,22 +20,12 @@ export const DnComponent: FC<DnComponentProps> = ({ dn, options }) => {
     if (dnParts.length > 0 && dnParts[0].kind === 'root') {
         dnParts = dnParts.splice(1);
     }
-    const kind = lastPart ? lastPart.kind : '';
 
-    return (
-        <div data-testid="dn" className="dn-path">
-            <DnIconComponent kind={kind} size="md" />
-
-            {dnParts.map((item, index) => (
-                <Fragment key={index}>
-                    <span className="kind">{prettyKind(item.kind)}</span>
-                    <span className="name">{item.name}</span>
-                    {index !== dnParts.length - 1 && <span className="separator">&gt;</span>}
-                    {index === dnParts.length - 1 && <div className="clearfix" />}
-                </Fragment>
-            ))}
-        </div>
-    );
+    return <>
+        <DnPath dnParts={dnParts} 
+                includeLogo={true}
+                iconSize={iconSize ?? 'md' } />
+    </>
 };
 
 export default DnComponent;

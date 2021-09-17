@@ -17,6 +17,7 @@ export const MarkerIcon: FC<MarkerIconProps> = ({ marker, size, extraStyles }) =
     const [markerInfo, setMarkerInfo] = useState<MarkerInfo | null>(null);
 
     subscribeToSharedState('markers_dict', (markers_dict: Record<string, MarkerInfo> | undefined) => {
+        console.log("MARKER DICT: ", markers_dict)
         if (markers_dict) {
             const x = markers_dict[marker];
             if (x) {

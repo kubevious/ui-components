@@ -4,10 +4,9 @@ import { DnIconComponent } from '../DnIconComponent';
 import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
 import { app } from '@kubevious/ui-framework';
 
-import DnPath from '../DnPath';
-
 import styles from './styles.module.css';
 import { IconSize } from '../DnIconComponent/types';
+import { DnComponent } from '..';
 
 export interface DnLinkProps {
     dn: string;
@@ -15,19 +14,12 @@ export interface DnLinkProps {
 }
 
 export const DnLink: FC<DnLinkProps> = ({ dn, size = 'xs' }) => {
-    const dnParts = DnUtils.parseDn(dn).slice(1);
-    const kind = dnParts.length ? dnParts[dnParts.length - 1].kind : '';
 
-    return (
+    return <>
         <div className={styles.dnContainer} key={dn} onClick={() => clickDn(dn)}>
-            <div className={styles.logoContainer}>
-                <DnIconComponent kind={kind} size={size} />
-            </div>
-            <div className={styles.partsContainer}>
-                <DnPath dnParts={dnParts} />
-            </div>
+            <DnComponent dn={dn} iconSize={size} />
         </div>
-    );
+    </>;
 };
 
 function clickDn(dn: string) 

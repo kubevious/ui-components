@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
-import { MarkerInfo, DnShortcutComponentProps } from './types';
+import { DnShortcutComponentProps } from './types';
 import { DnComponent } from '../DnComponent';
-import { MarkerPreview } from '../MarkerPreview';
 import { app } from '@kubevious/ui-framework';
+import cx from 'classnames';
+
+import styles from './styles.module.css';
+import { MarkerIcon } from '..';
 
 export const { sharedState } = app;
 
-import './styles.scss';
 
 export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterId, options, errors = 0, warnings = 0, markers = [] }) => {
 
@@ -19,26 +21,22 @@ export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterI
         }
     };
 
-    const markerDict = sharedState.get('markers_dict') || {};
-
-    let markerItems: MarkerInfo[] = [];
-    if (markers) {
-        markerItems = markers.map((x: React.Key) => markerDict[x]).filter((x) => x);
-    }
-
     return (
-        <div data-testid="dn-shortcut-component" className="dn-shortcut" onClick={() => clickDn()}>
+        <div data-testid="dn-shortcut-component" className={styles.dnShortcut} onClick={() => clickDn()}>
             <DnComponent dn={dn} options={options} />
 
-            <div className="dn-alert">
-                {markerItems &&
-                    markerItems.map((marker, index) => (
-                        <div className="marker">
-                            <MarkerPreview key={index} shape={marker.shape} color={marker.color} />
-                        </div>
-                    ))}
-                {errors > 0 && <div className="indicator error-object">{errors > 1 && errors}</div>}
-                {warnings > 0 && <div className="indicator warning-object">{warnings > 1 && warnings}</div>}
+            <div className={styles.flagsContainer}>
+
+                {markers && markers.map((marker, index) => (
+                    <div key={index} className={styles.markersContainer}>
+                        <MarkerIcon marker={marker} />
+                    </div>
+                ))}
+
+                <div className={styles.alertsContainer}>
+                    {((errors ?? 0) > 0) && <div className={cx(styles.alertIndicator, styles.errorAlert)}>{errors > 1 && errors}</div>}
+                    {((warnings ?? 0) > 0) && <div className={cx(styles.alertIndicator, styles.warningAlert)}>{warnings > 1 && warnings}</div>}
+                </div>
             </div>
         </div>
     );

@@ -1,0 +1,39 @@
+.dnPath {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  font-size: 10px;
+  min-height: 32px;
+}
+
+
+.dnPath span {
+  margin-right: 4px; 
+  line-height: 33px;
+}
+
+.dnPathKind {
+  font-weight: 400;
+  font-size: 8pt;
+  color: #999;
+}
+
+.dnPathName {
+  font-size: 12pt;
+}
+
+.dnPathSeparator {
+  background: url("/img/separator.svg") center center no-repeat;
+  background-size: 100%;
+  text-indent: -5000px;
+  width: 2px;
+  padding: 0 3px;
+  display: block;
+  float: left;
+  margin: 0 4px 0 0;
+}
+
+.dnIconContainer {
+  margin-right: 5px;
+}
