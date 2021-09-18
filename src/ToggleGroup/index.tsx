@@ -1,5 +1,5 @@
 import _ from 'the-lodash';
-import React, { ReactElement} from 'react';
+import React, { ReactElement, PropsWithChildren} from 'react';
 import cx from 'classnames';
 
 import styles from './styles.module.css'
@@ -14,7 +14,7 @@ export interface ToggleGroupProps<T> {
 }
 
 
-export const ToggleGroup = <T,>({ items, selectedItem, onSelectionChange, extraStyles, extraButtonStyles } : ToggleGroupProps<T>) : ReactElement =>
+export const ToggleGroup = <T,>({ items, selectedItem, onSelectionChange, extraStyles, extraButtonStyles } : PropsWithChildren<ToggleGroupProps<T>>) : ReactElement =>
 {
     return <>
         <div
