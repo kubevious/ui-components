@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import DnPath from './';
+import { DnPath } from './';
 
 export default {
     title: 'DnPath',
@@ -8,7 +8,7 @@ export default {
 };
 
 export const Default: Story = () => (
-    <div style={{ background: '#1e1e1e', color: 'white' }}>
+    <div style={{ background: '#1e1e1e' }}>
 
         <div>
 

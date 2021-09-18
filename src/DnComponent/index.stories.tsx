@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import DnComponent from './';
+import { DnComponent } from './';
 
 export default {
     title: 'DnComponent',
@@ -8,7 +8,7 @@ export default {
 };
 
 export const Default: Story = () => (
-    <div style={{ background: '#1e1e1e', color: 'white' }}>
+    <div style={{ background: '#1e1e1e' }}>
 
         <div>
             <div style={{ background: '#555555', padding: '25px' }}>

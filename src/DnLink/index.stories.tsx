@@ -8,7 +8,7 @@ export default {
 };
 
 export const Default: Story = () => (
-    <div style={{ background: '#1e1e1e', color: 'white' }}>
+    <div style={{ background: '#1e1e1e' }}>
 
         <div style={{ background: '#0e0e0e'  }} >
             <div style={{ margin: '1em' }}>
