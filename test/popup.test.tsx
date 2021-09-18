@@ -7,7 +7,7 @@ import { render } from "@testing-library/react";
 function renderPopup() {
   function closePopup() {}
 
-  return render(<Popup popupContent={CopyClipboard} closePopup={closePopup} />);
+  return render(<Popup popupContent={<CopyClipboard text="abcd" />} closePopup={closePopup} />);
 }
 
 describe("<Popup />", () => {

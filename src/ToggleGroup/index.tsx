@@ -1,27 +1,28 @@
 import _ from 'the-lodash';
-import React, { FC } from 'react';
+import React, { ReactElement} from 'react';
 import cx from 'classnames';
 
 import styles from './styles.module.css'
 import { ToggleButton } from '..';
 
-export interface ToggleGroupProps {
-    items: any[],
-    selectedItem?: any;
-    onSelectionChange?: (item: any) => any;
+export interface ToggleGroupProps<T> {
+    items: T[],
+    selectedItem?: T;
+    onSelectionChange?: (item: T) => any;
     extraStyles?: string | string[] | { [key: string]: any };
     extraButtonStyles?: string | string[] | { [key: string]: any };
 }
 
-export const ToggleGroup: FC<ToggleGroupProps> = ({ items, selectedItem, onSelectionChange, extraStyles, extraButtonStyles }) => {
-   
+
+export const ToggleGroup = <T,>({ items, selectedItem, onSelectionChange, extraStyles, extraButtonStyles } : ToggleGroupProps<T>) : ReactElement =>
+{
     return <>
         <div
             className={cx(styles.container, extraStyles)}
         >
-            {items && items.map(item => {
+            {items && items.map((item, index) => {
                 return <>
-                    <ToggleButton
+                    <ToggleButton key={index}
                         isSelected={item === selectedItem}
                         onClick={() => {
                             if (onSelectionChange) {
