@@ -21,19 +21,17 @@ export const ToggleGroup = <T,>({ items, selectedItem, onSelectionChange, extraS
             className={cx(styles.container, extraStyles)}
         >
             {items && items.map((item, index) => {
-                return <>
-                    <ToggleButton key={index}
-                        isSelected={item === selectedItem}
-                        onClick={() => {
-                            if (onSelectionChange) {
-                                onSelectionChange(item);
-                            }
-                        }}
-                        extraStyles={extraButtonStyles}
-                        >
-                        {item}
-                    </ToggleButton>
-                </>
+                return <ToggleButton key={index}
+                    isSelected={item === selectedItem}
+                    onClick={() => {
+                        if (onSelectionChange) {
+                            onSelectionChange(item);
+                        }
+                    }}
+                    extraStyles={extraButtonStyles}
+                    >
+                    {item}
+                </ToggleButton>
             })}
         </div>
     </>;
