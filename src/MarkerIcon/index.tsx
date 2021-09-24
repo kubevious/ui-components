@@ -1,18 +1,18 @@
 import React, { FC, useState } from 'react';
 import { subscribeToSharedState } from '@kubevious/ui-framework';
 import { MarkerPreview } from '../MarkerPreview';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
-import cx from 'classnames';
 
 import styles from './styles.module.css';
+import { IconBox } from '../IconBox';
 
 export interface MarkerIconProps {
     marker: string;
     size?: number;
-    extraStyles?: string | string[] | { [key: string]: any };
+    extraClassNames?: string | string[];
+    extraStyle?: React.CSSProperties;
 }
 
-export const MarkerIcon: FC<MarkerIconProps> = ({ marker, size, extraStyles }) => {
+export const MarkerIcon: FC<MarkerIconProps> = ({ marker, size, extraClassNames, extraStyle }) => {
 
     const [markerInfo, setMarkerInfo] = useState<MarkerInfo | null>(null);
 
@@ -28,35 +28,24 @@ export const MarkerIcon: FC<MarkerIconProps> = ({ marker, size, extraStyles }) =
         setMarkerInfo(null);
     })
 
-    const renderTooltip = (props: any) => (
-        <Tooltip id="marker-tooltip" {...props}>
-          Marker: {marker}
-        </Tooltip>
-    );
+    const renderTooltipContents = () => <>
+        Marker: {marker}
+    </>;
 
     const fontSize = size || 16;
-    const boxSize = fontSize + 10;
-    
+
     return <>
-        <div className={cx(styles.container, extraStyles)} >
-            <OverlayTrigger
-                placement="top"
-                delay={{ show: 100, hide: 300 }}
-                overlay={renderTooltip}
-                >
-                <div className={styles.innerContainer}
-                     style={{ width: `${boxSize}px`, height: `${boxSize}px` }}
-                     >
-                    {markerInfo && 
-                        <MarkerPreview 
-                            shape={markerInfo.shape} 
-                            color={markerInfo.color}
-                            size={`${fontSize}px`}
-                            extraStyles={styles.icon}
-                            /> }
-                </div>
-            </OverlayTrigger>
-        </div>
+        <IconBox width={fontSize} height={fontSize} 
+                 tooltipContentsFetcher={renderTooltipContents}
+                 extraClassNames={extraClassNames}
+                 extraStyle={extraStyle}
+                 >
+            {markerInfo &&  <MarkerPreview 
+                shape={markerInfo.shape} 
+                color={markerInfo.color}
+                size={`${fontSize}px`}
+                /> }
+        </IconBox>
     </>
 }
 

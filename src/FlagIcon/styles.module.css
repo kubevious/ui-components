@@ -1,15 +1,6 @@
-.container {
-    display: inline-block;
-    padding: 5px;
-}
-
-.innerContainer {
-    border-radius: 4px;
-    background: #292a2f;
-    display: flex!important;
-}
-
 .icon {
-    margin: auto!important;
+    /* margin: auto!important; */
     background-size: contain;
+    width: 100%;
+    height: 100%;
 }

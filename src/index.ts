@@ -48,6 +48,8 @@ export { Textarea } from './Textarea';
 
 export { isValidJson } from './isValidJson';
 
+export { IconBox } from './IconBox';
+
 export { MarkerIcon } from './MarkerIcon';
 export { MarkerPreview } from './MarkerPreview';
 

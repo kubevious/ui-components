@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { FlagIcon } from '../';
+import { FlagIcon } from './';
 
 export default {
     title: 'FlagIcon',

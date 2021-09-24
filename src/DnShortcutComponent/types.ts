@@ -9,6 +9,7 @@ export interface DnShortcutComponentProps {
     errors?: number;
     warnings?: number;
     markers?: string[];
+    flags?: string[];
     options?: {
         relativeTo?: string;
     };

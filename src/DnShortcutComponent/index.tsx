@@ -5,12 +5,12 @@ import { app } from '@kubevious/ui-framework';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
-import { MarkerIcon } from '..';
+import { FlagIcon, MarkerIcon } from '..';
 
 export const { sharedState } = app;
 
 
-export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterId, options, errors = 0, warnings = 0, markers = [] }) => {
+export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterId, options, errors = 0, warnings = 0, markers = [], flags }) => {
 
     const clickDn = (): void => {
         sharedState.set('selected_dn', dn);
@@ -27,16 +27,16 @@ export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterI
 
             <div className={styles.flagsContainer}>
 
-                {markers && markers.map((marker, index) => (
-                    <div key={index} className={styles.markersContainer}>
-                        <MarkerIcon marker={marker} />
-                    </div>
+                {markers && markers.map((marker) => (
+                    <MarkerIcon key={marker} marker={marker} />
                 ))}
 
-                <div className={styles.alertsContainer}>
-                    {((errors ?? 0) > 0) && <div className={cx(styles.alertIndicator, styles.errorAlert)}>{errors > 1 && errors}</div>}
-                    {((warnings ?? 0) > 0) && <div className={cx(styles.alertIndicator, styles.warningAlert)}>{warnings > 1 && warnings}</div>}
-                </div>
+                {flags && flags.map((flag) => (
+                    <FlagIcon key={flag} flag={flag} />
+                ))}
+
+                {((errors ?? 0) > 0) && <div className={cx(styles.alertIndicator, styles.errorAlert)}>{errors > 1 && errors}</div>}
+                {((warnings ?? 0) > 0) && <div className={cx(styles.alertIndicator, styles.warningAlert)}>{warnings > 1 && warnings}</div>}
             </div>
         </div>
     );

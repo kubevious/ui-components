@@ -22,7 +22,7 @@ export const Default: Story = () => (
             Default in sequence
         </div >
 
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
             <MarkerIcon marker={MARKER_FOO} />
             <MarkerIcon marker={MARKER_BAR} />
             <MarkerIcon marker={MARKER_FOO} />
@@ -33,16 +33,16 @@ export const Default: Story = () => (
             On separate Lines
         </div >
 
-        <div>
-            <MarkerIcon marker={MARKER_FOO} extraStyles="d-block" />
-            <MarkerIcon marker={MARKER_BAR} extraStyles="d-block" />
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
+            <MarkerIcon marker={MARKER_FOO} />
+            <MarkerIcon marker={MARKER_BAR} />
         </div>
 
         <div >
             Large 
         </div >
 
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
             <MarkerIcon marker={MARKER_FOO} size={32} />
             <MarkerIcon marker={MARKER_BAR} size={32} />
             <MarkerIcon marker={MARKER_FOO} size={32} />
@@ -53,7 +53,7 @@ export const Default: Story = () => (
             X-Large 
         </div >
 
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
             <MarkerIcon marker={MARKER_FOO} size={64} />
             <MarkerIcon marker={MARKER_BAR} size={64} />
             <MarkerIcon marker={MARKER_FOO} size={64} />

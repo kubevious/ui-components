@@ -1,55 +1,42 @@
 import React, { FC } from 'react';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
-import cx from 'classnames';
 
 import styles from './styles.module.css';
 
 import { FLAG_TOOLTIPS } from '@kubevious/helpers/dist/docs';
+import { IconBox } from '../IconBox';
 
 export interface FlagIconProps {
     flag: string;
     size?: number;
-    extraStyles?: string | string[] | { [key: string]: any };
+    extraClassNames?: string | string[] | { [key: string]: any };
+    extraStyle?: React.CSSProperties;
 }
 
-export const FlagIcon: FC<FlagIconProps> = ({ flag, size, extraStyles }) => {
+export const FlagIcon: FC<FlagIconProps> = ({ flag, size, extraClassNames, extraStyle }) => {
 
 
-    const renderTooltip = (props: any) => {
+    const renderTooltipContents = () => {
         let value = FLAG_TOOLTIPS[flag];
         if (!value) {
             value = `Flag: {flag}`;
         }
         return (
-            <Tooltip id="flag-tooltip" {...props}>
-                <div dangerouslySetInnerHTML={{ __html: value }} />
-            </Tooltip>
+            <div dangerouslySetInnerHTML={{ __html: value }} />
         )
     };
-
-    size = size || 16;
-    const boxSize = size + 10;
     
+    const fontSize = size || 16;
+
     return <>
-        <div className={cx(styles.container, extraStyles)} >
-            <OverlayTrigger
-                placement="top"
-                delay={{ show: 100, hide: 300 }}
-                overlay={renderTooltip}
-            >
-                <div className={styles.innerContainer}
-                     style={{ width: `${boxSize}px`, height: `${boxSize}px` }}
-                     >
-                    <div className={styles.icon}
-                         style={{ 
-                             backgroundImage: `url(${FlagIconGetImageUrl(flag)})`,
-                             width: `${size}px`,
-                             height: `${size}px`
-                        }}
-                        />
-                </div>
-            </OverlayTrigger>
-        </div>
+        <IconBox width={fontSize} height={fontSize}
+                 tooltipContentsFetcher={renderTooltipContents}
+                 extraClassNames={extraClassNames}
+                 extraStyle={extraStyle}
+                 >
+            <div className={styles.icon}
+                 style={{backgroundImage: `url(${FlagIconGetImageUrl(flag)})`}}>
+            </div>
+        </IconBox>
     </>
 }
 

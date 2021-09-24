@@ -33,6 +33,7 @@ export const Default: Story = () => (
                 <DnShortcutComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
                                      errors={5} warnings={33}
                                      markers={[MARKER_FOO, MARKER_BAR]}
+                                     flags={['radioactive']}
                                      />
             </div>
             
