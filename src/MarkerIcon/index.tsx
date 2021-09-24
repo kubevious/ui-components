@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import { subscribeToSharedState } from '@kubevious/ui-framework';
 import { MarkerPreview } from '../MarkerPreview';
 
-import styles from './styles.module.css';
 import { IconBox } from '../IconBox';
 
 export interface MarkerIconProps {
