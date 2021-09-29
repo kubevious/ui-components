@@ -1,6 +1,8 @@
+import { Dn } from '@kubevious/entity-meta'
+
 export type IconSize = 'xs' | 'md' | 'lg';
 
 export interface DnIconComponentProps {
-    kind: string;
+    dnParts: Dn;
     size: IconSize;
 }

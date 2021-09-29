@@ -1535,6 +1535,13 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@kubevious/entity-meta@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.14.tgz#4c4511b72d6030f19dbe559d253996315b5a92ac"
+  integrity sha512-tQoUtwYSoZaSGl4vxjmrcLGDwMiyX030WX1o52iH8G/DmCKZstaeoMMyKwwyc3QnMYdnBQBvA0Fu0MBCMTm9Yg==
+  dependencies:
+    the-lodash "^2.0.9"
+
 "@kubevious/helpers@^1.0.62":
   version "1.0.62"
   resolved "https://registry.yarnpkg.com/@kubevious/helpers/-/helpers-1.0.62.tgz#68a9079411b7ec8a1cb6a15d6d3c458f54b51ff9"

@@ -52,7 +52,7 @@ export const IconBox: FC<IconBox> = ({ children, innerPadding, width, height, ex
     return <>
         <OverlayTrigger
             placement="top"
-            delay={{ show: 100, hide: 300 }}
+            delay={{ show: 300, hide: 100 }}
             overlay={renderTooltip}
             >
 

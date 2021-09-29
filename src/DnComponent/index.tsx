@@ -1,28 +1,26 @@
 import React, { FC } from 'react';
 import _ from 'the-lodash';
-import * as DnUtils from '@kubevious/helpers/dist/dn-utils';
 import { DnPath } from '../DnPath';
 import { DnComponentProps } from './types';
+import { parseDn } from '@kubevious/entity-meta'
 
 export const DnComponent: FC<DnComponentProps> = ({ dn, iconSize, options }) => {
     const opt = options || {};
 
-    let dnParts = DnUtils.parseDn(dn);
+    const dnParts = parseDn(dn);
 
+    let dnPathIndex = 0;
     if (opt.relativeTo) {
-        const parentDnParts = DnUtils.parseDn(opt.relativeTo);
-        while (dnParts.length > 0 && parentDnParts.length > 0 && dnParts[0].rn === parentDnParts[0].rn) {
-            dnParts.shift();
-            parentDnParts.shift();
+        const parentDnParts = parseDn(opt.relativeTo);
+        for(let i = 0; (i < Math.min(dnParts.length, parentDnParts.length)) && (dnParts[i].rn === parentDnParts[i].rn); i++)
+        {
+            dnPathIndex = i;
         }
     }
 
-    if (dnParts.length > 0 && dnParts[0].kind === 'root') {
-        dnParts = dnParts.splice(1);
-    }
-
     return <>
-        <DnPath dnParts={dnParts} 
+        <DnPath dn={dnParts} 
+                dnPathIndex={dnPathIndex}
                 includeLogo={true}
                 iconSize={iconSize ?? 'md' } />
     </>

@@ -7,7 +7,7 @@ export { CopyButton } from './CodeControlBar/BarButtons/CopyButton';
 export { CopyClipboard } from './CopyClipboard';
 
 export { DnPath } from './DnPath';
-export { DnIconComponent, getEntityImgUrl } from './DnIconComponent';
+export { DnIconComponent } from './DnIconComponent';
 export { DnComponent } from './DnComponent';
 export { DnShortcutComponent } from './DnShortcutComponent';
 export { DnList } from './DnList';

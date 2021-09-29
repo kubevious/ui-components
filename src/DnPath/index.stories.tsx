@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { DnPath } from './';
+import { Dn, NodeKind } from '@kubevious/entity-meta';
 
 export default {
     title: 'DnPath',
@@ -16,14 +17,41 @@ export const Default: Story = () => (
                 <DnPath
                     includeLogo={true}
                     iconSize="xs"
-                    dnParts={DN_PARTS_01}
+                    dn={DN_PARTS_01}
                 />
             </div>
 
             <div style={{ background: '#555555', padding: '25px' }}>
                 <DnPath
                     includeLogo={true}
-                    dnParts={DN_PARTS_01}
+                    dnPathIndex={1}
+                    iconSize="xs"
+                    dn={DN_PARTS_01}
+                />
+            </div>
+
+            <div style={{ background: '#555555', padding: '25px' }}>
+                <DnPath
+                    includeLogo={true}
+                    dnPathIndex={2}
+                    iconSize="xs"
+                    dn={DN_PARTS_01}
+                />
+            </div>
+
+            <div style={{ background: '#555555', padding: '25px' }}>
+                <DnPath
+                    includeLogo={true}
+                    dnPathIndex={3}
+                    iconSize="xs"
+                    dn={DN_PARTS_01}
+                />
+            </div>
+
+            <div style={{ background: '#555555', padding: '25px' }}>
+                <DnPath
+                    includeLogo={true}
+                    dn={DN_PARTS_01}
                 />
             </div>
 
@@ -31,13 +59,13 @@ export const Default: Story = () => (
                 <DnPath
                     includeLogo={true}
                     iconSize="lg"
-                    dnParts={DN_PARTS_01}
+                    dn={DN_PARTS_01}
                 />
             </div>
 
             <div style={{ background: '#555555', padding: '25px' }}>
                 <DnPath
-                    dnParts={DN_PARTS_01}
+                    dn={DN_PARTS_01}
                 />
             </div>
         </div>
@@ -47,7 +75,7 @@ export const Default: Story = () => (
                 <DnPath
                     includeLogo={true}
                     iconSize="xs"
-                    dnParts={DN_PARTS_01}
+                    dn={DN_PARTS_01}
                 />
             </div>
 
@@ -55,13 +83,13 @@ export const Default: Story = () => (
                 <DnPath
                     includeLogo={true}
                     iconSize="lg"
-                    dnParts={DN_PARTS_01}
+                    dn={DN_PARTS_01}
                 />
             </div>
 
             <div style={{ background: '#555555', padding: '25px' }}>
                 <DnPath
-                    dnParts={DN_PARTS_01}
+                    dn={DN_PARTS_01}
                 />
             </div>
         </div>
@@ -70,20 +98,20 @@ export const Default: Story = () => (
 );
 
 
-const DN_PARTS_01 = [
+const DN_PARTS_01 : Dn = [
     {
         rn: 'ns-[gitlab]',
-        kind: 'ns',
+        kind: NodeKind.ns,
         name: 'gitlab',
     },
     {
         rn: 'app-[gitlab-gitlab-exporter]',
-        kind: 'app',
+        kind: NodeKind.app,
         name: 'gitlab-gitlab-exporter',
     },
     {
         rn: 'initcont-[configure]',
-        kind: 'initcont',
+        kind: NodeKind.initcont,
         name: 'configure',
     },
 ];

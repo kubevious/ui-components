@@ -25,7 +25,21 @@ export const Default: Story = () => (
 
             <div style={{ background: '#555555',  padding: '25px' }}>
                 <DnComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]" />
-            </div>
+            </div> 
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/resource-[gprod-addr-main-app]" />
+            </div> 
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/resource-[gprod-addr-main-app]"
+                             options={{ relativeTo: "root/k8s/ns-[addr]/version-[v1]" }} />
+            </div> 
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/unknown-[gprod-addr-main-app]" />
+            </div> 
+            
         </div>
 
         <div>
@@ -38,7 +52,7 @@ export const Default: Story = () => (
                              options={{ relativeTo: "root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]" }} />
             </div>
         </div>
-
+ 
         <div style={{ width: "350px" }} >
             <div style={{ background: '#555555', padding: '25px' }}>
                 <DnComponent dn="root/ns-[kube-system]" />

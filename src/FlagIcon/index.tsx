@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import styles from './styles.module.css';
 
-import { FLAG_TOOLTIPS } from '@kubevious/helpers/dist/docs';
+import { FlagKind, FLAGS_TOOLTIPS } from '@kubevious/entity-meta';
 import { IconBox } from '../IconBox';
 
 export interface FlagIconProps {
@@ -14,9 +14,9 @@ export interface FlagIconProps {
 
 export const FlagIcon: FC<FlagIconProps> = ({ flag, size, extraClassNames, extraStyle }) => {
 
-
     const renderTooltipContents = () => {
-        let value = FLAG_TOOLTIPS[flag];
+        const flagEnum = (flag as FlagKind);
+        let value = FLAGS_TOOLTIPS.get(flagEnum);
         if (!value) {
             value = `Flag: {flag}`;
         }
