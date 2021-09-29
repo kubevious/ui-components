@@ -5,7 +5,7 @@ import { DnShortcutComponent } from "../src";
 import { render } from "@testing-library/react";
 
 function renderDn() {
-  return render(<DnShortcutComponent dn={''} />);
+  return render(<DnShortcutComponent dn={'root/logic/ns-[test]'} />);
 }
 
 describe("<DnShortcutComponent />", () => {

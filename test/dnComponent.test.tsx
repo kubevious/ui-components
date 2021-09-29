@@ -5,7 +5,7 @@ import { DnComponent } from "../src";
 import { render } from "@testing-library/react";
 
 function renderDn() {
-  return render(<DnComponent dn={''} />);
+  return render(<DnComponent dn={'root/logic/ns-[test]'} />);
 }
 
 describe("<DnComponent />", () => {

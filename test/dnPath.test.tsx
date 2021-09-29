@@ -5,7 +5,7 @@ import { DnPath } from "../src";
 import { render } from "@testing-library/react";
 
 function renderDnPath() {
-  return render(<DnPath dnParts={[]} />);
+  return render(<DnPath dn={[]} />);
 }
 
 describe("<DnPath />", () => {
