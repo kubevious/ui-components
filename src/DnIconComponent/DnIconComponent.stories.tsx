@@ -1,12 +1,14 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { DnIconComponent } from '../DnIconComponent';
+import { DnIconComponent } from './';
 
 import { parseDn } from '@kubevious/entity-meta'
 
+import styles from './story-styles.module.css';
 
 export default {
     title: 'DnIconComponent',
+    component: DnIconComponent,
 };
 
 export const Default: Story = () => (
@@ -39,6 +41,11 @@ export const Default: Story = () => (
             <DnIconComponent dnParts={parseDn("root/images/repo-[dockerhub]")} size="lg" />
             <DnIconComponent dnParts={parseDn("root/images/repo-[dockerhub]/image-[busybox]")} size="lg" />
             <DnIconComponent dnParts={parseDn("root/images/repo-[dockerhub]/image-[busybox]/tag-[latest]")} size="lg" />
+        </div>
+
+        <h2>Size: custom</h2>
+        <div className="d-flex flex-wrap">
+            <DnIconComponent dnParts={parseDn("root/logic/ns-[gitlab]")} size="custom" extraClassNames={styles.customSize} />
         </div>
     </div>
 );

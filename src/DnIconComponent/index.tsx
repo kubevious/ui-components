@@ -14,8 +14,15 @@ function getEntityImgUrl(dnParts: Dn) : string
     return '/img/entity/unknown.svg';
 }
 
-export const DnIconComponent: FC<DnIconComponentProps> = ({ dnParts, size = 'lg', ...rest }) => (
-    <img className={cx(styles[size])} src={getEntityImgUrl(dnParts)} alt="logo" {...rest} />
-);
+export const DnIconComponent: FC<DnIconComponentProps> = ({ dnParts, size = 'lg', extraClassNames, ...rest }) => {
+
+    return (
+        <img className={cx({ [styles[size]] : (size != 'custom') }, extraClassNames )}
+             src={getEntityImgUrl(dnParts)}
+             alt="logo"
+             {...rest} 
+             />
+    );
+};
 
 
