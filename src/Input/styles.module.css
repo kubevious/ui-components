@@ -1,17 +1,11 @@
 .container {
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-.container svg {
-    position: absolute;
-    right: 10px;
-    top: 35px;
-}
-
-.container:first-child {
+.inputContainer {
     color: white;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
 }
 
 .input {
@@ -23,7 +17,6 @@
     font-size: 15px;
     color: white;
     font-family: 'Roboto', sans-serif;
-    margin-top: 5px;
     outline: none;
 }
 
@@ -36,4 +29,11 @@
 
 .hasError {
     border-color: #ff5858;
+}
+
+.iconContainer {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    /* transform: translate(0, -50%); */
 }

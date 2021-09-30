@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import cx from 'classnames';
 
 import { TextColor, TextSize } from '../common-styles/text-types';
@@ -7,7 +7,7 @@ import sizeStyles from '../common-styles/text-size-styles.module.css';
 import colorStyles from '../common-styles/text-color-styles.module.css';
 
 export interface LabelProps {
-    text?: string;
+    text?: ReactNode;
     size?: TextSize;
     color?: TextColor;
     extraStyles?: string | string[] | { [key: string]: any };

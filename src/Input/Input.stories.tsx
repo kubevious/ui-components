@@ -2,7 +2,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Story } from '@storybook/react';
 import React from 'react';
-import { Input } from '../Input';
+import { Input } from './';
 
 export default {
     title: 'Input',
@@ -27,6 +27,15 @@ export const Default: Story = () => (
             <Input
                 label="With right icon"
                 placeholder="Search"
+                rightIcon={<FontAwesomeIcon icon={faSearch} size="lg" />}
+            />
+        </div>
+
+        <div style={{ marginBottom: '1rem' }}>
+            <Input
+                label="With error and right icon"
+                placeholder="Search"
+                hasError
                 rightIcon={<FontAwesomeIcon icon={faSearch} size="lg" />}
             />
         </div>
