@@ -1,6 +1,6 @@
 import _ from 'the-lodash';
 import React, { FC } from 'react';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { TooltipContainer } from '../TooltipContainer';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
@@ -20,20 +20,10 @@ export interface IconBox {
 
 export const IconBox: FC<IconBox> = ({ children, innerPadding, width, height, extraClassNames, extraStyle, tooltipContentsFetcher, innerExtraClassNames, innerExtraStyle }) => {
 
-    const renderTooltip = (props: any) => (
-        <Tooltip id="tooltip" {...props}>
-            {tooltipContentsFetcher && tooltipContentsFetcher(props)}
-        </Tooltip>
-    );
-
     let outerStyle : Record<string, any> = {};
     if (extraStyle) {
         outerStyle = _.clone(extraStyle);
     }
-    // outerStyle.width = `${size}px`;
-    // outerStyle.height = `${size}px`;
-
-    // const innerSize = size - (innerPadding ?? 5) * 2;
 
     let innerStyles : Record<string, any> = {};
     if (innerExtraStyle) {
@@ -50,23 +40,21 @@ export const IconBox: FC<IconBox> = ({ children, innerPadding, width, height, ex
     innerStyles.margin = `${innerPadding}px`;
 
     return <>
-        <OverlayTrigger
-            placement="top"
-            delay={{ show: 300, hide: 100 }}
-            overlay={renderTooltip}
-            >
-
-            <div className={cx(styles.container, extraClassNames)} style={outerStyle} >
-                <div className={cx(styles.border)}>
-                    <div className={cx(styles.innerContainer, innerExtraClassNames)}
-                        style={innerStyles}
-                        >
-                        {children}
+        <TooltipContainer
+            tooltipContentsFetcher={tooltipContentsFetcher}
+            contents={
+                <div className={cx(styles.container, extraClassNames)} style={outerStyle} >
+                    <div className={cx(styles.border)}>
+                        <div className={cx(styles.innerContainer, innerExtraClassNames)}
+                            style={innerStyles}
+                            >
+                            {children}
+                        </div>
                     </div>
                 </div>
-            </div>
-
-        </OverlayTrigger>
+            }
+            >
+        </TooltipContainer>
 
     </>
 }
