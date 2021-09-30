@@ -5,7 +5,8 @@ import { app } from '@kubevious/ui-framework';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
-import { FlagIcon, MarkerIcon } from '..';
+import { FlagIcon } from '../FlagIcon';
+import { MarkerIcon } from '../MarkerIcon';
 
 export const { sharedState } = app;
 

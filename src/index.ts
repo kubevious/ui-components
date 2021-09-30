@@ -65,3 +65,6 @@ export { CallbackHook } from './CallbackHook'
 
 export { ToggleButton } from './ToggleButton'
 export { ToggleGroup } from './ToggleGroup'
+
+export { SeverityIcon } from './SeverityIcon';
+export { SeverityBlock } from './SeverityBlock';

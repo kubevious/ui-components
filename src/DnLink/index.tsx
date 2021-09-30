@@ -4,7 +4,7 @@ import { app } from '@kubevious/ui-framework';
 
 import styles from './styles.module.css';
 import { IconSize } from '../DnIconComponent/types';
-import { DnComponent } from '..';
+import { DnComponent } from '../DnComponent';
 
 export interface DnLinkProps {
     dn: string;

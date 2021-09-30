@@ -3,7 +3,7 @@ import React, { ReactElement, PropsWithChildren} from 'react';
 import cx from 'classnames';
 
 import styles from './styles.module.css'
-import { ToggleButton } from '..';
+import { ToggleButton } from '../ToggleButton';
 
 export interface ToggleGroupProps<T> {
     items: T[],

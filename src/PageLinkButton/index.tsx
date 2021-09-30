@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Button, PageLink } from '..';
+import { Button } from '../Button';
+import { PageLink } from '../PageLink';
 import { encodeURL } from '../utils/url';
 
 export interface PageLinkButtonProps {
