@@ -5,12 +5,21 @@
 
   font-size: 10px;
   min-height: 32px;
+  gap: 4px;
+}
+
+.dnFragment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 
 .dnPath span {
-  margin-right: 4px; 
-  line-height: 33px;
+  line-height: 25px;
 }
 
 .dnPathKind {
@@ -26,13 +35,10 @@
   background: url("/img/separator.svg") center center no-repeat;
   background-size: 100%;
   text-indent: -5000px;
-  width: 2px;
-  padding: 0 3px;
+  width: 6px;
+  height: 25px;
   display: block;
-  float: left;
-  margin: 0 4px 0 0;
 }
 
 .dnIconContainer {
-  margin-right: 5px;
 }

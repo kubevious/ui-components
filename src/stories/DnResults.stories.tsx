@@ -27,9 +27,9 @@ export const Default: Story = () => (
         <InnerPage>
             <DnResults
                 items={[
-                    { dn: 'root/ns-[kube-system]', clusterId: '1' },
-                    { dn: 'root/ns-[kube-system]', clusterId: '1' },
-                    { dn: 'root/ns-[kube-system]', clusterId: '2' },
+                    { dn: 'root/logic/ns-[kube-system]', clusterId: '1' },
+                    { dn: 'root/logic/ns-[kube-system]', clusterId: '1' },
+                    { dn: 'root/logic/ns-[kube-system]', clusterId: '2' },
                 ]}
             />
         </InnerPage>
@@ -43,7 +43,7 @@ export const UpdatableResults: Story = () => {
         <InnerPage>
             <Button onClick={() => {
                 let newItems = _.clone(items);
-                newItems.push({ dn: 'root/ns-[kube-system]' });
+                newItems.push({ dn: 'root/logic/ns-[kube-system]' });
                 setItems(newItems);
             }} >
                 Generate Items

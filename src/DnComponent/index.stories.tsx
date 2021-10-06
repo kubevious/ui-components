@@ -12,19 +12,19 @@ export const Default: Story = () => (
 
         <div>
             <div style={{ background: '#555555', padding: '25px' }}>
-                <DnComponent dn="root/ns-[kube-system]" />
+                <DnComponent dn="root/logic/ns-[kube-system]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" />
+                <DnComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]" />
+                <DnComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]" />
+                <DnComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]" />
             </div> 
 
             <div style={{ background: '#555555',  padding: '25px' }}>
@@ -44,50 +44,50 @@ export const Default: Story = () => (
 
         <div>
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
-                             options={{ relativeTo: "root/ns-[gitlab]/app-[gitlab-gitlab-shell]" }} />
+                <DnComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
+                             options={{ relativeTo: "root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]" }} />
             </div>
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
-                             options={{ relativeTo: "root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]" }} />
+                <DnComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
+                             options={{ relativeTo: "root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]" }} />
             </div>
         </div>
  
         <div style={{ width: "350px" }} >
             <div style={{ background: '#555555', padding: '25px' }}>
-                <DnComponent dn="root/ns-[kube-system]" />
+                <DnComponent dn="root/logic/ns-[kube-system]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" />
+                <DnComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]" />
+                <DnComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]" />
+                <DnComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]" />
             </div>
         </div>
 
 
         <div>
             <div style={{ background: '#555555', padding: '25px' }}>
-                <DnComponent dn="root/ns-[kube-system]" iconSize="xs" />
+                <DnComponent dn="root/logic/ns-[kube-system]" iconSize="xs" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]"  iconSize="xs" />
+                <DnComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]"  iconSize="xs" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]"
+                <DnComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]"
                              iconSize="lg" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
+                <DnComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
                              iconSize="lg"/>
             </div>
         </div>

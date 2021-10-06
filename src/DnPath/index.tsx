@@ -14,10 +14,6 @@ function getLabel(item: RnInfo): string
 }
 
 export const DnPath: FC<DnPathProps> = ({ dn, dnPathIndex, includeLogo, iconSize }) => {
-    // if (dnParts.length > 0 && dnParts[0].kind === NodeKind.root) {
-    //     dnParts = dnParts.splice(1);
-    // }
-
     const dnParts = _.drop(dn, dnPathIndex ?? 0);
 
     return <>
@@ -27,14 +23,13 @@ export const DnPath: FC<DnPathProps> = ({ dn, dnPathIndex, includeLogo, iconSize
                 <DnIconComponent dnParts={dn} size={iconSize ?? "md"} />
             </div>}
 
-            {dnParts.map((item, index) => (
-                <Fragment key={index}>
+            {dnParts.map((item, index) => 
+                <div key={index} className={styles.dnFragment}>
                     <span className={cx(styles.dnPathKind, colorStyles.faded)}>{getLabel(item)}</span>
                     <span className={cx(styles.dnPathName, colorStyles.normal)}>{item.name}</span>
-                    {index !== dnParts.length - 1 && <span className={styles.dnPathSeparator}>&gt;</span>}
-                    {index === dnParts.length - 1 && <div className="clearfix" />}
-                </Fragment>
-            ))}
+                    {(index !== dnParts.length - 1) && <span className={styles.dnPathSeparator}>&gt;</span>}
+                </div>
+            )}
         </div>
     </>;
 };

@@ -12,45 +12,45 @@ export const Default: Story = () => (
 
         <div style={{ background: '#0e0e0e'  }} >
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/app-[gprod-berlioz-main-agent]/cont-[gprod-berlioz-main-agent]/image-[berliozcloud/agent]" />
+                <DnLink dn="root/logic/ns-[berlioz]/app-[gprod-berlioz-main-agent]/cont-[gprod-berlioz-main-agent]/image-[berliozcloud/agent]" />
             </div>
 
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/app-[gprod-berlioz-main-agent]/cont-[gprod-berlioz-main-agent]/vol-[google-cloud-key]/secret-[gprod-berlioz-main-agent]	" />
+                <DnLink dn="root/logic/ns-[berlioz]/app-[gprod-berlioz-main-agent]/cont-[gprod-berlioz-main-agent]/vol-[google-cloud-key]/secret-[gprod-berlioz-main-agent]	" />
             </div>
 
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/raw-[Raw Configs]" />
+                <DnLink dn="root/logic/ns-[berlioz]/raw-[Raw Configs]" />
             </div>
 
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/raw-[Raw Configs]" size='md' />
+                <DnLink dn="root/logic/ns-[berlioz]/raw-[Raw Configs]" size='md' />
             </div>
 
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/raw-[Raw Configs]" size='lg' />
+                <DnLink dn="root/logic/ns-[berlioz]/raw-[Raw Configs]" size='lg' />
             </div>
         </div>
 
         <div style={{ background: '#0e0e0e', width: "350px" }} >
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/app-[gprod-berlioz-main-agent]/cont-[gprod-berlioz-main-agent]/image-[berliozcloud/agent]" />
+                <DnLink dn="root/logic/ns-[berlioz]/app-[gprod-berlioz-main-agent]/cont-[gprod-berlioz-main-agent]/image-[berliozcloud/agent]" />
             </div>
 
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/app-[gprod-berlioz-main-agent]/cont-[gprod-berlioz-main-agent]/vol-[google-cloud-key]/secret-[gprod-berlioz-main-agent]	" />
+                <DnLink dn="root/logic/ns-[berlioz]/app-[gprod-berlioz-main-agent]/cont-[gprod-berlioz-main-agent]/vol-[google-cloud-key]/secret-[gprod-berlioz-main-agent]	" />
             </div>
 
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/raw-[Raw Configs]" />
+                <DnLink dn="root/logic/ns-[berlioz]/raw-[Raw Configs]" />
             </div>
 
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/raw-[Raw Configs]" size='md' />
+                <DnLink dn="root/logic/ns-[berlioz]/raw-[Raw Configs]" size='md' />
             </div>
 
             <div style={{ margin: '1em' }}>
-                <DnLink dn="root/ns-[berlioz]/raw-[Raw Configs]" size='lg' />
+                <DnLink dn="root/logic/ns-[berlioz]/raw-[Raw Configs]" size='lg' />
             </div>
         </div>
 

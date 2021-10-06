@@ -13,24 +13,24 @@ export const Default: Story = () => (
 
         <div>
             <div style={{ background: '#555555', padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[kube-system]" />
+                <DnShortcutComponent dn="root/logic/ns-[kube-system]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" errors={4} />
+                <DnShortcutComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" errors={4} />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]" warnings={10} />
+                <DnShortcutComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]" warnings={10} />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]" errors={5} warnings={33} />
+                <DnShortcutComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]" errors={5} warnings={33} />
             </div>
 
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
+                <DnShortcutComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
                                      errors={5} warnings={33}
                                      markers={[MARKER_FOO, MARKER_BAR]}
                                      flags={['radioactive']}
@@ -41,23 +41,23 @@ export const Default: Story = () => (
 
         <div style={{ width: "350px" }} >
             <div style={{ background: '#555555', padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[kube-system]" />
+                <DnShortcutComponent dn="root/logic/ns-[kube-system]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" />
+                <DnShortcutComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]" />
+                <DnShortcutComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/cont-[catalogue-db]/image-[weaveworksdemos/catalogue-db]" />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"  errors={523} warnings={33} />
+                <DnShortcutComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"  errors={523} warnings={33} />
             </div>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnShortcutComponent dn="root/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
+                <DnShortcutComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
                                      errors={5} warnings={33}
                                      markers={[MARKER_FOO, MARKER_BAR]}
                                      />

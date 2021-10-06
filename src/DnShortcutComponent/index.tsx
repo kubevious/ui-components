@@ -2,14 +2,13 @@ import React, { FC } from 'react';
 import { DnShortcutComponentProps } from './types';
 import { DnComponent } from '../DnComponent';
 import { app } from '@kubevious/ui-framework';
-import cx from 'classnames';
 
 import styles from './styles.module.css';
 import { FlagIcon } from '../FlagIcon';
 import { MarkerIcon } from '../MarkerIcon';
+import { SeverityBlock } from '..';
 
 export const { sharedState } = app;
-
 
 export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterId, options, errors = 0, warnings = 0, markers = [], flags }) => {
 
@@ -21,6 +20,9 @@ export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterI
             sharedState.set('selected_cluster', clusterId);
         }
     };
+
+    errors = errors ?? 0;
+    warnings = warnings ?? 0;
 
     return (
         <div data-testid="dn-shortcut-component" className={styles.dnShortcut} onClick={() => clickDn()}>
@@ -36,8 +38,9 @@ export const DnShortcutComponent: FC<DnShortcutComponentProps> = ({ dn, clusterI
                     <FlagIcon key={flag} flag={flag} />
                 ))}
 
-                {((errors ?? 0) > 0) && <div className={cx(styles.alertIndicator, styles.errorAlert)}>{errors > 1 && errors}</div>}
-                {((warnings ?? 0) > 0) && <div className={cx(styles.alertIndicator, styles.warningAlert)}>{warnings > 1 && warnings}</div>}
+                {((errors > 0) || (warnings > 0)) && 
+                    <SeverityBlock errors={errors} warnings={warnings} />
+                }
             </div>
         </div>
     );

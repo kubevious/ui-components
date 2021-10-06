@@ -6,15 +6,21 @@ import { Label } from '../Label';
 
 import styles from './styles.module.css';
 
-export const SeverityBlock: FC<SeverityBlockProps> = ({ errors, warnings, extraClassNames }) => {
+export const SeverityBlock: FC<SeverityBlockProps> = ({ errors, warnings, showZeros, selfAlerts, extraClassNames }) => {
 
-    const hasErrors = (errors ?? 0) > 0;
-    const hasWarnings = (warnings ?? 0) > 0;
+    errors = errors ?? 0;
+    warnings = warnings ?? 0;
+
+    const hasErrors = showZeros || (errors > 0);
+    const hasWarnings = showZeros || (warnings > 0);
 
     const returnAlertTooltipContent = () => {
         return <div className={styles.tooltipAlertContainer}>
             <div className={styles.tooltipAlertSeverity}>
-                Total number of alerts<br/>within the hierarchy.
+                {!selfAlerts && 
+                    <span>Total number of alerts<br/>within the hierarchy.</span> }
+                {selfAlerts && 
+                    <span>Alerts for this object only.</span> }
             </div>
 
             {hasErrors && <div className={styles.tooltipAlertSeverity}>
