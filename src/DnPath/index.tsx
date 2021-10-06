@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 import _ from 'the-lodash';
 import { DnIconComponent } from '../DnIconComponent';
 import { DnPathProps } from './type';
