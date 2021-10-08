@@ -2,9 +2,11 @@ import React, { FC } from 'react';
 import { DnListProps } from './types';
 import { DnShortcutComponent } from '../DnShortcutComponent';
 
+import styles from './styles.module.css';
+
 export const DnList: FC<DnListProps> = ({ items }) => {
 
-    return <>
+    return <div className={styles.dnListContainer}>
         {items && items.map((item, index) => 
             <DnShortcutComponent
                 key={index}
@@ -16,6 +18,6 @@ export const DnList: FC<DnListProps> = ({ items }) => {
                 options={item.options}
             />
         )}
-    </>
+    </div>
     
 };
