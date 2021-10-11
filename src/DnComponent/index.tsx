@@ -14,7 +14,7 @@ export const DnComponent: FC<DnComponentProps> = ({ dn, iconSize, options }) => 
         const parentDnParts = parseDn(opt.relativeTo);
         for(let i = 0; (i < Math.min(dnParts.length, parentDnParts.length)) && (dnParts[i].rn === parentDnParts[i].rn); i++)
         {
-            dnPathIndex = i;
+            dnPathIndex = i + 1;
         }
     }
 

@@ -10,7 +10,7 @@ export default {
 export const Default: Story = () => (
     <div style={{ background: '#1e1e1e' }}>
 
-        <div>
+        <div style={{ background: '#888888',  padding: '25px' }}>
             <div style={{ background: '#555555', padding: '25px' }}>
                 <DnComponent dn="root/logic/ns-[kube-system]" />
             </div>
@@ -30,19 +30,29 @@ export const Default: Story = () => (
             <div style={{ background: '#555555',  padding: '25px' }}>
                 <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/resource-[gprod-addr-main-app]" />
             </div> 
+        </div>
+
+        <div style={{ background: '#888888',  padding: '25px' }}>
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnComponent dn="root/logic"
+                             options={{ relativeTo: "root" }} />
+            </div> 
 
             <div style={{ background: '#555555',  padding: '25px' }}>
                 <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/resource-[gprod-addr-main-app]"
                              options={{ relativeTo: "root/k8s/ns-[addr]/version-[v1]" }} />
             </div> 
+        </div>
 
+        <div style={{ background: '#888888',  padding: '25px' }}>
             <div style={{ background: '#555555',  padding: '25px' }}>
                 <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/unknown-[gprod-addr-main-app]" />
             </div> 
             
         </div>
 
-        <div>
+        <div style={{ background: '#888888',  padding: '25px' }}>
             <div style={{ background: '#555555',  padding: '25px' }}>
                 <DnComponent dn="root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]/vol-[Volumes]/vol-[shell-config]/configmap-[gitlab-gitlab-shell]"
                              options={{ relativeTo: "root/logic/ns-[gitlab]/app-[gitlab-gitlab-shell]" }} />
