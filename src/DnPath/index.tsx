@@ -14,7 +14,7 @@ function getLabel(item: RnInfo): string
 }
 
 export const DnPath: FC<DnPathProps> = ({ dn, dnPathIndex, includeLogo, iconSize }) => {
-    const dnParts = _.drop(dn, dnPathIndex ?? 0);
+    const dnParts = _.drop(dn, dnPathIndex ?? 1);
 
     return <>
         <div data-testid="dn-path" className={styles.dnPath}>
