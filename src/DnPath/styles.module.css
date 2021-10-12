@@ -1,25 +1,15 @@
 .dnPath {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 
   font-size: 10px;
   min-height: 32px;
   gap: 4px;
-}
 
-.dnFragment {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-
-.dnPath span {
-  line-height: 25px;
+  line-height: 22px;
 }
 
 .dnPathKind {
@@ -41,4 +31,5 @@
 }
 
 .dnIconContainer {
+  margin-right: 5px;
 }

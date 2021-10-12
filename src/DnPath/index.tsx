@@ -23,13 +23,11 @@ export const DnPath: FC<DnPathProps> = ({ dn, dnPathIndex, includeLogo, iconSize
                 <DnIconComponent dnParts={dn} size={iconSize ?? "md"} />
             </div>}
 
-            {dnParts.map((item, index) => 
-                <div key={index} className={styles.dnFragment}>
-                    <span className={cx(styles.dnPathKind, colorStyles.faded)}>{getLabel(item)}</span>
-                    <span className={cx(styles.dnPathName, colorStyles.normal)}>{item.name}</span>
-                    {(index !== dnParts.length - 1) && <span className={styles.dnPathSeparator}>&gt;</span>}
-                </div>
-            )}
+            {dnParts.map((item, index) => <React.Fragment key={index}>
+                <span className={cx(styles.dnPathKind, colorStyles.faded)}>{getLabel(item)}</span>
+                <span className={cx(styles.dnPathName, colorStyles.normal)}>{item.name}</span>
+                {(index !== dnParts.length - 1) && <span className={styles.dnPathSeparator}>&gt;</span>}
+            </React.Fragment>)}
         </div>
     </>;
 };
