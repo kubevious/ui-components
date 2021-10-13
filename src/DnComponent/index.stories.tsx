@@ -35,8 +35,7 @@ export const Default: Story = () => (
         <div style={{ background: '#888888',  padding: '25px' }}>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
-                <DnComponent dn="root/logic"
-                             options={{ relativeTo: "root" }} />
+                <DnComponent dn="root/logic" />
             </div> 
 
             <div style={{ background: '#555555',  padding: '25px' }}>
