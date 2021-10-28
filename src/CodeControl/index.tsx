@@ -1,6 +1,6 @@
 import _ from 'the-lodash';
 import React, { FC } from 'react';
-import { CopyButton } from './BarButtons/CopyButton';
+import { CopyClipboard } from '../CopyClipboard';
 import { DownloadButton } from './BarButtons/DownloadButton';
 import { Controlled as CodeMirrorEditor } from 'react-codemirror2';
 import jsyaml from 'js-yaml';
@@ -31,12 +31,15 @@ export const CodeControl: FC<CodeControlProps> = ({
 
     let mode = '';
 
+    let filename = 'config';
+
     switch(syntax)
     {
         case 'javascript':
             {
                 editorLine = value;
                 mode = 'javascript';
+                filename += '.js';
             }
             break;
 
@@ -51,6 +54,7 @@ export const CodeControl: FC<CodeControlProps> = ({
                     editorLine = jsyaml.dump(value, { indent: indent ?? 4 })
                 }
                 mode = 'yaml';
+                filename += '.yaml';
             }
             break;
 
@@ -65,6 +69,7 @@ export const CodeControl: FC<CodeControlProps> = ({
                     editorLine = JSON.stringify(value, null, indent ?? 4);
                 }
                 mode = 'javascript';
+                filename += '.json';
             }
             break;
 
@@ -76,6 +81,7 @@ export const CodeControl: FC<CodeControlProps> = ({
                     editorLine = _.toString(value);
                 }
                 mode = 'shell';
+                filename += '.sh';
             }
             break;
     }
@@ -84,8 +90,8 @@ export const CodeControl: FC<CodeControlProps> = ({
     return (
         <div data-testid="code-control-bar" className={styles.container} >
             <div className={styles.buttonsWrapper}>
-                {showDownloadButton && <DownloadButton text={editorLine} />}
-                {showCopyButton && <CopyButton text={editorLine} />}
+                {showDownloadButton && <DownloadButton text={editorLine} fileName={filename} />}
+                {showCopyButton && <CopyClipboard text={editorLine} />}
             </div>
 
             <div className={styles.editorBox}>
@@ -93,7 +99,7 @@ export const CodeControl: FC<CodeControlProps> = ({
                     value={editorLine.replace(/(\\)?\\n/g, '\n')}
                     options={{
                         mode,
-                        theme: 'darcula', //'solarized dark', // ,
+                        theme: 'darcula', //'solarized dark',
                         lineNumbers: showLineNumbers,
                         extraKeys: extraKeys
                     }}

@@ -1,3 +1,4 @@
 export interface DownloadButtonProps {
-    text: string
+    text: string;
+    fileName: string;
 }

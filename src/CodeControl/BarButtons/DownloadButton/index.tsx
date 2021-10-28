@@ -6,14 +6,13 @@ import cx from 'classnames';
 
 import styles from './styles.module.css';
 
-export const DownloadButton: FC<DownloadButtonProps> = ({ text = '' }) => {
+export const DownloadButton: FC<DownloadButtonProps> = ({ text, fileName }) => {
     const downloadFile = async () => {
-        const fileName = 'Response';
         const blob = new Blob([text], { type: 'application/yaml' });
         const href = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = href;
-        link.download = fileName + '.yaml';
+        link.download = fileName;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
