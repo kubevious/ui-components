@@ -1530,10 +1530,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kubevious/entity-meta@^1.0.25":
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.25.tgz#22a98cb0ae5eca82f2face519584bd930c6a5ba5"
-  integrity sha512-L/4UBirsozo6x0k6TV9SBu6XuhjtBRZim89zCRAWMqzHg1BbClTDs6rbuHDWguNi9rmytYCAEfwIq6STHzNHgQ==
+"@kubevious/entity-meta@^1.0.36", "@kubevious/entity-meta@^1.0.39":
+  version "1.0.39"
+  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.39.tgz#3bbb760baa332b54869f077d5c34ca0315b71f0b"
+  integrity sha512-+Ml/Q71kaEp5lArqz1Y7NWeJwqsk95Y+7Sc0FmHGHUEBNoFKy97zhAE+swjvSJkLS+hQC9oKuG2diAK8dqaOoQ==
   dependencies:
     the-lodash "^2.0.9"
 
@@ -1560,11 +1560,12 @@
     the-promise "^2.0.13"
     uuid "^8.3.2"
 
-"@kubevious/ui-middleware@^1.0.39":
-  version "1.0.39"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-middleware/-/ui-middleware-1.0.39.tgz#8a90bb3ce0dce5d61409eed79321ec92b3aa3d62"
-  integrity sha512-zkmY/KDD+tHCYTJ+3GZ24MA91puwLjkoFMvT35RqmrBB/4xBOprNTsYF431mcyo0bh4J5MxxqC2SwGqXoJQicw==
+"@kubevious/ui-middleware@^1.0.40":
+  version "1.0.40"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-middleware/-/ui-middleware-1.0.40.tgz#46677b44c566bbf7956051bd9d08b7fb6e1d1f15"
+  integrity sha512-MdGgwud0StvryRqynqzTNb5/3fyyvTijBD7yuZ1WKetSRn0DK/wcfasEIqfKTfyUpB69qSzzIdvWt4inEhfWhg==
   dependencies:
+    "@kubevious/entity-meta" "^1.0.36"
     the-promise "^2.0.13"
 
 "@mdx-js/loader@^1.6.22":
@@ -2675,6 +2676,11 @@
   dependencies:
     "@types/sizzle" "*"
 
+"@types/js-yaml@^4.0.0":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-4.0.4.tgz#cc38781257612581a1a0eb25f1709d2b06812fce"
+  integrity sha512-AuHubXUmg0AzkXH0Mx6sIxeY/1C110mm/EkE/gB1sTRz3h2dao2W/63q42SlVST+lICxz5Oki2hzYA6+KnnieQ==
+
 "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.7":
   version "7.0.8"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.8.tgz#edf1bf1dbf4e04413ca8e5b17b3b7d7d54b59818"
@@ -3396,6 +3402,11 @@ argparse@^1.0.7:
   integrity sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
   dependencies:
     sprintf-js "~1.0.2"
+
+argparse@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
+  integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
 
 aria-query@^4.2.2:
   version "4.2.2"
@@ -4416,10 +4427,10 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codemirror@^5.60.0:
-  version "5.62.0"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.62.0.tgz#e9ecd012e6f9eaf2e05ff4a449ff750f51619e22"
-  integrity sha512-Xnl3304iCc8nyVZuRkzDVVwc794uc9QNX0UcPGeNic1fbzkSrO4l4GVXho9tRNKBgPYZXgocUqXyfIv3BILhCQ==
+codemirror@^5.63.3:
+  version "5.63.3"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.63.3.tgz#97042a242027fe0c87c09b36bc01931d37b76527"
+  integrity sha512-1C+LELr+5grgJYqwZKqxrcbPsHFHapVaVAloBsFBASbpLnQqLw1U8yXJ3gT5D+rhxIiSpo+kTqN+hQ+9ialIXw==
 
 collapse-white-space@^1.0.2:
   version "1.0.6"
@@ -7915,6 +7926,13 @@ js-yaml@^3.13.1:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
+
+js-yaml@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
+  integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
+  dependencies:
+    argparse "^2.0.1"
 
 jsdom@^16.4.0:
   version "16.6.0"

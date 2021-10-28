@@ -2,8 +2,8 @@ export { BurgerMenu } from './BurgerMenu';
 export { Button } from './Button';
 
 export { Checkbox } from './Checkbox';
-export { CodeControlBar } from './CodeControlBar';
-export { CopyButton } from './CodeControlBar/BarButtons/CopyButton';
+export { CodeControl } from './CodeControl';
+export { CopyButton } from './CodeControl/BarButtons/CopyButton';
 export { CopyClipboard } from './CopyClipboard';
 
 export { DnPath } from './DnPath';

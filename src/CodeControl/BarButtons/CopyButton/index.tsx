@@ -2,11 +2,10 @@ import React, { FC, useState } from 'react';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CopyButtonProps } from './types';
-import cx from 'classnames';
 
 import styles from './styles.module.css';
 
-export const CopyButton: FC<CopyButtonProps> = ({ text = '', buttonText = '' }) => {
+export const CopyButton: FC<CopyButtonProps> = ({ text = '' }) => {
     const [copied, setCopied] = useState(false);
 
     const copyText = () => {
@@ -23,20 +22,15 @@ export const CopyButton: FC<CopyButtonProps> = ({ text = '', buttonText = '' }) 
         }, 3000);
     };
 
-    return buttonText ? (
-        <button className={cx(styles.barBtn, styles.sendBtn)} onClick={copyText}>
-            {buttonText}
-        </button>
-    ) : (
-        <>
-            {copied && (
-                <div className={styles.copiedContainer}>
-                    Copied to clipboard
-                    <div className={styles.caret} />
-                </div>
-            )}
+    return <div className={styles.container}>
 
-            <FontAwesomeIcon className={styles.copyIcon} icon={faCopy} onClick={copyText} title="Copy to clipboard" />
-        </>
-    );
+        <FontAwesomeIcon className={styles.copyIcon} icon={faCopy} onClick={copyText} title="Copy to clipboard" />
+
+        {copied && (
+            <div className={styles.copiedContainer}>
+                Copied to clipboard
+                <div className={styles.caret} />
+            </div>
+        )}
+    </div>
 };

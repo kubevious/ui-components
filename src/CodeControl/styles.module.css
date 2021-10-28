@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  z-index: 5;
+  right: 20px;
+  top: 20px;
+}
+
+.editorBox {
+  width: 100%;
+  height: 100%;
+}
+
+.reactCodeMirror {
+  width: 100%;
+  height: 100%;
+}
+
+.reactCodeMirror :global(.CodeMirror) {
+  padding: 10px;
+}
+
+.reactCodeMirror span {
+  font-family: monospace, 'Source Sans Pro', Helvetica, Arial, sans-serif !important;
+}
+
+.reactCodeMirror > div {
+  width: 100%;
+  height: 100%;
+}
