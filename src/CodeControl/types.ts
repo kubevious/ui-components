@@ -17,4 +17,6 @@ export interface CodeControlProps {
     onKeyUp?: CodeMirrorDomEvent;
 
     extraKeys?: Record<string, any>;
+
+    sizeToContent?: boolean;
 }

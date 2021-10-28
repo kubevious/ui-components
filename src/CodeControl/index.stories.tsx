@@ -25,6 +25,18 @@ export const ObjectYaml: Story = () => (
     </div>
 );
 
+export const ObjectYamlSizeToContent: Story = () => (
+    <div style={{ margin: '20px', padding: '50px' }}>
+        <CodeControl value={OBJECT} showDownloadButton showCopyButton syntax='yaml' sizeToContent />
+    </div>
+);
+
+export const ObjectYamlSmallWindow: Story = () => (
+    <div style={{ margin: 'auto', width: '400px', height: '300px' }}>
+        <CodeControl value={OBJECT} showDownloadButton showCopyButton syntax='yaml' />
+    </div>
+);
+
 export const ObjectYamlSmallIndent: Story = () => (
     <div style={{ margin: '20px', padding: '50px' }}>
         <CodeControl value={OBJECT} showDownloadButton showCopyButton syntax='yaml' indent={2} />

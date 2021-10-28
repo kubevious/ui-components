@@ -1,6 +1,7 @@
 .container {
   position: relative;
   height: 100%;
+  background: #35373e;
 }
 
 .buttonsWrapper {
@@ -15,18 +16,22 @@
   top: 20px;
 }
 
-.editorBox {
+.editorBoxSizeToContent {
   width: 100%;
   height: 100%;
 }
 
-.reactCodeMirror {
+.editorBoxSizeToContent .reactCodeMirror {
   width: 100%;
   height: 100%;
 }
 
 .reactCodeMirror :global(.CodeMirror) {
   padding: 10px;
+}
+
+.container :global(.CodeMirror) {
+  background: none !important;
 }
 
 .reactCodeMirror span {

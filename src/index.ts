@@ -69,3 +69,5 @@ export { SeverityIcon } from './SeverityIcon';
 export { SeverityBlock } from './SeverityBlock';
 
 export { TooltipContainer } from './TooltipContainer';
+
+export { ScrollbarComponent } from './ScrollbarComponent';

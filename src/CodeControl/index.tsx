@@ -4,6 +4,7 @@ import { CopyClipboard } from '../CopyClipboard';
 import { DownloadButton } from './BarButtons/DownloadButton';
 import { Controlled as CodeMirrorEditor } from 'react-codemirror2';
 import jsyaml from 'js-yaml';
+import cx from 'classnames';
 
 import { CodeControlProps } from './types';
 
@@ -25,7 +26,8 @@ export const CodeControl: FC<CodeControlProps> = ({
     showCopyButton,
     onKeyUp,
     extraKeys,
-    indent
+    indent,
+    sizeToContent
 }) => {
     let editorLine = '';
 
@@ -94,7 +96,7 @@ export const CodeControl: FC<CodeControlProps> = ({
                 {showCopyButton && <CopyClipboard text={editorLine} />}
             </div>
 
-            <div className={styles.editorBox}>
+            <div className={cx({[styles.editorBoxSizeToContent] : !sizeToContent})}>
                 <CodeMirrorEditor
                     value={editorLine.replace(/(\\)?\\n/g, '\n')}
                     options={{
@@ -103,7 +105,9 @@ export const CodeControl: FC<CodeControlProps> = ({
                         lineNumbers: showLineNumbers,
                         extraKeys: extraKeys
                     }}
-                    editorDidMount={(editor) => editor.refresh()}
+                    editorDidMount={(editor) => {
+                        editor.refresh();
+                    }}
                     className={styles.reactCodeMirror}
                     onKeyUp={onKeyUp}
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
