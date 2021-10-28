@@ -19,4 +19,6 @@ export interface CodeControlProps {
     extraKeys?: Record<string, any>;
 
     sizeToContent?: boolean;
+
+    extraContainerClassName?: string;
 }

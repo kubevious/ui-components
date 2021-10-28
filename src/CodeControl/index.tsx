@@ -27,7 +27,8 @@ export const CodeControl: FC<CodeControlProps> = ({
     onKeyUp,
     extraKeys,
     indent,
-    sizeToContent
+    sizeToContent,
+    extraContainerClassName
 }) => {
     let editorLine = '';
 
@@ -90,7 +91,7 @@ export const CodeControl: FC<CodeControlProps> = ({
 
 
     return (
-        <div data-testid="code-control-bar" className={styles.container} >
+        <div data-testid="code-control-bar" className={cx(styles.container, extraContainerClassName)} >
             <div className={styles.buttonsWrapper}>
                 {showDownloadButton && <DownloadButton text={editorLine} fileName={filename} />}
                 {showCopyButton && <CopyClipboard text={editorLine} />}
