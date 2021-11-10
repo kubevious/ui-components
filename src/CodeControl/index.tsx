@@ -112,7 +112,11 @@ export const CodeControl: FC<CodeControlProps> = ({
                         editor.refresh();
                     }}
                     className={styles.reactCodeMirror}
-                    onKeyUp={onKeyUp}
+                    onKeyUp={(editor, event) => {
+                        if (onKeyUp) {
+                            onKeyUp(editor, event);
+                        }
+                    }}
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     onBeforeChange={(editor, data, value) => {
