@@ -14,6 +14,8 @@ require('codemirror/lib/codemirror.css');
 require('codemirror/mode/yaml/yaml');
 require('codemirror/mode/shell/shell');
 require('codemirror/mode/javascript/javascript');
+require('codemirror/addon/hint/show-hint');
+require('codemirror/addon/hint/show-hint.css');
 
 import styles from './styles.module.css';
 
