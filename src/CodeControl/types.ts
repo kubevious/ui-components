@@ -1,6 +1,6 @@
-import * as codemirror from 'codemirror';
+import Codemirror from 'codemirror';
 
-export type CodeMirrorDomEvent = (editor: codemirror.Editor, event?: any) => void;
+export type CodeMirrorDomEvent = (editor: Codemirror.Editor, event?: any) => void;
 export interface CodeControlProps {
     value: any;
     syntax: 'javascript' | 'yaml' | 'json' | 'shell';

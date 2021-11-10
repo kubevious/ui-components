@@ -3,11 +3,11 @@ import { DnIconComponentProps } from './types';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
-import { Dn, DIAGRAM_ICONS } from '@kubevious/entity-meta'
+import { Dn, NODE_ICONS } from '@kubevious/entity-meta'
 
 function getEntityImgUrl(dnParts: Dn) : string
 {
-    const img = DIAGRAM_ICONS.get(dnParts);
+    const img = NODE_ICONS.get(dnParts);
     if (img) {
         return img
     }

@@ -1,8 +1,10 @@
 export { BurgerMenu } from './BurgerMenu';
 export { Button } from './Button';
 
-export { Checkbox } from './Checkbox';
 export { CodeControl } from './CodeControl';
+export { default as CodeMirror } from 'codemirror';
+
+export { Checkbox } from './Checkbox';
 export { CopyClipboard } from './CopyClipboard';
 
 export { DnPath } from './DnPath';

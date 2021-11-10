@@ -3,14 +3,14 @@ import _ from 'the-lodash';
 import { DnIconComponent } from '../DnIconComponent';
 import { DnPathProps } from './type';
 import cx from 'classnames';
-import { DIAGRAM_LABELS, RnInfo } from '@kubevious/entity-meta'
+import { NODE_LABELS, RnInfo } from '@kubevious/entity-meta'
 
 import styles from './styles.module.css';
 import colorStyles from '../common-styles/text-color-styles.module.css';
 
 function getLabel(item: RnInfo): string
 {
-    return DIAGRAM_LABELS.get(item.kind);
+    return NODE_LABELS.get(item.kind);
 }
 
 export const DnPath: FC<DnPathProps> = ({ dn, dnPathIndex, includeLogo, iconSize }) => {
