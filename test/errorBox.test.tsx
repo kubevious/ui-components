@@ -5,12 +5,10 @@ import { ErrorBox } from "../src";
 import { fireEvent, render } from "@testing-library/react";
 
 function renderErrorBox() {
-  const error = {
-    data: {
-        message: 'message',
-        stack: 'stack',
-    },
-    status: 400
+  const error : Error = {
+    name: 'SampleError',
+    message: "my message",
+    stack: "aaa bbb ccc"
   }
 
   const closeError = () => {}

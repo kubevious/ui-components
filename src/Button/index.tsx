@@ -18,6 +18,7 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
     onClick?: MouseEventHandler;
     filled?: boolean;
     prefixIcon?: ReactNode;
+    extraClassNames?: string;
 }
 
 export const Button: FC<ButtonProps> = ({

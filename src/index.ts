@@ -17,7 +17,7 @@ export { DnResults } from './DnResults';
 export { DnLink } from './DnLink';
 
 export { ErrorBox } from './ErrorBox';
-export { Error } from './ErrorBox/types';
+export { ErrorDetailField } from './ErrorBox/types';
 
 export { GoldenLayout } from './GoldenLayout';
 export { GoldenLayoutWindowInfo, GoldenLayoutLocation, GoldenWindowCloseHandler } from './GoldenLayout/types';

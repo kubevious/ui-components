@@ -1,23 +1,12 @@
 export interface ErrorBoxProps {
     error: Error;
     closeError: () => void;
+    refreshRequest? : boolean;
+    details?: ErrorDetailField[];
 }
 
-export interface Error {
-    data: {
-        message: string;
-        stack: string;
-        reason?: string;
-        name?: string;
-        mark?: {
-            name?: string | null;
-            buffer?: string;
-            position?: number;
-            line?: number;
-            column?: number;
-        };
-    };
-    message?: string;
-    stack?: string;
-    status?: number;
+export interface ErrorDetailField 
+{
+    name: string;
+    value: string;
 }
