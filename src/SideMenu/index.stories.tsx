@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { InnerPage } from '../InnerPage';
-import { SideMenu, SideMenuFooterItem, SideMenuSection } from '../SideMenu';
+import { SideMenu, SideMenuFooterItem, SideMenuSection } from './';
 import { CallbackHook } from '../CallbackHook';
 
 import { app } from '@kubevious/ui-framework';

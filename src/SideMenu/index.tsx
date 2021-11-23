@@ -100,14 +100,11 @@ export const SideMenu: FC<SideMenuProps> = ({ header, collapsedHeader, sections,
                                                 onMouseLeave={handleMouseLeave}
                                             >
                                                 {item.icon ? (
-                                                    <img src={`/img/menu/${item.icon}`} />
+                                                    <img src={`/img/menu/${item.icon}`} className={styles.menuItemIcon} />
                                                 ) : (
                                                     <FontAwesomeIcon
                                                         icon={item.faIcon!}
-                                                        style={{
-                                                            width: '24px',
-                                                            height: '24px',
-                                                        }}
+                                                        className={styles.menuItemIcon}
                                                     />
                                                 )}
 
@@ -126,14 +123,11 @@ export const SideMenu: FC<SideMenuProps> = ({ header, collapsedHeader, sections,
                                                 onMouseLeave={handleMouseLeave}
                                             >
                                                 {item.icon ? (
-                                                    <img src={`/img/menu/${item.icon}`} />
+                                                    <img src={`/img/menu/${item.icon}`} className={styles.menuItemIcon} />
                                                 ) : (
                                                     <FontAwesomeIcon
                                                         icon={item.faIcon!}
-                                                        style={{
-                                                            width: '24px',
-                                                            height: '24px',
-                                                        }}
+                                                        className={styles.menuItemIcon}
                                                     />
                                                 )}
                                                 {(!isCollapsed || showItem === item.key) && (
@@ -161,9 +155,9 @@ export const SideMenu: FC<SideMenuProps> = ({ header, collapsedHeader, sections,
                                 onMouseLeave={handleMouseLeave}
                             >
                                 {item.icon ? (
-                                    <img src={`/img/menu/${item.icon}`} />
+                                    <img src={`/img/menu/${item.icon}`} className={styles.menuItemIcon} />
                                 ) : (
-                                    <FontAwesomeIcon icon={item.faIcon!} style={{ width: '24px', height: '24px' }} />
+                                    <FontAwesomeIcon icon={item.faIcon!} className={styles.menuItemIcon} />
                                 )}
                                 {(!isCollapsed || showItem === item.key) && <div className="ms-4">{item.label}</div>}
                             </div>
