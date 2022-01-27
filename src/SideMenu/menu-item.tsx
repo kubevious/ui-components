@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SideMenuItem } from './types';
 
@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './styles.module.css';
 import cx from 'classnames';
-
 
 export interface SideMenuItemProps {
     item: SideMenuItem;
