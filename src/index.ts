@@ -41,7 +41,8 @@ export * from './PageLinkButton';
 export { Popup } from './Popup';
 
 export * from './Select';
-export { SideMenu, SideMenuItem, SideMenuFooterItem, SideMenuProps, SideMenuSection } from './SideMenu';
+export { SideMenu, SideMenuProps } from './SideMenu';
+export { SideMenuItem, SideMenuSection } from './SideMenu/types';
 
 export { Tabs } from './Tabs';
 export { Tab } from './Tabs/Tab';
@@ -55,7 +56,6 @@ export { MarkerIcon } from './MarkerIcon';
 export { MarkerPreview } from './MarkerPreview';
 
 export { FlagIcon, FlagIconGetImageUrl } from './FlagIcon';
-
 
 export { ConfirmationDialog } from './ConfirmationDialog'
 export { ConfirmationDialogComponent } from './ConfirmationDialog/component'

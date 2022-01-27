@@ -3,7 +3,8 @@ import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { InnerPage } from '../InnerPage';
-import { SideMenu, SideMenuFooterItem, SideMenuSection } from './';
+import { SideMenu } from './';
+import { SideMenuItem, SideMenuSection } from './types';
 import { CallbackHook } from '../CallbackHook';
 
 import { app } from '@kubevious/ui-framework';
@@ -172,7 +173,7 @@ const DEFAULT_SECTIONS : SideMenuSection[] = [
     }
 ]
 
-const DEFAULT_FOOTER : SideMenuFooterItem[] = [
+const DEFAULT_FOOTER : SideMenuItem[] = [
     {
         key: 'logout',
         label: 'Log out',
