@@ -36,6 +36,23 @@ export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searc
         linkStyleMap[colorStyles[textColor + '-link']] = true;
     }
 
+    if (isExternalLink(url)) {
+        return (
+            <a className={cx(linkStyleMap, extraStyles)} 
+            data-testid="link"
+            href={url}
+            onClick={onClick}
+            {...rest}>
+
+            {name && <span className={cx(textStyleMap)} >
+                    {name}
+                </span>}
+
+                {children}
+            </a>
+        );
+    }
+
     return (
         <Link className={cx(linkStyleMap, extraStyles)}  data-testid="link"
               to={url} onClick={onClick}
@@ -47,3 +64,11 @@ export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searc
         </Link>
     );
 };
+
+function isExternalLink(url: string)
+{
+    return url && (
+        _.startsWith(url, 'http://') ||
+        _.startsWith(url, 'https://') 
+    )
+}

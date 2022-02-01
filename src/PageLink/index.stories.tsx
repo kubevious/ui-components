@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Button } from '../Button';
-import { PageLink } from '../PageLink';
+import { PageLink } from './';
 
 export default {
     title: 'PageLink',
@@ -91,6 +91,14 @@ export const Default: Story = () => (
                         console.error("LINK CLICKED")
                     }} />
             </div>
+
+
+            <div style={{ marginBottom: '1rem' }}>
+                <PageLink path="https://google.com"  >
+                    This is external link to Google
+                </PageLink>
+            </div>
+
 
         </div>
     </BrowserRouter>
