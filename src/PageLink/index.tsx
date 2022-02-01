@@ -18,7 +18,7 @@ export interface LinkProps {
     searchParams?: Record<string, any>;
     onClick?: MouseEventHandler<any> | undefined;
     extraStyles?: string | string[] | { [key: string]: any };
-    target: HTMLAttributeAnchorTarget;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searchParams, children, onClick, extraStyles, target, ...rest }) => {
