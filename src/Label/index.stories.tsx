@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Label } from '..';
+import { Label } from './';
 
 export default {
     title: 'Label',
@@ -63,6 +63,14 @@ export const Default: Story = () => (
 
             <div style={{ marginBottom: '1rem' }}>
                 <Label text="Light XLarge Label" color="light" size="xlarge" />
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <Label text="Error Label" color="error" />
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+                <Label text="Warning Label" color="warning" />
             </div>
 
         </div>

@@ -10,16 +10,17 @@ export interface LabelProps {
     text?: ReactNode;
     size?: TextSize;
     color?: TextColor;
+    className?: string;
     extraStyles?: string | string[] | { [key: string]: any };
 }
 
-export const Label: FC<LabelProps> = ({ text, size, color, extraStyles, children }) => {
+export const Label: FC<LabelProps> = ({ text, size, color, extraStyles, className, children }) => {
 
     const sizeStyle = size ? size : 'normal';
     const colorStyle = color ? color : 'normal';
 
     return <>
-        <div className={cx(colorStyles[colorStyle], sizeStyles[sizeStyle], extraStyles)}>
+        <div className={cx(colorStyles[colorStyle], sizeStyles[sizeStyle], extraStyles, className)}>
             {text}
             {children}
         </div>

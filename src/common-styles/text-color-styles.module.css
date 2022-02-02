@@ -65,3 +65,31 @@
     color: #94C5FF;
     text-decoration: underline;
 }
+
+
+.error {
+    color: #ff5858;
+}
+.error-link {
+    color: #ff5858;
+    text-decoration: none;
+    cursor: pointer;
+}
+.error-link:hover {
+    color: #ff5858;
+    text-decoration: underline;
+}
+
+
+.warning {
+    color: #fed313;
+}
+.warning-link {
+    color: #fed313;
+    text-decoration: none;
+    cursor: pointer;
+}
+.warning-link:hover {
+    color: #fed313;
+    text-decoration: underline;
+}

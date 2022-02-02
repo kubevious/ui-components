@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 import { InnerPage } from '../InnerPage';
-import { Select } from '../Select';
+import { Select } from './';
 
 export default {
     title: 'Select',
@@ -18,6 +18,18 @@ export const Default: Story = () => (
                     { label: 'Third', value: 'third' },
                 ]}
                 placeholder="Placeholder"
+                onChange={() => console.log('on change')}
+            />
+        </div>
+
+        <div style={{ height: 500, background: '#2f3036', padding: '1rem' }}>
+            <Select hasError
+                options={[
+                    { label: 'First', value: 'first' },
+                    { label: 'Second', value: 'second' },
+                    { label: 'Third', value: 'third' },
+                ]}
+                placeholder="Error Placeholder"
                 onChange={() => console.log('on change')}
             />
         </div>

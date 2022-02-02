@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
 import ReactSelect, { Props } from 'react-select';
 
-export const Select: FC<Props> = (props) => (
+export interface Select extends Props {
+    hasError?: boolean,
+}
+
+export const Select: FC<Props> = ({ hasError, ...props}) => (
     <ReactSelect
         styles={{
             control: (base) => ({
                 ...base,
                 background: '#2F3036',
-                border: '1px solid #656565 !important',
+                border: (hasError) ? '1px solid #ff5858 !important' : '1px solid #656565 !important',
                 outline: 'none',
             }),
             indicatorSeparator: () => ({
