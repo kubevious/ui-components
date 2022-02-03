@@ -16,6 +16,10 @@ export const Default: Story = () => (
         </div>
 
         <div style={{ marginBottom: '1rem' }}>
+            <Input placeholder='Provide name here' />
+        </div>
+
+        <div style={{ marginBottom: '1rem' }}>
             <Input label="Marker name" onChange={(e) => console.log('VALUE => ', e.target.value)} />
         </div>
 

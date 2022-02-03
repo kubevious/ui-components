@@ -13,6 +13,7 @@ export const Select: FC<Props> = ({ hasError, ...props}) => (
                 background: '#2F3036',
                 border: (hasError) ? '1px solid #ff5858 !important' : '1px solid #656565 !important',
                 outline: 'none',
+                height: '40px'
             }),
             indicatorSeparator: () => ({
                 display: 'none',
