@@ -5,13 +5,31 @@
     overflow-y: auto;
     margin: 0;
     padding: 40px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .narrowContainer {
-    max-width: 700px;
-    padding: 0;
+    align-items: center;
 }
 
-.block :global(.golden-layout-container) {
+.innerContent {
+    padding: 0;
+    width: 100%;
+}
+
+.narrowContent {
+    max-width: 700px;
+}
+
+.midNarrowContent {
+    max-width: 1000px;
+}
+
+/* TODO: Get rid of the golden layout mention and weird calculation below. */
+.innerContent :global(.golden-layout-container) {
     max-height: calc(100vh - 235px);
 }

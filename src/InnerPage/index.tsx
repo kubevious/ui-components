@@ -5,12 +5,22 @@ import styles from './styles.module.css';
 
 export interface InnerPageProps {
     narrow?: boolean;
+    midNarrow?: boolean;
     header?: ReactNode;
 }
 
-export const InnerPage: FC<InnerPageProps> = ({ narrow, header, children }) => (
-    <div className={cx('row', styles.container, { 'justify-content-center': narrow })}>
-        <div className={cx(styles.block, narrow ? styles.narrowContainer : 'col-12', 'text-white mh-100')}>
+export const InnerPage: FC<InnerPageProps> = ({ narrow, midNarrow, header, children }) => (
+    <div className={cx(styles.container, 
+                       { 
+                           [styles.narrowContainer]: (narrow || midNarrow)
+                       })}>
+        <div className={cx(styles.innerContent,
+                           'text-white',
+                           'mh-100',
+                           {
+                               [styles.narrowContent] : (narrow),
+                               [styles.midNarrowContent] : (midNarrow)
+                           })}>
             {header}
 
             {children}
