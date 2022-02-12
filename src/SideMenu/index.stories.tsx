@@ -14,6 +14,10 @@ export default {
     component: SideMenu,
 };
 
+function handleMenuClick(item: SideMenuItem) {
+    console.log("[handleMenuClick] ", item.key);
+}
+
 export const Default: Story = () => (
     <BrowserRouter>
         <div style={{ height: '100vh' }}>
@@ -27,6 +31,7 @@ export const Default: Story = () => (
                 sections={DEFAULT_SECTIONS}
                 footer={DEFAULT_FOOTER}
                 isCollapsed={false}
+                globalHandler={handleMenuClick}
             />
         </div>
     </BrowserRouter>

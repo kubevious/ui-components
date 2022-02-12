@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './styles.module.css';
 import cx from 'classnames';
+import { GlobalClickHandler } from '.';
 
 export interface SideMenuItemProps {
     item: SideMenuItem;
@@ -14,10 +15,16 @@ export interface SideMenuItemProps {
     isShowItem?: boolean;
 
     setShowItem: (value: string | null) => void;
+    globalHandler?: GlobalClickHandler;
 }
 
-export const SideMenuItemComponent: FC<SideMenuItemProps> = ({ item, isCollapsed, isShowItem, setShowItem }) => {
-
+export const SideMenuItemComponent: FC<SideMenuItemProps> = ({
+    item,
+    isCollapsed,
+    isShowItem,
+    setShowItem,
+    globalHandler
+}) => {
 
     const handleMouseEnter = (item: SideMenuItem) => {
         if (!isCollapsed) {
@@ -35,6 +42,15 @@ export const SideMenuItemComponent: FC<SideMenuItemProps> = ({ item, isCollapsed
         setShowItem(null);
     };
 
+    const handleClick = () => {
+        if (globalHandler) {
+            globalHandler(item);
+        }
+
+        if (item.onClick) {
+            item.onClick();
+        }
+    }
 
     return <>
         {item.url ? (
@@ -43,6 +59,7 @@ export const SideMenuItemComponent: FC<SideMenuItemProps> = ({ item, isCollapsed
                     [styles.hovered]: isShowItem,
                 })}
                 activeClassName={styles.selectedItem}
+                onClick={handleClick}
                 to={item.url}
                 key={item.key}
                 onMouseEnter={() => handleMouseEnter(item)}
@@ -66,7 +83,7 @@ export const SideMenuItemComponent: FC<SideMenuItemProps> = ({ item, isCollapsed
                 className={cx(styles.itemBlock, {
                     [styles.hovered]: isShowItem,
                 })}
-                onClick={item.onClick}
+                onClick={handleClick}
                 key={item.key}
                 onMouseEnter={() => handleMouseEnter(item)}
                 onMouseLeave={handleMouseLeave}

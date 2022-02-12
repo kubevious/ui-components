@@ -7,15 +7,25 @@ import { SideMenuItem, SideMenuSection } from './types';
 
 import { SideMenuItemComponent } from './menu-item';
 
+export type GlobalClickHandler = (item: SideMenuItem) => any;
+
 export interface SideMenuProps {
     header: ReactNode;
     collapsedHeader: ReactNode;
     sections: SideMenuSection[];
     footer?: SideMenuItem[];
     isCollapsed?: boolean;
+    globalHandler?: GlobalClickHandler;
 }
 
-export const SideMenu: FC<SideMenuProps> = ({ header, collapsedHeader, sections, footer, isCollapsed }) => {
+export const SideMenu: FC<SideMenuProps> = ({ 
+    header, 
+    collapsedHeader,
+    sections,
+    footer,
+    isCollapsed,
+    globalHandler
+}) => {
     const [showItem, setShowItem] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -47,6 +57,7 @@ export const SideMenu: FC<SideMenuProps> = ({ header, collapsedHeader, sections,
                                             isShowItem={showItem === item.key}
                                             isCollapsed={isCollapsed}
                                             setShowItem={setShowItem}
+                                            globalHandler={globalHandler}
                                             />
                                     )}
                                 </div>
@@ -64,6 +75,7 @@ export const SideMenu: FC<SideMenuProps> = ({ header, collapsedHeader, sections,
                                 isShowItem={showItem === item.key}
                                 isCollapsed={isCollapsed}
                                 setShowItem={setShowItem}
+                                globalHandler={globalHandler}
                                 />
                         )}
                     </div>
