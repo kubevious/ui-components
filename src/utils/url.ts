@@ -16,5 +16,9 @@ export function encodeSearchQuery(searchParams?: Record<string, any>)
 
 export function encodeURL(path: string, searchParams?: Record<string, any>)
 {
-    return `${path}?${encodeSearchQuery(searchParams)}`;
-};
+    const suffix = encodeSearchQuery(searchParams);
+    if (suffix && suffix.length > 0) {
+        return `${path}?${suffix}`;
+    } 
+    return path;
+}
