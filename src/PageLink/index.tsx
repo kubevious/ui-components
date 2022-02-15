@@ -19,9 +19,22 @@ export interface LinkProps {
     onClick?: MouseEventHandler<any> | undefined;
     extraStyles?: string | string[] | { [key: string]: any };
     target?: HTMLAttributeAnchorTarget;
+    handlePreClick?: () => void;
 }
 
-export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searchParams, children, onClick, extraStyles, target, ...rest }) => {
+export const PageLink: FC<LinkProps> = ({ 
+    name,
+    textSize,
+    textColor,
+    path,
+    searchParams,
+    children,
+    onClick,
+    handlePreClick,
+    extraStyles,
+    target,
+    ...rest
+}) => {
    
     const url = encodeURL(path, searchParams);
 
@@ -37,13 +50,22 @@ export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searc
         linkStyleMap[colorStyles[textColor + '-link']] = true;
     }
 
+    const handleClick : MouseEventHandler = (e) => {
+        if (handlePreClick) {
+            handlePreClick();
+        }
+        if (onClick) {
+            onClick(e);
+        }
+    } 
+
     if (isExternalLink(url)) {
         return (
             <a className={cx(linkStyleMap, extraStyles)} 
                 data-testid="link"
                 href={url}
                 target={target}
-                onClick={onClick}
+                onClick={handleClick}
                 {...rest}>
 
             {name && <span className={cx(textStyleMap)} >
@@ -56,8 +78,10 @@ export const PageLink: FC<LinkProps> = ({ name, textSize, textColor, path, searc
     }
 
     return (
-        <Link className={cx(linkStyleMap, extraStyles)}  data-testid="link"
-              to={url} onClick={onClick}
+        <Link className={cx(linkStyleMap, extraStyles)}
+              data-testid="link"
+              to={url}
+              onClick={handleClick}
               {...rest}>
             {name && <span className={cx(textStyleMap)} >
                 {name}

@@ -19,6 +19,9 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
     filled?: boolean;
     prefixIcon?: ReactNode;
     extraClassNames?: string;
+
+    handlePreClickAttempt?: () => void;
+    handlePreClick?: () => void;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -31,27 +34,37 @@ export const Button: FC<ButtonProps> = ({
     confirmation,
     filled = false,
     prefixIcon,
+    handlePreClickAttempt,
+    handlePreClick,
     ...rest
 }) => {
     const origOnClick = rest.onClick;
 
     const { onClick, ...filteredProps } = rest;
 
+    const handleClick : MouseEventHandler = (e) => {
+        if (handlePreClick) {
+            handlePreClick();
+        }
+        if (origOnClick) {
+            origOnClick(e);
+        }
+    } 
+
     const buttonOnClick: MouseEventHandler = (e) => {
         if (confirmation) {
+            if (handlePreClickAttempt) {
+                handlePreClickAttempt();
+            }
             const confirmationParams: ConfirmationDialogParams = {
                 action: () => {
-                    if (origOnClick) {
-                        origOnClick(e);
-                    }
+                    handleClick(e);
                 },
                 ...confirmation!,
             };
             openConfirmationDialog(confirmationParams);
         } else {
-            if (origOnClick) {
-                origOnClick(e);
-            }
+            handleClick(e);
         }
     };
 

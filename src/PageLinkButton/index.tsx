@@ -10,6 +10,7 @@ export interface PageLinkButtonProps {
     spacingRight?: boolean;
     spacingLeft?: boolean;
     forceRedirect?: boolean;
+    handlePreClick?: () => void;
 }
 
 export const PageLinkButton: FC<PageLinkButtonProps> = ({
@@ -19,6 +20,7 @@ export const PageLinkButton: FC<PageLinkButtonProps> = ({
     spacingRight,
     spacingLeft,
     forceRedirect,
+    handlePreClick,
     children,
 }) => {
 
@@ -29,15 +31,23 @@ export const PageLinkButton: FC<PageLinkButtonProps> = ({
         };
 
         return (
-            <Button onClick={executeForceRedirect} type={type} spacingRight={spacingRight} spacingLeft={spacingLeft}>
+            <Button onClick={executeForceRedirect}
+                    handlePreClick={handlePreClick}
+                    type={type}
+                    spacingRight={spacingRight}
+                    spacingLeft={spacingLeft}>
                 {children}
             </Button>
         );
     }
 
     return (
-        <PageLink path={path} searchParams={searchParams}>
-            <Button type={type} spacingRight={spacingRight} spacingLeft={spacingLeft}>
+        <PageLink path={path}
+                  handlePreClick={handlePreClick}
+                  searchParams={searchParams}>
+            <Button type={type}
+                    spacingRight={spacingRight}
+                    spacingLeft={spacingLeft}>
                 {children}
             </Button>
         </PageLink>

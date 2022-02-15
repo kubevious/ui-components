@@ -11,10 +11,18 @@ export interface ActionLinkProps {
     textSize?: TextSize;
     textColor?: TextColor;
     onClick?: MouseEventHandler<any> | undefined;
+    handlePreClick?: () => void;
     extraStyles?: string | string[] | { [key: string]: any };
 }
 
-export const ActionLink: FC<ActionLinkProps> = ({ textSize, textColor, children, onClick, extraStyles }) => {
+export const ActionLink: FC<ActionLinkProps> = ({
+    textSize,
+    textColor,
+    children,
+    onClick,
+    handlePreClick,
+    extraStyles
+}) => {
    
     const styleMap : { [key: string]: any } = {};
 
@@ -25,9 +33,18 @@ export const ActionLink: FC<ActionLinkProps> = ({ textSize, textColor, children,
     // styleMap[colorStyles[textColor]] = true;
     styleMap[colorStyles[textColor + '-link']] = true;
 
+    const handleClick : MouseEventHandler = (e) => {
+        if (handlePreClick) {
+            handlePreClick();
+        }
+        if (onClick) {
+            onClick(e);
+        }
+    } 
+
     return (
         <a className={cx(styleMap, extraStyles)} 
-           onClick={onClick}
+           onClick={handleClick}
            >
             {children}
         </a>
