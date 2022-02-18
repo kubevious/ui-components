@@ -73,3 +73,6 @@ export { SeverityBlock } from './SeverityBlock';
 export { TooltipContainer } from './TooltipContainer';
 
 export { ScrollbarComponent } from './ScrollbarComponent';
+
+export { MultiSwitch } from './MultiSwitch';
+export { MultiChoiceOption } from './MultiSwitch/types';
