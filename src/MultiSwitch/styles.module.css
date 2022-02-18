@@ -10,6 +10,9 @@
 
 .itemContainer {
     cursor: pointer;
+
+    position: relative;
+    box-sizing: border-box;
 }
 
 .selectedItemContainer {
@@ -17,9 +20,8 @@
     border-radius: 2px;
  }
 
-.iconContainer {
+.innerContainer {
     position: relative;
-
     box-sizing: border-box;
 
     width: 100%;

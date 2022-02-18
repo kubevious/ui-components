@@ -103,7 +103,7 @@ export const MultiSwitch: FC<MultiSwitchProps> = ({
                         padding: `${padding}px`
                     }}
                     onClick={() => onClick(layer)} >
-            <div className={styles.iconContainer}>
+            <div className={styles.innerContainer}>
                 {myItem.imageUrl && 
                     <div className={styles.itemImage}
                          style={{ 
@@ -114,7 +114,8 @@ export const MultiSwitch: FC<MultiSwitchProps> = ({
                     </div>}
                 {myItem.element && myItem.element!}
                 {myItem.label && 
-                    <Label text={myItem.label} />
+                    <Label text={myItem.label}
+                           color={isSelected ? "dark" : "light"}  />
                 }             
             </div>
         </div>
