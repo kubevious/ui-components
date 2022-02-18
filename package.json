@@ -30,7 +30,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@kubevious/entity-meta": "^1.0.45",
+    "@kubevious/entity-meta": "^1.0.47",
     "@kubevious/ui-framework": "^1.0.56",
     "@kubevious/ui-middleware": "^1.0.43",
     "@types/codemirror": "^5.60.5",

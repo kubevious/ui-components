@@ -35,7 +35,7 @@ export const SideMenu: FC<SideMenuProps> = ({
 
     return (
         <aside className={cx(styles.container, { [styles.collapsed]: isCollapsed })}>
-            <div style={{ height: '100%' }} className="d-flex flex-column justify-content-between">
+            <div className={styles.content}>
                 <div>
                     <div className={styles.header}>
                         {!isCollapsed && header}
