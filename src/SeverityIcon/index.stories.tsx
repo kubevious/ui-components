@@ -31,3 +31,12 @@ export const ExtraStyle: Story = () => {
         </div>
     </>;
 };
+
+
+export const ErrorLarge: Story = () => {
+    return <>
+        <div style={{ background: '#1e1e1e' }}>
+            <SeverityIcon severity="error" size={150} />
+        </div>
+    </>;
+};
