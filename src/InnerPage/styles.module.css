@@ -4,6 +4,7 @@
     margin: 0;
     padding: 40px;
 
+    position: relative;
     box-sizing: border-box;
 
     display: flex;
@@ -21,6 +22,7 @@
 .innerPageWrapper {
     width: 100%;
 
+    position: relative;
     box-sizing: border-box;
 
     display: flex;
@@ -40,11 +42,13 @@
 }
 
 .innerPageHeader {
-
+    position: relative;
+    box-sizing: border-box;
 }
 
 .innerPageContent {
-    /* padding: 0; */
-    /* width: 100%; */
+    position: relative;
+    box-sizing: border-box;
+    
     flex-grow: 1;
 }
