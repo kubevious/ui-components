@@ -1,4 +1,5 @@
 .innerPageContainer {
+    max-height: 100%;
     max-width: 100%;
     overflow-y: auto;
     margin: 0;
@@ -49,6 +50,6 @@
 .innerPageContent {
     position: relative;
     box-sizing: border-box;
-    
+
     flex-grow: 1;
 }
