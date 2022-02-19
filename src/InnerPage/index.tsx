@@ -6,24 +6,37 @@ import styles from './styles.module.css';
 export interface InnerPageProps {
     narrow?: boolean;
     midNarrow?: boolean;
+    fullHeight?: boolean;
     header?: ReactNode;
 }
 
-export const InnerPage: FC<InnerPageProps> = ({ narrow, midNarrow, header, children }) => (
-    <div className={cx(styles.container, 
-                       { 
-                           [styles.narrowContainer]: (narrow || midNarrow)
-                       })}>
-        <div className={cx(styles.innerContent,
-                           'text-white',
-                           'mh-100',
-                           {
-                               [styles.narrowContent] : (narrow),
-                               [styles.midNarrowContent] : (midNarrow)
-                           })}>
-            {header}
+export const InnerPage: FC<InnerPageProps> = (
+{ 
+    narrow,
+    midNarrow,
+    fullHeight,
+    header,
+    children
+}) => (
+    <div className={cx(styles.innerPageContainer,
+                        {
+                            [styles.fullHeightPageContainer] : fullHeight,
+                        })}>
 
-            {children}
+        <div className={cx(styles.innerPageWrapper,
+                            {
+                                [styles.fullHeightPageWrapper] : fullHeight,
+                                [styles.narrowContent] : (narrow),
+                                [styles.midNarrowContent] : (midNarrow)
+                            })}>
+
+            <div className={cx(styles.innerPageHeader)}>
+                {header}
+            </div>
+
+            <div className={cx(styles.innerPageContent)}>
+                {children}
+            </div>
         </div>
     </div>
 );
