@@ -2,7 +2,7 @@ import _ from 'the-lodash';
 import React from 'react';
 import { Story } from '@storybook/react';
 
-import { GoldenLayout } from '../';
+import { GoldenLayout } from './';
 import { GoldenWidget } from '../GoldenWidget'
 import {
     GoldenLayoutWindowInfo,
@@ -19,6 +19,14 @@ export const Default: Story = () => (
          >
 
     </GoldenLayout>
+);
+
+export const WithPadding: Story = () => (
+    <div style={{ background: 'red', height: '100%', boxSizing: 'border-box', padding: '20px'}}>
+        <GoldenLayout windows={LAYOUT_COMPONENTS}
+            >
+        </GoldenLayout>
+    </div>
 );
 
 
