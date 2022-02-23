@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget } from 'react';
 import { Button } from '../Button';
 import { PageLink } from '../PageLink';
 import { encodeURL } from '../utils/url';
@@ -11,6 +11,7 @@ export interface PageLinkButtonProps {
     spacingLeft?: boolean;
     forceRedirect?: boolean;
     handlePreClick?: () => void;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const PageLinkButton: FC<PageLinkButtonProps> = ({
@@ -22,6 +23,7 @@ export const PageLinkButton: FC<PageLinkButtonProps> = ({
     forceRedirect,
     handlePreClick,
     children,
+    target
 }) => {
 
     if (forceRedirect) {
@@ -44,7 +46,9 @@ export const PageLinkButton: FC<PageLinkButtonProps> = ({
     return (
         <PageLink path={path}
                   handlePreClick={handlePreClick}
-                  searchParams={searchParams}>
+                  searchParams={searchParams}
+                  target={target}
+                  >
             <Button type={type}
                     spacingRight={spacingRight}
                     spacingLeft={spacingLeft}>

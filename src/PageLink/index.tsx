@@ -95,6 +95,7 @@ function isExternalLink(url: string)
 {
     return url && (
         _.startsWith(url, 'http://') ||
-        _.startsWith(url, 'https://') 
+        _.startsWith(url, 'https://') ||
+        _.startsWith(url, 'mailto:') 
     )
 }

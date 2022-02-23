@@ -99,6 +99,12 @@ export const Default: Story = () => (
                 </PageLink>
             </div>
 
+            <div style={{ marginBottom: '1rem' }}>
+                <PageLink path="mailto:support@kubevious.io"  >
+                    support@kubevious.io
+                </PageLink>
+            </div>
+
 
         </div>
     </BrowserRouter>
