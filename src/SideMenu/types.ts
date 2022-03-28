@@ -9,7 +9,7 @@ export type SideMenuItem =
       faIcon?: IconProp;
       url: string;
       onClick?: never;
-      condition: () => boolean;
+      condition?: () => boolean;
   }
 | {
       key: string;
@@ -18,11 +18,12 @@ export type SideMenuItem =
       faIcon?: IconProp;
       url?: never;
       onClick: () => any;
-      condition: () => boolean;
+      condition?: () => boolean;
   };
 
 export interface SideMenuSection {
     name: string;
+    condition?: () => boolean;
     items: SideMenuItem[];
 }
 

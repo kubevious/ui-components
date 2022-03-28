@@ -45,12 +45,12 @@ export const SideMenu: FC<SideMenuProps> = ({
                     <div className={cx(styles.bar, { [styles.barLoading]: isLoading })} />
 
                     <div style={{ marginTop: isCollapsed ? '30px' : 0 }}>
-                        {sections.map((section, index) => (
+                        {getVisibleSections(sections).map((section, index) => (
                             <div key={index}>
                                 {!isCollapsed && <div className={styles.sectionLabel}>{section.name}</div>}
 
                                 <div>
-                                    {section.items.map((item) =>
+                                    {getVisibleItems(section).map((item) =>
                                         <SideMenuItemComponent
                                             key={item.key}
                                             item={item}
@@ -84,3 +84,23 @@ export const SideMenu: FC<SideMenuProps> = ({
         </aside>
     );
 };
+
+function getVisibleSections(sections: SideMenuSection[])
+{
+    return sections.filter(x => {
+        if (!x.condition) {
+            return true;
+        }
+        return x.condition();
+    });
+}
+
+function getVisibleItems(section: SideMenuSection)
+{
+    return section.items.filter(x => {
+        if (!x.condition) {
+            return true;
+        }
+        return x.condition();
+    });
+}
