@@ -26,11 +26,12 @@
     "url": "https://github.com/kubevious/ui-components"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.35",
-    "@fortawesome/free-regular-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "@kubevious/entity-meta": "^1.0.48",
+    "@fortawesome/fontawesome-svg-core": "6.1.1",
+    "@fortawesome/free-regular-svg-icons": "6.1.1",
+    "@fortawesome/free-solid-svg-icons": "6.1.1",
+    "@fortawesome/free-brands-svg-icons": "6.1.1",
+    "@fortawesome/react-fontawesome": "0.1.18",
+    "@kubevious/entity-meta": "^1.0.56",
     "@kubevious/ui-framework": "^1.0.56",
     "@kubevious/ui-middleware": "^1.0.43",
     "@types/codemirror": "^5.60.5",
@@ -98,5 +99,12 @@
     "ts-node": "^9.0.0",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
+  },
+  "resolutions": {
+    "@fortawesome/fontawesome-svg-core": "6.1.1",
+    "@fortawesome/free-regular-svg-icons": "6.1.1",
+    "@fortawesome/free-solid-svg-icons": "6.1.1",
+    "@fortawesome/free-brands-svg-icons": "6.1.1",
+    "@fortawesome/react-fontawesome": "0.1.18"
   }
 }
