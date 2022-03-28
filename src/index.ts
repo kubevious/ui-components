@@ -78,6 +78,7 @@ export { MultiSwitch } from './MultiSwitch';
 export { MultiChoiceOption } from './MultiSwitch/types';
 
 export { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+export { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 export * as FASolidIcons from '@fortawesome/free-solid-svg-icons';
 export * as FARegularIcons from '@fortawesome/free-regular-svg-icons';
 export * as FABrandsIcons from '@fortawesome/free-brands-svg-icons';
