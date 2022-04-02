@@ -83,3 +83,4 @@ export * as FASolidIcons from '@fortawesome/free-solid-svg-icons';
 export * as FARegularIcons from '@fortawesome/free-regular-svg-icons';
 export * as FABrandsIcons from '@fortawesome/free-brands-svg-icons';
 
+export { SectionedContent, SectionedContentProps, SectionItem } from './SectionedContent';
