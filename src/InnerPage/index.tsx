@@ -18,7 +18,8 @@ export const InnerPage: FC<InnerPageProps> = (
     header,
     children
 }) => (
-    <div className={cx(styles.innerPageContainer,
+    <div data-testid="inner-page"
+         className={cx(styles.innerPageContainer,
                         {
                             [styles.fullHeightPageContainer] : fullHeight,
                         })}>
