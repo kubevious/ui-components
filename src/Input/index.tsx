@@ -8,10 +8,11 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: ReactNode;
     hasError?: boolean;
     rightIcon?: ReactNode;
+    containerClassName?: string;
 }
 
-export const Input: FC<InputProps> = ({ label, hasError, rightIcon, ...rest }) => (
-    <div className={styles.container}>
+export const Input: FC<InputProps> = ({ label, hasError, rightIcon, containerClassName, ...rest }) => (
+    <div className={cx(styles.container, containerClassName )}>
         {label && <Label text={label} >
             </Label>}
         <div className={styles.inputContainer}>

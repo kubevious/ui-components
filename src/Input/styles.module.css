@@ -7,9 +7,12 @@
 .inputContainer {
     color: white;
     position: relative;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .input {
+    box-sizing: border-box;
     background: #2f3036;
     border: 1px solid #656565;
     border-radius: 3px;
