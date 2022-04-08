@@ -1,0 +1,36 @@
+.popup {
+    position: fixed;
+    z-index: 1000;
+    left: 80px;
+    right: 80px;
+    top: 80px;
+    bottom: 80px;
+    border: solid 1px #999;
+    background: #35373e;
+    color: white;
+}
+  
+  
+.popupContents {
+    height: 100%;
+
+    box-sizing: border-box;
+    padding: 40px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+  
+.close {
+    background: url("/img/close.svg") center center no-repeat;
+    border: none;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    outline: none;
+}
+  
