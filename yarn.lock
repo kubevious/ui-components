@@ -1554,10 +1554,10 @@
     the-promise "^2.0.12"
     uuid "^8.3.2"
 
-"@kubevious/ui-framework@^1.0.58":
-  version "1.0.58"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-framework/-/ui-framework-1.0.58.tgz#58bd46ad41d2d851d1e0b1de9d980b486d616fb9"
-  integrity sha512-kt5cQhyyfFw2BcII1zQXM2aCiHB/AbwcqFpNB44rN3jUUx110Y1zsc3w8ZYHAzxBATMMWHnimx68m09UA3M/kw==
+"@kubevious/ui-framework@^1.0.59":
+  version "1.0.59"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-framework/-/ui-framework-1.0.59.tgz#b83eb7f90c951f4bd8753b9b9a4e0245a3240e0c"
+  integrity sha512-tVoh8NbZ8tdKdTFvkkXJhUViFeLNxL0VSjoP6AAgoPvWHL42kohEPU27abEY3znAvQmOfebx7Da7BjWSuL5FUw==
   dependencies:
     "@kubevious/http-client" "^1.0.19"
     moment "^2.29.1"
@@ -1567,12 +1567,13 @@
     the-promise "^2.0.13"
     uuid "^8.3.2"
 
-"@kubevious/ui-middleware@^1.0.46":
-  version "1.0.46"
-  resolved "https://registry.yarnpkg.com/@kubevious/ui-middleware/-/ui-middleware-1.0.46.tgz#10d8ca7739bbf32d44bf0158ea48a38b9a8124df"
-  integrity sha512-+vqrUrNL7QaJkQQkadI9IrBWNCFzt3kkrBcO6lIO/VT0TwpfVlwoVrnjHL8AifmKIgb4sb3fzA4JO4NVEunAkA==
+"@kubevious/ui-middleware@^1.0.59":
+  version "1.0.59"
+  resolved "https://registry.yarnpkg.com/@kubevious/ui-middleware/-/ui-middleware-1.0.59.tgz#214d5ff9985c7099bd0480ab671135f2d35dce70"
+  integrity sha512-Wk/uhWu/uk8rRO23gaJTnh9i+GffX0YL8nXYEharOI1g0TmZHou6gjtWhhjDPEcOXMbizBfp2Sf9vQJKe/v0Ag==
   dependencies:
     "@kubevious/entity-meta" "^1.0.56"
+    "@kubevious/http-client" "^1.0.19"
     the-promise "^2.0.13"
 
 "@mdx-js/loader@^1.6.22":
