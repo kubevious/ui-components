@@ -57,7 +57,7 @@ export const ItemList: FC<ItemListProps> = ({
                         className={cx(styles.itemContainer,
                             classNameItemContainer, {
                             [styles.selectedItemContainer]: item.key === selectedItemKey,
-                            [classNameSelectedItemContainer]: item.key === selectedItemKey,
+                            [classNameSelectedItemContainer ?? '']: (item.key === selectedItemKey),
                         })}
                         onClick={() => onSelect(item)}
                     >
