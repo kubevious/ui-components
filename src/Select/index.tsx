@@ -26,6 +26,12 @@ export const Select: FC<Props> = ({ hasError, ...props}) => (
             menu: (base) => ({
                 ...base,
                 background: '#2F3036',
+                border: '1px solid #656565 !important',
+                zIndex: 10000,
+            }),
+            menuPortal: (base) => ({
+                ...base,
+                zIndex: 10000,
             }),
             option: (base, props) => ({
                 ...base,
