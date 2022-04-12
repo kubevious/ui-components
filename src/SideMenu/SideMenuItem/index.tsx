@@ -76,7 +76,11 @@ export const SideMenuItemComponent: FC<SideMenuItemComponentProps> = ({
                 {renderMenuContents()}
 
                 {isCollapsed && 
-                    <Overlay target={targetRef.current} show={isHover} placement="right">
+                    <Overlay target={targetRef.current}
+                             show={isHover} 
+                             placement="right"
+                             transition={false}
+                             >
                         {({ placement, arrowProps, show: _show, popper, ...props }) => (
                         <div
                             {...props}
@@ -99,6 +103,7 @@ export const SideMenuItemComponent: FC<SideMenuItemComponentProps> = ({
     return <>
         {item.url ? (
             <NavLink
+                className={styles.link}
                 onClick={handleClick}
                 to={item.url}
                 activeClassName={styles.isActiveItem}

@@ -17,10 +17,13 @@
     padding-left: 1.5rem!important;
 }
 
+.link {
+    text-decoration: none;
+}
+
 .itemLabel {
     color: white;
     text-transform: uppercase;
-    text-decoration: none;
 }
 
 .tooltipItem {
