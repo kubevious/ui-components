@@ -6,6 +6,10 @@
     flex-grow: 0;
 }
 
+.containerCollapsed {
+    width: 80px;
+}
+
 .content {
     height: 100%;
     display: flex;
@@ -13,13 +17,9 @@
     justify-content: space-between;
 
     overflow-x: hidden; 
-    overflow-y: auto; 
+    overflow-y: auto;  
 }
 
-.collapsed {
-    width: 80px;
-    z-index: 1000;
-}
 
 .header {
     display: flex;
@@ -34,7 +34,6 @@
     position: relative;
     background-color: #444;
 }
-
 .barLoading:before {
     top: 0;
     left: 0;
@@ -45,12 +44,6 @@
     background-color: #fbce13;
     animation: barLoading 2500ms linear infinite;
 }
-
-.menuItemIcon {
-    width: 24px !important;
-    height: 24px !important;
-}
-
 @keyframes barLoading {
     0% {
         width: 0;
@@ -69,46 +62,16 @@
     text-transform: uppercase;
 }
 
-.itemBlock {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    line-height: 16px;
-    color: #ffffff;
-    padding: 10px 30px;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    width: 100%;
-    border-color: #212122;
-    border-width: 1px 0 1px 0;
-    border-style: solid;
-}
-
-.itemBlock:hover {
-    color: white;
-    border-width: 1px 1px 1px 0;
-}
-
-.selectedItem {
-    background: #4ecd77;
-}
-
 .footer {
     border-top: 1px solid #666871;
     padding: 10px 0;
 }
 
-.hovered {
-    -webkit-transition: width 0.5s;
-    transition: width 0.5s;
+.menuItemList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.hovered:hover {
-    width: 270px;
-    background-color: #4ecd77;
-}
-
-.hovered span, .hovered div {
-    min-width: 250px;
+.sectionWrapper {
 }

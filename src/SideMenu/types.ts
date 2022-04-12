@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export type SideMenuItem =

@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import { subscribeToSharedState } from '@kubevious/ui-framework/dist';
 import { SideMenuItem, SideMenuSection } from './types';
 
-import { SideMenuItemComponent } from './menu-item';
+import { SideMenuItemComponent } from './SideMenuItem';
 
 export type GlobalClickHandler = (item: SideMenuItem) => any;
 
@@ -26,7 +26,6 @@ export const SideMenu: FC<SideMenuProps> = ({
     isCollapsed,
     globalHandler
 }) => {
-    const [showItem, setShowItem] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     subscribeToSharedState("is_loading", (is_loading) => {
@@ -34,7 +33,7 @@ export const SideMenu: FC<SideMenuProps> = ({
     })
 
     return (
-        <aside className={cx(styles.container, { [styles.collapsed]: isCollapsed })}>
+        <aside className={cx(styles.container, { [styles.containerCollapsed]: isCollapsed })}>
             <div className={styles.content}>
                 <div>
                     <div className={styles.header}>
@@ -46,17 +45,18 @@ export const SideMenu: FC<SideMenuProps> = ({
 
                     <div style={{ marginTop: isCollapsed ? '30px' : 0 }}>
                         {getVisibleSections(sections).map((section, index) => (
-                            <div key={index}>
+                            <div key={index}
+                                 className={styles.sectionWrapper}
+                                 >
                                 {!isCollapsed && <div className={styles.sectionLabel}>{section.name}</div>}
 
-                                <div>
-                                    {getVisibleItems(section).map((item) =>
+                                <div className={styles.menuItemList}
+                                >
+                                    {getVisibleItems(section).map((item, index) =>
                                         <SideMenuItemComponent
-                                            key={item.key}
+                                            key={index}
                                             item={item}
-                                            isShowItem={showItem === item.key}
                                             isCollapsed={isCollapsed}
-                                            setShowItem={setShowItem}
                                             globalHandler={globalHandler}
                                             />
                                     )}
@@ -67,14 +67,12 @@ export const SideMenu: FC<SideMenuProps> = ({
                 </div>
 
                 {footer && (
-                    <div className={styles.footer}>
+                    <div className={cx(styles.menuItemList, styles.sectionWrapper, styles.footer)}>
                         {footer.map((item) => 
                             <SideMenuItemComponent
                                 key={item.key}
                                 item={item}
-                                isShowItem={showItem === item.key}
                                 isCollapsed={isCollapsed}
-                                setShowItem={setShowItem}
                                 globalHandler={globalHandler}
                                 />
                         )}

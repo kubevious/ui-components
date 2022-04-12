@@ -142,19 +142,19 @@ const DEFAULT_SECTIONS : SideMenuSection[] = [
             {
                 key: 'clusters',
                 label: 'Clusters',
-                icon: '/clusters.svg',
+                icon: '/support.svg',
                 url: '/clusters',
             },
             {
                 key: 'rules',
                 label: 'Rules',
-                icon: '/rules.svg',
+                icon: '/dashboard.svg',
                 url: '/rules',
             },
             {
                 key: 'markers',
                 label: 'Markers',
-                icon: '/markers.svg',
+                icon: '/support.svg',
                 url: '/markers',
             },
             {
@@ -182,7 +182,7 @@ const DEFAULT_FOOTER : SideMenuItem[] = [
     {
         key: 'logout',
         label: 'Log out',
-        icon: '/logout.svg',
+        icon: '/support.svg',
         onClick: () => console.log('Sign out!'),
     },
     {
