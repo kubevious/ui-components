@@ -11,7 +11,7 @@ export const Tabs: FC = ({ children }) => {
     }, [children]);
 
     return (
-        <div className="w-100">
+        <div className={styles.tabsContainer}>
             <div className={styles.header}>
                 {(children as ReactElement[]).map((item) => {
                     return (
@@ -30,7 +30,7 @@ export const Tabs: FC = ({ children }) => {
                 })}
             </div>
 
-            <div>
+            <div className={styles.tabWrapper}>
                 {(children as ReactElement[]).map((child) => {
                     if (child.props.label !== currentTab) return null;
                     return child.props.children;
