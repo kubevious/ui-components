@@ -6,6 +6,7 @@ import { subscribeToSharedState } from '@kubevious/ui-framework/dist';
 import { SideMenuItem, SideMenuSection } from './types';
 
 import { SideMenuItemComponent } from './SideMenuItem';
+import { ScrollbarComponent } from '../ScrollbarComponent';
 
 export type GlobalClickHandler = (item: SideMenuItem) => any;
 
@@ -35,49 +36,58 @@ export const SideMenu: FC<SideMenuProps> = ({
     return (
         <aside className={cx(styles.container, { [styles.containerCollapsed]: isCollapsed })}>
             <div className={styles.content}>
-                <div>
+                <div className={styles.contentTop}>
                     <div className={styles.header}>
                         {!isCollapsed && header}
                         {isCollapsed && collapsedHeader}
                     </div>
 
                     <div className={cx(styles.bar, { [styles.barLoading]: isLoading })} />
+                </div>
 
-                    <div style={{ marginTop: isCollapsed ? '30px' : 0 }}>
-                        {getVisibleSections(sections).map((section, index) => (
-                            <div key={index}
-                                 className={styles.sectionWrapper}
-                                 >
-                                {!isCollapsed && <div className={styles.sectionLabel}>{section.name}</div>}
+                <div className={styles.contentWrapper}>
+                    <ScrollbarComponent>
 
-                                <div className={styles.menuItemList}
-                                >
-                                    {getVisibleItems(section).map((item, index) =>
+                        <div className={styles.contentItems}>
+                            <div className={styles.mainSections}>
+                                {getVisibleSections(sections).map((section, index) => (
+                                    <div key={index}
+                                            className={styles.sectionWrapper}
+                                            >
+                                        {!isCollapsed && <div className={styles.sectionLabel}>{section.name}</div>}
+
+                                        <div className={styles.menuItemList}
+                                        >
+                                            {getVisibleItems(section).map((item, index) =>
+                                                <SideMenuItemComponent
+                                                    key={index}
+                                                    item={item}
+                                                    isCollapsed={isCollapsed}
+                                                    globalHandler={globalHandler}
+                                                    />
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {footer && (
+                                <div className={cx(styles.footerSection, styles.menuItemList, styles.sectionWrapper)}>
+                                    {footer.map((item) => 
                                         <SideMenuItemComponent
-                                            key={index}
+                                            key={item.key}
                                             item={item}
                                             isCollapsed={isCollapsed}
                                             globalHandler={globalHandler}
                                             />
                                     )}
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            )}
+                        </div>
+
+                    </ScrollbarComponent>
                 </div>
 
-                {footer && (
-                    <div className={cx(styles.menuItemList, styles.sectionWrapper, styles.footer)}>
-                        {footer.map((item) => 
-                            <SideMenuItemComponent
-                                key={item.key}
-                                item={item}
-                                isCollapsed={isCollapsed}
-                                globalHandler={globalHandler}
-                                />
-                        )}
-                    </div>
-                )}
             </div>
         </aside>
     );

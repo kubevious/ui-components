@@ -20,6 +20,29 @@
     overflow-y: auto;  
 }
 
+.contentTop {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.contentWrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+}
+
+.contentItems {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+}
+
+.mainSections {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
 
 .header {
     display: flex;
@@ -62,7 +85,7 @@
     text-transform: uppercase;
 }
 
-.footer {
+.footerSection {
     border-top: 1px solid #666871;
     padding: 10px 0;
 }
