@@ -25,7 +25,7 @@ export const SideMenuItemComponent: FC<SideMenuItemComponentProps> = ({
 
     const targetRef = useRef(null);
     
-    let [isHover, setIsHover] = useState<boolean>(false);
+    const [isHover, setIsHover] = useState<boolean>(false);
 
     const handleMouseEnter = () => {
         setIsHover(true);
