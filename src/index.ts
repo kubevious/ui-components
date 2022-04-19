@@ -40,6 +40,7 @@ export { Label } from './Label';
 export * from './PageLinkButton';
 
 export { Popup } from './Popup';
+export { PopupDialog } from './PopupDialog';
 
 export * from './Select';
 export { SideMenu, SideMenuProps } from './SideMenu';
