@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 25%;
-  z-index: 1010;
+  z-index: 5000;
   background: #e24c4b;
   color: white;
   padding: 5px 15px;
@@ -61,5 +61,5 @@
 }
 
 .detailValue {
-  
+  word-wrap: break-word;
 }

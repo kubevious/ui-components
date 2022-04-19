@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { subscribeToSharedState } from '@kubevious/ui-framework';
 import { Message } from '@kubevious/ui-framework/dist/operation-log-tracker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronCircleDown, faChevronCircleUp } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './styles.module.css';
 
@@ -27,7 +27,7 @@ export const OperationLog: FC = () => {
 
                     {index === 0 && (
                         <FontAwesomeIcon
-                            icon={faChevronCircleRight}
+                            icon={isOpen ? faChevronCircleDown : faChevronCircleUp}
                             className={styles.expandIcon}
                             onClick={openDetails}
                         />

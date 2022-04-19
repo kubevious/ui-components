@@ -9,8 +9,9 @@ import { GlobalClickHandler, SideMenu } from '../SideMenu';
 import { MobileMenu } from '../MobileMenu';
 
 import styles from './styles.module.css';
-import { SideMenuItem, SideMenuSection } from '../SideMenu/types';
+import cx from 'classnames';
 
+import { SideMenuItem, SideMenuSection } from '../SideMenu/types';
 
 export interface MainTemplateProps {
     sideMenuHeader: ReactNode;
@@ -52,7 +53,7 @@ export const MainTemplate: FC<MainTemplateProps> = ({
                   />
 
 
-        <div className={styles.innerContainer}>
+        <div className={cx(styles.innerContainer, {[styles.innerContainerExpandedSideMenu] : !isCollapsed})}>
 
             <div className={styles.mobileMenu}>
                 <MobileMenu header={sideMenuHeader}
