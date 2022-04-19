@@ -6,11 +6,10 @@ import { OperationLog } from '../OperationLog'
 import { ErrorBoxDialog } from '../ErrorBoxDialog'
 import { ConfirmationDialog } from '../ConfirmationDialog'
 import { GlobalClickHandler, SideMenu } from '../SideMenu';
+import { MobileMenu } from '../MobileMenu';
 
 import styles from './styles.module.css';
 import { SideMenuItem, SideMenuSection } from '../SideMenu/types';
-// import { SEO } from '../SEO';
-
 
 
 export interface MainTemplateProps {
@@ -43,7 +42,8 @@ export const MainTemplate: FC<MainTemplateProps> = ({
         
         {firstContent}
         
-        <SideMenu isCollapsed={isCollapsed} 
+        <SideMenu className={styles.sideMenu}
+                  isCollapsed={isCollapsed} 
                   header={sideMenuHeader}
                   collapsedHeader={sideMenuCollapsedHeader}
                   sections={sideMenuSections}
@@ -51,9 +51,22 @@ export const MainTemplate: FC<MainTemplateProps> = ({
                   globalHandler={sideMenuGlobalHandler}
                   />
 
-        <div className={styles.mainComponent}
-             >
-            {children}
+
+        <div className={styles.innerContainer}>
+
+            <div className={styles.mobileMenu}>
+                <MobileMenu header={sideMenuHeader}
+                            sections={sideMenuSections}
+                            footer={sideMenuFooter}
+                            globalHandler={sideMenuGlobalHandler}
+                            />
+            </div>
+
+            <div className={styles.mainComponent}
+                >
+                {children}
+            </div>
+
         </div>
 
         <ErrorBoxDialog />

@@ -18,6 +18,7 @@ export interface SideMenuProps {
     footer?: SideMenuItem[];
     isCollapsed?: boolean;
     globalHandler?: GlobalClickHandler;
+    className?: string;
 }
 
 export const SideMenu: FC<SideMenuProps> = ({ 
@@ -26,7 +27,8 @@ export const SideMenu: FC<SideMenuProps> = ({
     sections,
     footer,
     isCollapsed,
-    globalHandler
+    globalHandler,
+    className
 }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -54,7 +56,7 @@ export const SideMenu: FC<SideMenuProps> = ({
     });
 
     return (
-        <aside className={cx(styles.container, { [styles.containerCollapsed]: isCollapsed })}>
+        <aside className={cx(styles.sideMenuContainer, className, { [styles.containerCollapsed]: isCollapsed })}>
             <div className={styles.content}>
                 <div className={styles.contentTop}>
                     <div className={styles.header}>

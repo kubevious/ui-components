@@ -4,7 +4,7 @@ import { MainTemplate } from './';
 import { app } from '@kubevious/ui-framework';
 import {BrowserRouter} from 'react-router-dom';
 
-import { DEFAULT_SECTIONS, DEFAULT_FOOTER } from '../SideMenu/mock';
+import { DEFAULT_SECTIONS, DEFAULT_FOOTER } from '../mock/menu';
 
 
 export default {
@@ -15,7 +15,7 @@ export default {
 export const Default: Story = () => {
 
     return (
-        <div style={{ background: 'black', height: '700px', boxSizing: 'border-box', padding: '20px'}}>
+        <div style={{ background: 'black', height: '700px', boxSizing: 'border-box'}}>
             <BrowserRouter>
                 <MainTemplate sideMenuHeader={<>
                                                 <span style={{ color: '#ffffff'}}>KUBEVIOUS</span>
@@ -26,7 +26,9 @@ export const Default: Story = () => {
                               sideMenuSections={DEFAULT_SECTIONS}
                               sideMenuFooter={DEFAULT_FOOTER}
                 
-                />
+                >
+                    MAIN CONTENT GOES HERE
+                </MainTemplate>
             </BrowserRouter>
         </div>);
 
@@ -46,7 +48,7 @@ export const WithError: Story = () => {
     }
 
     return (
-        <div style={{ background: 'black', height: '700px', boxSizing: 'border-box', padding: '20px'}}>
+        <div style={{ background: 'black', height: '700px', boxSizing: 'border-box'}}>
             <BrowserRouter>
                 <MainTemplate sideMenuHeader={<>
                                                 <span style={{ color: '#ffffff'}}>KUBEVIOUS</span>
@@ -57,7 +59,9 @@ export const WithError: Story = () => {
                               sideMenuSections={DEFAULT_SECTIONS}
                               sideMenuFooter={DEFAULT_FOOTER}
                 
-                />
+                >
+                    MAIN CONTENT GOES HERE
+                </MainTemplate>
             </BrowserRouter>
         </div>);
         

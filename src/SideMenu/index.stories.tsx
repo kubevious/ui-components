@@ -8,7 +8,7 @@ import { CallbackHook } from '../CallbackHook';
 
 import { app } from '@kubevious/ui-framework';
 
-import { DEFAULT_SECTIONS, DEFAULT_FOOTER } from './mock';
+import { DEFAULT_SECTIONS, DEFAULT_FOOTER } from '../mock/menu';
 
 export default {
     title: 'SideMenu',

@@ -1,4 +1,4 @@
-import { SideMenuItem, SideMenuSection } from './types';
+import { SideMenuItem, SideMenuSection } from '../SideMenu/types';
 import { faBug } from '@fortawesome/free-solid-svg-icons';
 
 export const DEFAULT_SECTIONS : SideMenuSection[] = [

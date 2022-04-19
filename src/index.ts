@@ -89,4 +89,6 @@ export { SectionedContent, SectionedContentProps, SectionItem } from './Sectione
 
 export { ItemList, ItemListProps, ListItem } from './ItemList';
 
+export { MobileMenu } from './MobileMenu';
+
 export { MainTemplate } from './MainTemplate';
