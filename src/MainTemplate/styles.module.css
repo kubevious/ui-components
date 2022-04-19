@@ -54,4 +54,8 @@
     .mobileMenu {
         display: block;
     }
+
+    .mainComponent {
+        height: calc(100% - 61px);
+    }
 }

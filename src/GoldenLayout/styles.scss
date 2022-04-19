@@ -6,11 +6,11 @@
 
 .lm_goldenlayout {
   background: #000000;
-  min-height: calc(100vh - 65px);
 }
 
 .lm_content {
   background: #1e1e1e;
+  color: white;
   overflow-y: overlay;
   width: 100% !important;
 
@@ -30,7 +30,8 @@
 }
 
 .lm_dragProxy .lm_content {
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  // box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  box-shadow: none;
 }
 
 .lm_dropTargetIndicator {
@@ -99,7 +100,7 @@
 
 .lm_header .lm_tab.lm_active {
   border-bottom: none;
-  /*box-shadow: 0 -2px 2px #000000;*/
+  box-shadow: none;
   padding-bottom: 4px;
 }
 
@@ -113,7 +114,8 @@
 
 .lm_dragProxy.lm_bottom .lm_header .lm_tab.lm_active,
 .lm_stack.lm_bottom .lm_header .lm_tab.lm_active {
-  box-shadow: 0 2px 2px #000000;
+  // box-shadow: 0 2px 2px #000000;
+  box-shadow: none;
 }
 
 .lm_selected .lm_header {
@@ -123,7 +125,8 @@
 .lm_tab:hover,
 .lm_tab.lm_active {
   background: #1e1e1e;
-  color: #dddddd;
+  color: rgb(252, 189, 63);
+  // color: #dddddd;
 }
 
 .lm_header .lm_controls .lm_tabdropdown:before {

@@ -6,6 +6,7 @@ import _ from 'the-lodash';
 import 'golden-layout/src/css/goldenlayout-base.css';
 import 'golden-layout/src/css/goldenlayout-dark-theme.css';
 import GoldenLayoutLib from 'golden-layout';
+import { ResizeObserver } from 'resize-observer';
 
 import './styles.scss';
 import {
@@ -24,6 +25,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
     private _layoutConfig: GoldenLayoutLib.Config;
     private _layout: GoldenLayoutLib | undefined;
     private _layoutRef: RefObject<any>;
+    private _resizeObserver : ResizeObserver | undefined;
 
     constructor(props: GoldenLayoutComponentProps | Readonly<GoldenLayoutComponentProps>) {
         super(props);
@@ -40,10 +42,27 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
             this._register(windowInfo);
         }
 
+        this._resizeObserver = new ResizeObserver((entries) => {
+            console.log("useResizeObserver: ", entries);
+            if (this._layout) {
+                this._layout.updateSize();
+            }
+        });
+
+        this._resizeObserver.observe(this._layoutRef.current);
+
         if (!isTesting) {
             setTimeout(() => {
                 this._activateLayout();
             }, 0);
+        }
+    }
+
+    componentWillUnmount()
+    {
+        if (this._resizeObserver) {
+            this._resizeObserver.disconnect()
+            this._resizeObserver = undefined;
         }
     }
 
@@ -126,11 +145,9 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
 
         this._layout.init();
 
-        this.props.handleLayout && this.props.handleLayout(this);
-
-        window.addEventListener('resize', () => {
-            this._layout && this._layout.updateSize();
-        });
+        if (this.props.handleLayout) {
+            this.props.handleLayout(this);
+        }
     }
 
     private _register(windowInfo: GoldenLayoutWindowInfo) {

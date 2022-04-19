@@ -22,7 +22,15 @@ export const Default: Story = () => (
 );
 
 export const WithPadding: Story = () => (
-    <div style={{ background: 'red', height: '100%', boxSizing: 'border-box', padding: '20px'}}>
+    <div style={{ background: 'red', height: '800px', boxSizing: 'border-box', padding: '20px'}}>
+        <GoldenLayout windows={LAYOUT_COMPONENTS}
+            >
+        </GoldenLayout>
+    </div>
+);
+
+export const VariableHeight: Story = () => (
+    <div style={{ background: 'red', height: '100vh', boxSizing: 'border-box', padding: '20px'}}>
         <GoldenLayout windows={LAYOUT_COMPONENTS}
             >
         </GoldenLayout>
@@ -59,6 +67,15 @@ const LAYOUT_COMPONENTS: GoldenLayoutWindowInfo[] = [
         props: { 'foo': 'bar' },
         location: GoldenLayoutLocation.main,
         title: 'MAIN',
+        skipClose: true,
+        allowVerticalScroll: false,
+    },
+    {
+        id: 'secondaryComponent',
+        component: TestMainWidget,
+        props: { 'foo': 'bar' },
+        location: GoldenLayoutLocation.main,
+        title: 'Secondary',
         skipClose: true,
         allowVerticalScroll: false,
     },
