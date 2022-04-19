@@ -18,6 +18,7 @@ export { DnLink } from './DnLink';
 
 export { ErrorBox } from './ErrorBox';
 export { ErrorDetailField } from './ErrorBox/types';
+export { ErrorBoxDialog } from './ErrorBoxDialog';
 
 export { GoldenLayout } from './GoldenLayout';
 export { GoldenLayoutWindowInfo, GoldenLayoutLocation, GoldenWindowCloseHandler } from './GoldenLayout/types';
