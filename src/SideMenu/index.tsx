@@ -1,8 +1,9 @@
+import _ from 'the-lodash';
 import React, { FC, ReactNode, useState } from 'react';
 import cx from 'classnames';
 
 import styles from './styles.module.css';
-import { subscribeToSharedState } from '@kubevious/ui-framework/dist';
+import { subscribeToSharedState, useSharedState } from '@kubevious/ui-framework';
 import { SideMenuItem, SideMenuSection } from './types';
 
 import { SideMenuItemComponent } from './SideMenuItem';
@@ -29,9 +30,28 @@ export const SideMenu: FC<SideMenuProps> = ({
 }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
+    const sharedState = useSharedState();
+
     subscribeToSharedState("is_loading", (is_loading) => {
         setIsLoading(is_loading ? true : false);
     })
+
+    let footerItems : SideMenuItem[] = [];
+    if (footer) {
+        footerItems = _.concat(footerItems, footer);
+    }
+    footerItems.push({
+        key: 'close',
+        label: isCollapsed ? 'Expand' : 'Collapse',
+        icon: isCollapsed ? 'open.svg' : 'close.svg',
+        onClick: () => {
+            if (isCollapsed) {
+                sharedState?.set('is_side_menu_collapsed', false);
+            } else {
+                sharedState?.set('is_side_menu_collapsed', true);
+            }
+        },
+    });
 
     return (
         <aside className={cx(styles.container, { [styles.containerCollapsed]: isCollapsed })}>
@@ -71,18 +91,16 @@ export const SideMenu: FC<SideMenuProps> = ({
                                 ))}
                             </div>
 
-                            {footer && (
-                                <div className={cx(styles.footerSection, styles.menuItemList, styles.sectionWrapper)}>
-                                    {footer.map((item) => 
-                                        <SideMenuItemComponent
-                                            key={item.key}
-                                            item={item}
-                                            isCollapsed={isCollapsed}
-                                            globalHandler={globalHandler}
-                                            />
-                                    )}
-                                </div>
-                            )}
+                            <div className={cx(styles.footerSection, styles.menuItemList, styles.sectionWrapper)}>
+                                {footerItems.map((item, index) => 
+                                    <SideMenuItemComponent
+                                        key={index}
+                                        item={item}
+                                        isCollapsed={isCollapsed}
+                                        globalHandler={globalHandler}
+                                        />
+                                )}
+                            </div>
                         </div>
 
                     </ScrollbarComponent>

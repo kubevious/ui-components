@@ -62,10 +62,4 @@ export const DEFAULT_FOOTER : SideMenuItem[] = [
         icon: '/support.svg',
         onClick: () => console.log('Sign out!'),
     },
-    {
-        key: 'close',
-        label: 'Close',
-        icon: '/close.svg',
-        onClick: () => console.log('Close!'),
-    },
 ]
