@@ -1,13 +1,14 @@
-import { faBug } from '@fortawesome/free-solid-svg-icons';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { InnerPage } from '../InnerPage';
 import { SideMenu } from './';
-import { SideMenuItem, SideMenuSection } from './types';
+import { SideMenuItem } from './types';
 import { CallbackHook } from '../CallbackHook';
 
 import { app } from '@kubevious/ui-framework';
+
+import { DEFAULT_SECTIONS, DEFAULT_FOOTER } from './mock';
 
 export default {
     title: 'SideMenu',
@@ -123,72 +124,3 @@ export const Layout: Story = () => (
     </BrowserRouter>
 );
 
-
-const DEFAULT_SECTIONS : SideMenuSection[] = [
-    {
-        name: 'Dashboard',
-        items: [
-            {
-                key: 'dashboard',
-                label: 'Dashboard',
-                icon: '/dashboard.svg',
-                url: '/',
-            },
-        ],
-    },
-    {
-        name: 'Setup',
-        items: [
-            {
-                key: 'clusters',
-                label: 'Clusters',
-                icon: '/support.svg',
-                url: '/clusters',
-            },
-            {
-                key: 'rules',
-                label: 'Rules',
-                icon: '/dashboard.svg',
-                url: '/rules',
-            },
-            {
-                key: 'markers',
-                label: 'Markers',
-                icon: '/support.svg',
-                url: '/markers',
-            },
-            {
-                key: 'font-awesome',
-                label: 'Font awesome',
-                faIcon: faBug,
-                url: '/font-awesome',
-            },
-        ],
-    },
-    {
-        name: 'Dev tools',
-        items: [
-            {
-                key: 'shared-state-debugger',
-                label: 'Shared State Debugger',
-                faIcon: faBug,
-                onClick: () => console.log('Shared State Debugger'),
-            },
-        ],
-    }
-]
-
-const DEFAULT_FOOTER : SideMenuItem[] = [
-    {
-        key: 'logout',
-        label: 'Log out',
-        icon: '/support.svg',
-        onClick: () => console.log('Sign out!'),
-    },
-    {
-        key: 'close',
-        label: 'Close',
-        icon: '/close.svg',
-        onClick: () => console.log('Close!'),
-    },
-]

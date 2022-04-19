@@ -88,3 +88,5 @@ export * as FABrandsIcons from '@fortawesome/free-brands-svg-icons';
 export { SectionedContent, SectionedContentProps, SectionItem } from './SectionedContent';
 
 export { ItemList, ItemListProps, ListItem } from './ItemList';
+
+export { MainTemplate } from './MainTemplate';

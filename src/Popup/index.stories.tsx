@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { Popup } from '../';
+import { Popup } from './';
 
 export default {
     title: 'Popup',
