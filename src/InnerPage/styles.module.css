@@ -53,3 +53,11 @@
 
     flex-grow: 1;
 }
+
+@media screen and (max-width: 1000px) {
+
+    .innerPageContainer {
+        padding: 10px;
+    }
+
+}
