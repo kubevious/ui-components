@@ -4,18 +4,19 @@ import { app } from '@kubevious/ui-framework';
 
 import styles from './styles.module.css';
 import { IconSize } from '../DnIconComponent/types';
-import { DnComponent } from '../DnComponent';
+import { DnComponent, DnComponentOptions } from '../DnComponent';
 
 export interface DnLinkProps {
     dn: string;
     size?: IconSize;
+    options?: DnComponentOptions;
 }
 
-export const DnLink: FC<DnLinkProps> = ({ dn, size = 'xs' }) => {
+export const DnLink: FC<DnLinkProps> = ({ dn, size = 'xs', options }) => {
 
     return <>
         <div className={styles.dnContainer} key={dn} onClick={() => clickDn(dn)}>
-            <DnComponent dn={dn} iconSize={size} />
+            <DnComponent dn={dn} iconSize={size} options={options} />
         </div>
     </>;
 };

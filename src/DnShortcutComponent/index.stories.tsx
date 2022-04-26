@@ -64,5 +64,29 @@ export const Default: Story = () => (
             </div>
         </div>
         
+        <div style={{ width: "550px" }} >
+            <h3>options.onlyRn</h3>
+
+            <div style={{ background: '#555555', padding: '25px' }}>
+                <DnShortcutComponent dn="root/logic/ns-[kube-system]"
+                                     options={{ onlyRn: true }}     />
+            </div>
+
+            <div style={{ background: '#555555', padding: '25px' }}>
+                <DnShortcutComponent dn="root/logic/ns-[kube-system]"
+                                     options={{ onlyRn: true, onlyRnOverrideName: 'bar' }}     />
+            </div>
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnShortcutComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" 
+                                     options={{ onlyRn: true }}/>
+            </div>
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnShortcutComponent dn="root/logic/ns-[sock-shop]/app-[catalogue-db]/launcher-[Deployment]" 
+                                     options={{ onlyRn: true, onlyRnOverrideName: 'foo' }}/>
+            </div>
+
+        </div>
     </div>
 );

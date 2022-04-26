@@ -33,6 +33,7 @@ export const Default: Story = () => (
         </div>
 
         <div style={{ background: '#888888',  padding: '25px' }}>
+            <h3>options.relativeTo</h3>
 
             <div style={{ background: '#555555',  padding: '25px' }}>
                 <DnComponent dn="root/logic" />
@@ -41,6 +42,30 @@ export const Default: Story = () => (
             <div style={{ background: '#555555',  padding: '25px' }}>
                 <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/resource-[gprod-addr-main-app]"
                              options={{ relativeTo: "root/k8s/ns-[addr]/version-[v1]" }} />
+            </div> 
+        </div>
+
+        <div style={{ background: '#888888',  padding: '25px' }}>
+            <h3>options.onlyRn</h3>
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnComponent dn="root/logic" 
+                             options={{ onlyRn: true }}/>
+            </div> 
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnComponent dn="root/logic" 
+                             options={{ onlyRn: true, onlyRnOverrideName: 'foo' }}/>
+            </div> 
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/resource-[gprod-addr-main-app]"
+                             options={{ onlyRn: true }} />
+            </div> 
+
+            <div style={{ background: '#555555',  padding: '25px' }}>
+                <DnComponent dn="root/k8s/ns-[addr]/version-[v1]/kind-[Service]/resource-[gprod-addr-main-app]"
+                             options={{ onlyRn: true, onlyRnOverrideName: 'bar' }} />
             </div> 
         </div>
 

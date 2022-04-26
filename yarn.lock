@@ -1544,6 +1544,13 @@
   dependencies:
     the-lodash "^2.0.9"
 
+"@kubevious/entity-meta@^1.0.59":
+  version "1.0.59"
+  resolved "https://registry.yarnpkg.com/@kubevious/entity-meta/-/entity-meta-1.0.59.tgz#984207e458b80c36e73b57388d6428f7aaa5e6fd"
+  integrity sha512-9/vfc9iKnBG//jEXtDY+y+CrvOLM8dWcCxPNAOxcuel4g4ZPpNlOtlF3wCQgWtsDfjK+l5aWk+Rt5GYOWYQkOg==
+  dependencies:
+    the-lodash "^2.0.9"
+
 "@kubevious/http-client@^1.0.19":
   version "1.0.19"
   resolved "https://registry.yarnpkg.com/@kubevious/http-client/-/http-client-1.0.19.tgz#2f0cdde936225f30e1689e69ee4727d152a56ffd"
