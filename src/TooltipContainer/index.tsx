@@ -5,11 +5,11 @@ import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 export type TooltipContentsCb = (props: any) => any;
 
 export interface TooltipContainerProps {
-    contents: ReactElement;
+    contents?: ReactElement;
     tooltipContentsFetcher? : TooltipContentsCb;
 }
 
-export const TooltipContainer: FC<TooltipContainerProps> = ({ contents, tooltipContentsFetcher }) => {
+export const TooltipContainer: FC<TooltipContainerProps> = ({ children, contents, tooltipContentsFetcher }) => {
 
     const renderTooltip = (props: any) => (
         <Tooltip id="tooltip" {...props}>
@@ -23,8 +23,11 @@ export const TooltipContainer: FC<TooltipContainerProps> = ({ contents, tooltipC
             delay={{ show: 300, hide: 100 }}
             overlay={renderTooltip}
             >
-            
-            { contents }
+
+            <>            
+                { children }
+                { contents }
+            </>
 
         </OverlayTrigger>
     </>
