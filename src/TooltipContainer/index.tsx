@@ -4,12 +4,16 @@ import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 
 export type TooltipContentsCb = (props: any) => any;
 
+export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
 export interface TooltipContainerProps {
     contents?: ReactElement;
     tooltipContentsFetcher? : TooltipContentsCb;
+    placement?: TooltipPlacement
 }
 
-export const TooltipContainer: FC<TooltipContainerProps> = ({ children, contents, tooltipContentsFetcher }) => {
+export const TooltipContainer: FC<TooltipContainerProps> = ({ children, contents, placement, tooltipContentsFetcher }) => {
+
+    placement = placement ?? 'top';
 
     const renderTooltip = (props: any) => (
         <Tooltip id="tooltip" {...props}>
@@ -19,7 +23,7 @@ export const TooltipContainer: FC<TooltipContainerProps> = ({ children, contents
 
     return <>
         <OverlayTrigger
-            placement="top"
+            placement={placement}
             delay={{ show: 300, hide: 100 }}
             overlay={renderTooltip}
             >
