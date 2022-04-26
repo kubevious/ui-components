@@ -6,12 +6,12 @@ export type TooltipContentsCb = (props: any) => any;
 
 export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
 export interface TooltipContainerProps {
-    contents?: ReactElement;
+    contents: ReactElement;
     tooltipContentsFetcher? : TooltipContentsCb;
     placement?: TooltipPlacement
 }
 
-export const TooltipContainer: FC<TooltipContainerProps> = ({ children, contents, placement, tooltipContentsFetcher }) => {
+export const TooltipContainer: FC<TooltipContainerProps> = ({ contents, placement, tooltipContentsFetcher }) => {
 
     placement = placement ?? 'top';
 
@@ -28,10 +28,7 @@ export const TooltipContainer: FC<TooltipContainerProps> = ({ children, contents
             overlay={renderTooltip}
             >
 
-            <>            
-                { children }
-                { contents }
-            </>
+            { contents }
 
         </OverlayTrigger>
     </>
