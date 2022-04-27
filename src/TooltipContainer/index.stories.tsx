@@ -16,7 +16,9 @@ export const Default: Story = () => (
     <div style={{ background: '#AAAAAA', padding: '1rem' }}>
         
         <div style={{ margin: '1rem', color: 'white' }}>
-            <TooltipContainer tooltipContentsFetcher={returnTooltipContent}
+            <TooltipContainer 
+                tooltipContentsFetcher={returnTooltipContent}
+                placement="bottom"
                 contents={
                     <div style={{ background: 'blue' }} >
                         hello world

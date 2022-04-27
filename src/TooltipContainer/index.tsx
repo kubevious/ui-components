@@ -1,14 +1,14 @@
 import _ from 'the-lodash';
 import React, { FC, ReactElement } from 'react';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Placement } from 'react-overlays/usePopper'
 
 export type TooltipContentsCb = (props: any) => any;
 
-export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
 export interface TooltipContainerProps {
     contents: ReactElement;
     tooltipContentsFetcher? : TooltipContentsCb;
-    placement?: TooltipPlacement
+    placement?: Placement;
 }
 
 export const TooltipContainer: FC<TooltipContainerProps> = ({ contents, placement, tooltipContentsFetcher }) => {
