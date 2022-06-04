@@ -8,7 +8,9 @@ import 'golden-layout/src/css/goldenlayout-dark-theme.css';
 import GoldenLayoutLib from 'golden-layout';
 import { ResizeObserver } from 'resize-observer';
 
-import './styles.css';
+import './global-styles.css';
+import styles from './styles.module.css';
+
 import {
     InternalGoldenComponent,
     GoldenLayoutWindowInfo,
@@ -297,7 +299,7 @@ export class GoldenLayout extends ClassComponent<GoldenLayoutComponentProps> {
         window.React = React;
         window.ReactDOM = ReactDOM;
 
-        return <div data-testid="golden-layout" className="golden-layout-container" ref={this._layoutRef} />;
+        return <div data-testid="golden-layout" className={styles.styles} ref={this._layoutRef} />;
     }
 
     // Component from 'golden-layout'

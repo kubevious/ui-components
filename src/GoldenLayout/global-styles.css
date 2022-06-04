@@ -1,14 +1,8 @@
-.golden-layout-container {
-  position: relative;
-  box-sizing: border-box;
-  height: 100%;
-}
-
-.lm_goldenlayout {
+:global(.lm_goldenlayout) {
   background: #000000;
 }
 
-.lm_content {
+:global(.lm_content) {
   background: #1e1e1e;
   color: white;
   overflow-y: overlay;
@@ -179,8 +173,4 @@
 
 .lm_popin:hover .lm_icon {
   opacity: 1;
-}
-
-.name {
-  color: white;
 }
