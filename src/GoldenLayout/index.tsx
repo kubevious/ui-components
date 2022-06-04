@@ -8,7 +8,7 @@ import 'golden-layout/src/css/goldenlayout-dark-theme.css';
 import GoldenLayoutLib from 'golden-layout';
 import { ResizeObserver } from 'resize-observer';
 
-import './styles.scss';
+import './styles.css';
 import {
     InternalGoldenComponent,
     GoldenLayoutWindowInfo,
