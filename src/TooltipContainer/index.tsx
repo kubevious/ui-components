@@ -1,7 +1,7 @@
 import _ from 'the-lodash';
 import React, { FC, ReactElement } from 'react';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
-import { Placement } from 'react-overlays/usePopper'
+import { Placement } from '@popperjs/core'
 
 export type TooltipContentsCb = (props: any) => any;
 

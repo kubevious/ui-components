@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributeAnchorTarget } from 'react';
+import React, { FC } from 'react';
 import { Button } from '../Button';
 import { PageLink } from '../PageLink';
 import { encodeURL } from '../utils/url';
@@ -11,7 +11,7 @@ export interface PageLinkButtonProps {
     spacingLeft?: boolean;
     forceRedirect?: boolean;
     handlePreClick?: () => void;
-    target?: HTMLAttributeAnchorTarget;
+    target?: string;
 }
 
 export const PageLinkButton: FC<PageLinkButtonProps> = ({

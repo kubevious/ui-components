@@ -1,5 +1,5 @@
 import _ from 'the-lodash';
-import React, { FC, HTMLAttributeAnchorTarget, MouseEventHandler } from 'react';
+import React, { FC, MouseEventHandler } from 'react';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
@@ -18,7 +18,7 @@ export interface LinkProps {
     searchParams?: Record<string, any>;
     onClick?: MouseEventHandler<any> | undefined;
     extraStyles?: string | string[] | { [key: string]: any };
-    target?: HTMLAttributeAnchorTarget;
+    target?: string;
     handlePreClick?: () => void;
 }
 
