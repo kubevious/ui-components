@@ -50,6 +50,8 @@ export { Tabs } from './Tabs';
 export { Tab } from './Tabs/Tab';
 export { Textarea } from './Textarea';
 
+export { Table } from './Table';
+
 export { isValidJson } from './isValidJson';
 
 export { IconBox } from './IconBox';
