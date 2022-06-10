@@ -1,0 +1,28 @@
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+
+    /* background: #212122; */
+
+    height: 100%;
+}
+
+.listContainer {
+    width: 250px;
+}
+
+
+.detailsContainer {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    background: #2f3036;
+
+    padding: 10px;
+}
+
+
+.selectedItemContainer {
+    color: white;
+    background: #2f3036;
+}

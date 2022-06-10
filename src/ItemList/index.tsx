@@ -17,7 +17,7 @@ export interface ItemListProps {
 
     classNameItemContainer?: string;
     classNameSelectedItemContainer?: string;
-};
+}
 
 export const ItemList: FC<ItemListProps> = ({ 
     items,
