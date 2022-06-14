@@ -1,9 +1,11 @@
 .additionalBlock {
     background: #212122;
     padding: 20px;
-    margin-bottom: 15px;
-    margin-top: 40px;
     color: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .additionalTitle {
@@ -11,17 +13,14 @@
     line-height: 23px;
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 15px;
 }
 
 .additionalText {
     font-size: 16px;
     line-height: 19px;
-    margin-bottom: 20px;
 }
 
 .footerText {
     font-size: 16px;
     line-height: 19px;
-    margin-top: 20px;
 }
