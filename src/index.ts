@@ -95,3 +95,5 @@ export { ItemDetailsList, ItemDetailsListProps } from './ItemDetailsList';
 export { MobileMenu } from './MobileMenu';
 
 export { MainTemplate } from './MainTemplate';
+
+export { AdditionalBlock } from './AdditionalBlock';
