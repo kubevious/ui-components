@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Button } from '../Button';
 import { PageLink } from '../PageLink';
 import { encodeURL } from '../utils/url';
@@ -12,6 +12,7 @@ export interface PageLinkButtonProps {
     forceRedirect?: boolean;
     handlePreClick?: () => void;
     target?: string;
+    children?: ReactNode;
 }
 
 export const PageLinkButton: FC<PageLinkButtonProps> = ({

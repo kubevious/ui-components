@@ -12,6 +12,7 @@ export interface LabelProps {
     color?: TextColor;
     className?: string;
     extraStyles?: string | string[] | { [key: string]: any };
+    children?: ReactNode;
 }
 
 export const Label: FC<LabelProps> = ({ text, size, color, extraStyles, className, children }) => {

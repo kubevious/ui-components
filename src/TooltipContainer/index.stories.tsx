@@ -19,12 +19,10 @@ export const Default: Story = () => (
             <TooltipContainer 
                 tooltipContentsFetcher={returnTooltipContent}
                 placement="bottom"
-                contents={
-                    <div style={{ background: 'blue' }} >
-                        hello world
-                    </div>
-                }
                 >
+                <div style={{ background: 'blue' }} >
+                    hello world
+                </div>
             </TooltipContainer>
         </div>
 

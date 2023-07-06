@@ -3,7 +3,8 @@ import styles from './styles.module.css';
 import { Label } from '../Label'
 
 export interface SectionBlockProps {
-    title: ReactNode
+    title: ReactNode,
+    children?: ReactNode,
 }
 
 export const SectionBlock: FC<SectionBlockProps> = ({ title, children }) => (

@@ -103,10 +103,11 @@ export const SideMenuItemComponent: FC<SideMenuItemComponentProps> = ({
     return <>
         {item.url ? (
             <NavLink
-                className={styles.link}
                 onClick={handleClick}
                 to={item.url}
-                activeClassName={styles.isActiveItem}
+                className={({ isActive }) =>
+                    isActive ? cx(styles.isActiveItem, styles.link) : styles.link
+                }
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >

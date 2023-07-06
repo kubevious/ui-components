@@ -7,6 +7,7 @@ export interface AdditionalBlockProps {
     text?: ReactNode;
     action?: ReactNode;
     footer?: ReactNode;
+    children?: ReactNode;
 }
 
 export const AdditionalBlock: FC<AdditionalBlockProps> = ({ title, text, action, footer, children }) => (

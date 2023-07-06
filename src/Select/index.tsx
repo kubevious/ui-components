@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import ReactSelect, { Props } from 'react-select';
 
-export interface Select extends Props {
+export interface SelectProps extends Props {
     hasError?: boolean,
 }
 
-export const Select: FC<Props> = ({ hasError, ...props}) => (
+export const Select: FC<SelectProps> = ({ hasError, ...props}) => (
     <ReactSelect
         styles={{
             control: (base) => ({

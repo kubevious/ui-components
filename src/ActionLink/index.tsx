@@ -1,5 +1,5 @@
 import _ from 'the-lodash';
-import React, { FC, MouseEventHandler } from 'react';
+import React, { FC, MouseEventHandler, ReactNode } from 'react';
 import cx from 'classnames';
 
 import { TextSize, TextColor } from '../common-styles/text-types';
@@ -13,6 +13,7 @@ export interface ActionLinkProps {
     onClick?: MouseEventHandler<any> | undefined;
     handlePreClick?: () => void;
     extraStyles?: string | string[] | { [key: string]: any };
+    children?: ReactNode;
 }
 
 export const ActionLink: FC<ActionLinkProps> = ({

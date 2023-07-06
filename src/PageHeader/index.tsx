@@ -4,6 +4,7 @@ import styles from './styles.module.css'
 
 export interface PageHeaderProps {
     title: ReactNode;
+    children?: ReactNode;
 }
 
 export const PageHeader: FC<PageHeaderProps> = ({ title, children }) => (

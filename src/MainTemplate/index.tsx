@@ -21,6 +21,7 @@ export interface MainTemplateProps {
     sideMenuGlobalHandler?: GlobalClickHandler;
 
     firstContent?: ReactNode;
+    children?: ReactNode;
 }
 
 export const MainTemplate: FC<MainTemplateProps> = ({ 

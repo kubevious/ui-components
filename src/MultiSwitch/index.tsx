@@ -138,8 +138,8 @@ export const MultiSwitch: FC<MultiSwitchProps> = ({
             {layers.map((layer, index) => {
                 return <TooltipContainer key={index}
                     tooltipContentsFetcher={() => renderTooltipContents(layer)}
-                    contents={renderItem(layer)}
                     >
+                        {renderItem(layer)}
                     </TooltipContainer>
             })}
         </div>

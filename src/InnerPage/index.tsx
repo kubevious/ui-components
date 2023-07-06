@@ -8,6 +8,7 @@ export interface InnerPageProps {
     midNarrow?: boolean;
     fullHeight?: boolean;
     header?: ReactNode;
+    children?: ReactNode;
 }
 
 export const InnerPage: FC<InnerPageProps> = (

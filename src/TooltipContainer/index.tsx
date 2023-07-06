@@ -6,12 +6,13 @@ import { Placement } from '@popperjs/core'
 export type TooltipContentsCb = (props: any) => any;
 
 export interface TooltipContainerProps {
-    contents: ReactElement;
+    // contents: ReactElement;
     tooltipContentsFetcher? : TooltipContentsCb;
     placement?: Placement;
+    children?: ReactElement;
 }
 
-export const TooltipContainer: FC<TooltipContainerProps> = ({ contents, placement, tooltipContentsFetcher }) => {
+export const TooltipContainer: FC<TooltipContainerProps> = ({ children, placement, tooltipContentsFetcher }) => {
 
     placement = placement ?? 'top';
 
@@ -28,7 +29,8 @@ export const TooltipContainer: FC<TooltipContainerProps> = ({ contents, placemen
             overlay={renderTooltip}
             >
 
-            { contents }
+            {/* // TODO */}
+            { children as any }
 
         </OverlayTrigger>
     </>

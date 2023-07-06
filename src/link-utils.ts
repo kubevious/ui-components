@@ -14,9 +14,9 @@ export function navigateTo(history: H.History, path: string, searchParams?: Reco
     }
 
     if (searchParams) {
-        for(let name of _.keys(searchParams)) {
+        for(const name of _.keys(searchParams)) {
             const value = searchParams[name];
-            if (_.isNullOrUndefined[name]) {
+            if (_.isNullOrUndefined(name)) {
                 delete finalSearchParams[name];
             } else {
                 finalSearchParams[name] = value;

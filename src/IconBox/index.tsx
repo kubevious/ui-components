@@ -1,5 +1,5 @@
 import _ from 'the-lodash';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { TooltipContainer } from '../TooltipContainer';
 import cx from 'classnames';
 
@@ -16,6 +16,7 @@ export interface IconBox {
     tooltipContentsFetcher? : TooltipContentsCb;
     innerExtraClassNames?: string | string[] | { [key: string]: any };
     innerExtraStyle?: React.CSSProperties;
+    children?: ReactNode;
 }
 
 export const IconBox: FC<IconBox> = ({ children, innerPadding, width, height, extraClassNames, extraStyle, tooltipContentsFetcher, innerExtraClassNames, innerExtraStyle }) => {
@@ -42,18 +43,16 @@ export const IconBox: FC<IconBox> = ({ children, innerPadding, width, height, ex
     return <>
         <TooltipContainer
             tooltipContentsFetcher={tooltipContentsFetcher}
-            contents={
-                <div className={cx(styles.container, extraClassNames)} style={outerStyle} >
-                    <div className={cx(styles.border)}>
-                        <div className={cx(styles.innerContainer, innerExtraClassNames)}
-                            style={innerStyles}
-                            >
-                            {children}
-                        </div>
+            >
+            <div className={cx(styles.container, extraClassNames)} style={outerStyle} >
+                <div className={cx(styles.border)}>
+                    <div className={cx(styles.innerContainer, innerExtraClassNames)}
+                        style={innerStyles}
+                        >
+                        {children}
                     </div>
                 </div>
-            }
-            >
+            </div>
         </TooltipContainer>
 
     </>

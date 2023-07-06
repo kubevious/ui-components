@@ -1,5 +1,5 @@
 import _ from 'the-lodash';
-import React, { FC, MouseEventHandler } from 'react';
+import React, { FC, MouseEventHandler, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
@@ -20,6 +20,7 @@ export interface LinkProps {
     extraStyles?: string | string[] | { [key: string]: any };
     target?: string;
     handlePreClick?: () => void;
+    children?: ReactNode;
 }
 
 export const PageLink: FC<LinkProps> = ({ 

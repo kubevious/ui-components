@@ -1,5 +1,5 @@
 import _ from 'the-lodash';
-import React, { ReactElement, PropsWithChildren} from 'react';
+import React, { ReactElement, PropsWithChildren } from 'react';
 import cx from 'classnames';
 
 import styles from './styles.module.css'
@@ -30,7 +30,7 @@ export const ToggleGroup = <T,>({ items, selectedItem, onSelectionChange, extraS
                     }}
                     extraStyles={extraButtonStyles}
                     >
-                    {item}
+                    {item as any}
                 </ToggleButton>
             })}
         </div>
